@@ -345,7 +345,7 @@ export default function App() {
     return (
       <div style={W}>
         <div style={{textAlign:"center",marginBottom:"2rem"}}>
-          <img src="/Copia de SS.png" alt="Sol Sempértegui" style={{height:100,objectFit:"contain",marginBottom:8}}/>
+          <img src="/logo.png" alt="Sol Sempértegui" style={{height:100,objectFit:"contain",marginBottom:8}}/>
 <h2 style={{margin:0,fontSize:24,fontWeight:600,color:NAVY}}>Sol Sempértegui</h2>
           <p style={{margin:"6px 0 0",fontSize:14,color:CORAL,fontWeight:500}}>Entrenamiento Cerebral 6M</p>
           <p style={{margin:"2px 0 0",fontSize:13,color:"#888"}}>Tu entrenamiento cerebral personalizado</p>
