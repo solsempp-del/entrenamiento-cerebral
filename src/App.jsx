@@ -304,7 +304,7 @@ export default function App() {
   const phrase = DAILY_PHRASES[doy%DAILY_PHRASES.length];
 
   function doLogin() {
-    if(lu==="sol"&&lp==="sol123"){setUser({id:"sol",name:"Sol Sempértegui",role:"mentor"});setLe("");setMentees(getMentees());setView("mentor");return;}
+    if(lu==="sol"&&lp==="ManuSol147532123"){setUser({id:"sol",name:"Sol Sempértegui",role:"mentor"});setLe("");setMentees(getMentees());setView("mentor");return;}
     const m=getMentees().find(x=>x.id===lu&&x.pass===lp&&x.active);
     if(!m){setLe("Usuario o contraseña incorrectos");return;}
     setUser({...m,role:"mentee"});setLe("");
