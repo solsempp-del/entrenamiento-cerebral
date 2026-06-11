@@ -563,7 +563,7 @@ export default function App() {
     const inactive=mentees.filter(m=>!m.active);
     const selM=selId?mentees.find(m=>m.id===selId):null;
     const curW=mWeeks.length>0?mWeeks[mawi]:null;
-    const curAW=selId?getAW(selId):0;
+    const curAW = mawi;
     return (
       <div style={W}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"1.5rem"}}>
