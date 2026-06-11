@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
-import { getMenteesFromDB } from "./firestoreHelpers";
+import { getMenteesFromDB, saveMenteeToDB, saveWeeksToDB } from "./firestoreHelpers";
 
 const NAVY = "#0f243e";
 const CORAL = "#dd6d60";
@@ -364,12 +364,42 @@ export default function App() {
 
   function doLogout(){setUser(null);setView("login");setLu("");setLp("");setWeeks([]);setSelId(null);setMTab("list");}
 
-  function doAdd(){
-    if(!nn.trim()||!np.trim()){setNadd("Completa nombre y contraseña.");return;}
-    const id="m_"+Date.now();saveWeeks(id,[newWeek(1)]);
-    const u=[...getMentees(),{id,name:nn.trim(),pass:np.trim(),active:true,createdAt:new Date().toLocaleDateString("es-EC")}];
-    saveMentees(u);setMentees(u);setNn("");setNp("");setNadd("");setMTab("list");
+  async function doAdd() {
+  if (!nn.trim() || !np.trim()) {
+    setNadd("Completa nombre y contraseña.");
+    return;
   }
+
+  const id = "m_" + Date.now();
+
+  const newMentee = {
+    id,
+    name: nn.trim(),
+    pass: np.trim(),
+    active: true,
+    createdAt: new Date().toLocaleDateString("es-EC")
+  };
+
+  const initialWeeks = [newWeek(1)];
+
+  try {
+    await saveMenteeToDB(newMentee);
+    await saveWeeksToDB(id, initialWeeks);
+
+    const updatedMentees = [...mentees, newMentee];
+
+    saveMentees(updatedMentees);
+    setMentees(updatedMentees);
+
+    setNn("");
+    setNp("");
+    setNadd("");
+    setMTab("list");
+  } catch (error) {
+    console.error("Error guardando mentee:", error);
+    setNadd("No se pudo guardar. Revisa Firebase.");
+  }
+}
 
   function doToggle(id){const u=getMentees().map(m=>m.id===id?{...m,active:!m.active}:m);saveMentees(u);setMentees(u);}
   function doDel(id){delAll(id);const u=getMentees().filter(m=>m.id!==id);saveMentees(u);setMentees(u);if(selId===id)setSelId(null);setCdel(null);}
