@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase";
 
 const NAVY = "#0f243e";
 const CORAL = "#dd6d60";
@@ -303,14 +305,43 @@ export default function App() {
   const doy = Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/(1000*60*60*24));
   const phrase = DAILY_PHRASES[doy%DAILY_PHRASES.length];
 
-  function doLogin() {
-    if(lu==="sol"&&lp==="ManuSol147532123"){setUser({id:"sol",name:"Sol Sempértegui",role:"mentor"});setLe("");setMentees(getMentees());setView("mentor");return;}
-    const m=getMentees().find(x=>x.id===lu&&x.pass===lp&&x.active);
-    if(!m){setLe("Usuario o contraseña incorrectos");return;}
-    setUser({...m,role:"mentee"});setLe("");
-    let w=getWeeks(m.id);if(w.length===0){w=[newWeek(1)];saveWeeks(m.id,w);}
-    setWeeks(w);const wi=getAW(m.id);setAwi(wi);setResps(getR(m.id,wi));setDay(0);setView("mentee");
+ async function doLogin() {
+  if (lu === "sol") {
+    try {
+      await signInWithEmailAndPassword(auth, "solsempp@gmail.com", lp);
+      setUser({ id: "sol", name: "Sol Sempértegui", role: "mentor" });
+      setLe("");
+      setMentees(getMentees());
+      setView("mentor");
+      return;
+    } catch (error) {
+      setLe("Contraseña incorrecta");
+      return;
+    }
   }
+
+  const m = getMentees().find(x => x.id === lu && x.pass === lp && x.active);
+  if (!m) {
+    setLe("Usuario o contraseña incorrectos");
+    return;
+  }
+
+  setUser({ ...m, role: "mentee" });
+  setLe("");
+
+  let w = getWeeks(m.id);
+  if (w.length === 0) {
+    w = [newWeek(1)];
+    saveWeeks(m.id, w);
+  }
+
+  setWeeks(w);
+  const wi = getAW(m.id);
+  setAwi(wi);
+  setResps(getR(m.id, wi));
+  setDay(0);
+  setView("mentee");
+}
 
   function doLogout(){setUser(null);setView("login");setLu("");setLp("");setWeeks([]);setSelId(null);setMTab("list");}
 
