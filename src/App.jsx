@@ -697,7 +697,18 @@ export default function App() {
             {sTab==="plan"&&eWeek&&(
               <PlanEditor plan={eWeek} onChange={setEWeek}
                 onTemplate={t=>{setEWeek(p=>({...JSON.parse(JSON.stringify(t)),label:p.label,welcome:p.welcome,closing:p.closing}));}}
-                onSave={()=>{const u=[...mWeeks];u[eWi]=eWeek;saveWeeks(selId,u);setMWeeks(u);setSTab("resp");}}
+                onSave={async () => {
+  const u = [...mWeeks];
+  u[eWi] = eWeek;
+
+  try {
+    await saveWeeksToDB(selId, u);
+    setMWeeks(u);
+    setSTab("resp");
+  } catch (error) {
+    console.error("Error guardando plan en Firebase:", error);
+  }
+}}
                 onCancel={()=>setSTab("resp")}/>
             )}
           </div>
