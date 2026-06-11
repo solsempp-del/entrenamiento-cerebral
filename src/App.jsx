@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
-import { getMenteesFromDB, saveMenteeToDB, saveWeeksToDB } from "./firestoreHelpers";
+import {
+  getMenteesFromDB,
+  saveMenteeToDB,
+  saveWeeksToDB,
+  getWeeksFromDB,
+  getActiveWeekFromDB
+} from "./firestoreHelpers";
 
 const NAVY = "#0f243e";
 const CORAL = "#dd6d60";
@@ -404,11 +410,36 @@ export default function App() {
   function doToggle(id){const u=getMentees().map(m=>m.id===id?{...m,active:!m.active}:m);saveMentees(u);setMentees(u);}
   function doDel(id){delAll(id);const u=getMentees().filter(m=>m.id!==id);saveMentees(u);setMentees(u);if(selId===id)setSelId(null);setCdel(null);}
 
-  function doSel(id){
-    setSelId(id);setMDay(0);setSTab("resp");
-    let w=getWeeks(id);if(w.length===0){w=[newWeek(1)];saveWeeks(id,w);}
-    setMWeeks(w);setMawi(getAW(id));
+  async function doSel(id) {
+  setSelId(id);
+  setMDay(0);
+  setSTab("resp");
+
+  try {
+    let w = await getWeeksFromDB(id);
+
+    if (w.length === 0) {
+      w = [newWeek(1)];
+      await saveWeeksToDB(id, w);
+    }
+
+    const activeWeek = await getActiveWeekFromDB(id);
+
+    setMWeeks(w);
+    setMawi(activeWeek);
+  } catch (error) {
+    console.error("Error cargando semanas desde Firebase:", error);
+
+    let w = getWeeks(id);
+    if (w.length === 0) {
+      w = [newWeek(1)];
+      saveWeeks(id, w);
+    }
+
+    setMWeeks(w);
+    setMawi(getAW(id));
   }
+}
 
   function doAddWeek(){
     if(mWeeks.length>=24)return;
