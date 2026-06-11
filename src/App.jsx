@@ -6,7 +6,8 @@ import {
   saveMenteeToDB,
   saveWeeksToDB,
   getWeeksFromDB,
-  getActiveWeekFromDB
+  getActiveWeekFromDB,
+  saveActiveWeekToDB
 } from "./firestoreHelpers";
 
 const NAVY = "#0f243e";
@@ -441,14 +442,30 @@ export default function App() {
   }
 }
 
-  function doAddWeek(){
-    if(mWeeks.length>=24)return;
-    const nw=[...mWeeks,newWeek(mWeeks.length+1)];
-    saveWeeks(selId,nw);setMWeeks(nw);
-    setMawi(nw.length-1);setAW(selId,nw.length-1);
-  }
+  async function doAddWeek() {
+  if (mWeeks.length >= 24) return;
 
-  function doActivate(idx){setAW(selId,idx);setMawi(idx);setMWeeks([...mWeeks]);}
+  const nw = [...mWeeks, newWeek(mWeeks.length + 1)];
+
+  try {
+    await saveWeeksToDB(selId, nw);
+    await saveActiveWeekToDB(selId, nw.length - 1);
+
+    setMWeeks(nw);
+    setMawi(nw.length - 1);
+  } catch (error) {
+    console.error("Error creando nueva semana:", error);
+  }
+}
+
+  async function doActivate(idx) {
+  try {
+    await saveActiveWeekToDB(selId, idx);
+    setMawi(idx);
+  } catch (error) {
+    console.error("Error activando semana:", error);
+  }
+}
 
   // ── LOGIN ──
   if(view==="login"){
