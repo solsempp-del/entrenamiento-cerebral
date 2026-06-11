@@ -7,7 +7,9 @@ import {
   saveWeeksToDB,
   getWeeksFromDB,
   getActiveWeekFromDB,
-  saveActiveWeekToDB
+  saveActiveWeekToDB,
+  getResponsesFromDB,
+  saveResponseToDB
 } from "./firestoreHelpers";
 
 const NAVY = "#0f243e";
@@ -361,6 +363,21 @@ export default function App() {
     saveWeeks(m.id, w);
   }
 
+  try {
+  const dbWeeks = await getWeeksFromDB(m.id);
+  const finalWeeks = dbWeeks.length > 0 ? dbWeeks : w;
+
+  const dbActiveWeek = await getActiveWeekFromDB(m.id);
+  const dbResponses = await getResponsesFromDB(m.id, dbActiveWeek);
+
+  setWeeks(finalWeeks);
+  setAwi(dbActiveWeek);
+  setResps(dbResponses);
+  setDay(0);
+  setView("mentee");
+} catch (error) {
+  console.error("Error cargando datos del mentee:", error);
+
   setWeeks(w);
   const wi = getAW(m.id);
   setAwi(wi);
@@ -368,6 +385,7 @@ export default function App() {
   setDay(0);
   setView("mentee");
 }
+   }
 
   function doLogout(){setUser(null);setView("login");setLu("");setLp("");setWeeks([]);setSelId(null);setMTab("list");}
 
