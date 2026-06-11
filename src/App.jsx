@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+mport { useState, useEffect } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import {
@@ -300,6 +300,7 @@ export default function App() {
   const [awi,setAwi] = useState(0);
   const [day,setDay] = useState(0);
   const [resps,setResps] = useState({});
+  const [mResps,setMResps] = useState({});
   const [mWeeks,setMWeeks] = useState([]);
   const [mawi,setMawi] = useState(0);
   const [mDay,setMDay] = useState(0);
@@ -443,9 +444,11 @@ export default function App() {
     }
 
     const activeWeek = await getActiveWeekFromDB(id);
+    const dbResponses = await getResponsesFromDB(id, activeWeek);
 
     setMWeeks(w);
     setMawi(activeWeek);
+    setMResps(dbResponses);
   } catch (error) {
     console.error("Error cargando semanas desde Firebase:", error);
 
@@ -455,8 +458,11 @@ export default function App() {
       saveWeeks(id, w);
     }
 
+    const localActiveWeek = getAW(id);
+
     setMWeeks(w);
-    setMawi(getAW(id));
+    setMawi(localActiveWeek);
+    setMResps(getR(id, localActiveWeek));
   }
 }
 
@@ -542,7 +548,17 @@ export default function App() {
             <p style={{fontSize:12,color:"#aaa",margin:"0 0 6px"}}>Mis semanas:</p>
             <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
               {weeks.map((w,i)=>(
-                <button key={i} style={WB(awi===i,isWDone(weeks,i,user.id))} onClick={()=>{setAwi(i);setResps(getR(user.id,i));setDay(0);}}>
+                <button key={i} style={WB(awi===i,isWDone(weeks,i,user.id))} onClick={async () => {
+                  setAwi(i);
+                  setDay(0);
+                  try {
+                    const dbResponses = await getResponsesFromDB(user.id, i);
+                    setResps(dbResponses);
+                  } catch (error) {
+                    console.error("Error cargando respuestas de la semana:", error);
+                    setResps(getR(user.id, i));
+                  }
+                }}>
                   S{i+1}{isWDone(weeks,i,user.id)?" ✓":""}
                 </button>
               ))}
@@ -576,7 +592,7 @@ export default function App() {
     });
   }
 }}
-              }}/>
+              />
           ))
         }
         {wd&&week.closing&&(
@@ -681,7 +697,18 @@ export default function App() {
               </div>
               <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
                 {mWeeks.map((w,i)=>(
-                  <button key={i} style={WB(mawi===i,isWDone(mWeeks,i,selId))} onClick={()=>{setMawi(i);setMDay(0);setSTab("resp");}}>
+                  <button key={i} style={WB(mawi===i,isWDone(mWeeks,i,selId))} onClick={async () => {
+                    setMawi(i);
+                    setMDay(0);
+                    setSTab("resp");
+                    try {
+                      const dbResponses = await getResponsesFromDB(selId, i);
+                      setMResps(dbResponses);
+                    } catch (error) {
+                      console.error("Error cargando respuestas para mentora:", error);
+                      setMResps(getR(selId, i));
+                    }
+                  }}>
                     S{i+1}{isWDone(mWeeks,i,selId)?" ✓":""}
                   </button>
                 ))}
@@ -709,8 +736,7 @@ export default function App() {
                   ?<div style={{...C,textAlign:"center",color:"#888"}}>Día libre</div>
                   :curW.days[mDay].exercises.map((ex,ei)=>{
                     const tc=TAG_COLORS[ex.type]||["#eee","#555"];
-                    const r=getR(selId,mawi);
-                    const resp=r[mDay]?r[mDay][ei]:null;
+                    const resp = mResps[mDay] ? mResps[mDay][ei] : null;
                     return (
                       <div key={ei} style={C}>
                         <span style={{background:tc[0],color:tc[1],fontSize:12,padding:"3px 10px",borderRadius:6,display:"inline-block",marginBottom:8}}>
