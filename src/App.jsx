@@ -560,9 +560,22 @@ export default function App() {
           ?<div style={{...C,textAlign:"center",color:"#888"}}>Día libre 🌿 Descansa y recarga.</div>
           :dp.exercises.map((ex,ei)=>(
             <ExCard key={ei} ex={ex} di={day} ei={ei} saved={resps[day]?resps[day][ei]:null}
-              onSave={(di,ei,val)=>{
-                setR(user.id,awi,di,ei,val);
-                setResps(r=>{const u={...r};if(!u[di])u[di]={};u[di][ei]={...val,at:new Date().toLocaleString("es-EC")};return u;});
+              onSave={async (di, ei, val) => {
+  try {
+    const updatedResponses = await saveResponseToDB(user.id, awi, di, ei, val);
+    setResps(updatedResponses);
+  } catch (error) {
+    console.error("Error guardando respuesta en Firebase:", error);
+
+    setR(user.id, awi, di, ei, val);
+    setResps(r => {
+      const u = { ...r };
+      if (!u[di]) u[di] = {};
+      u[di][ei] = { ...val, at: new Date().toLocaleString("es-EC") };
+      return u;
+    });
+  }
+}}
               }}/>
           ))
         }
