@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
+import { getMenteesFromDB } from "./firestoreHelpers";
 
 const NAVY = "#0f243e";
 const CORAL = "#dd6d60";
@@ -300,7 +301,25 @@ export default function App() {
   const [nadd,setNadd] = useState("");
   const [cdel,setCdel] = useState(null);
 
-  useEffect(()=>{setMentees(getMentees());},[]);
+  useEffect(() => {
+  async function loadMentees() {
+    try {
+      const dbMentees = await getMenteesFromDB();
+
+      if (dbMentees.length > 0) {
+        setMentees(dbMentees);
+        saveMentees(dbMentees);
+      } else {
+        setMentees(getMentees());
+      }
+    } catch (error) {
+      console.error("Error cargando mentees:", error);
+      setMentees(getMentees());
+    }
+  }
+
+  loadMentees();
+}, []);
 
   const doy = Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/(1000*60*60*24));
   const phrase = DAILY_PHRASES[doy%DAILY_PHRASES.length];
