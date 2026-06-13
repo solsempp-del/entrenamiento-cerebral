@@ -1,12 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signInWithRedirect,
-  getRedirectResult,
-  signOut
-} from "firebase/auth";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebase";
 import {
   getMenteesFromDB,
@@ -132,10 +125,6 @@ function setR(uid,wi,di,ei,val) { try{const k="sol_r_"+uid+"_"+wi+"_"+di;const d
 function delAll(uid) { const ws=getWeeks(uid); ws.forEach((_,wi)=>{for(let i=0;i<7;i++)localStorage.removeItem("sol_r_"+uid+"_"+wi+"_"+i);}); localStorage.removeItem("sol_weeks_"+uid); localStorage.removeItem("sol_aw_"+uid); }
 function newWeek(n) { return {label:"Semana "+n,welcome:"",closing:"",createdAt:new Date().toLocaleDateString("es-EC"),days:DAYS.map(d=>({day:d,exercises:[]}))}; }
 function isWDone(weeks,wi,uid) { const w=weeks[wi]; if(!w)return false; const r=getR(uid,wi); return w.days.every((d,di)=>{ if(d.exercises.length===0)return true; return d.exercises.every((_,ei)=>r[di]&&r[di][ei]); }); }
-function isMobileDevice() {
-  if (typeof navigator === "undefined") return false;
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
 
 
 // ── Shared styles ────────────────────────────────────────
@@ -346,30 +335,7 @@ const [nadd,setNadd] = useState("");
       }
     }
 
-    async function finishGoogleRedirectLogin() {
-      const pendingGoogleLogin = sessionStorage.getItem("sol_google_redirect_pending");
-
-      if (!pendingGoogleLogin) return;
-
-      try {
-        const result = await getRedirectResult(auth);
-        const email = result?.user?.email || auth.currentUser?.email || "";
-
-        if (email) {
-          sessionStorage.removeItem("sol_google_redirect_pending");
-          await openSessionByEmail(email.toLowerCase());
-          return;
-        }
-      } catch (error) {
-        console.error("Error terminando ingreso con Google:", error);
-        sessionStorage.removeItem("sol_google_redirect_pending");
-        setLe("No se pudo terminar el ingreso con Google. Prueba con correo y contraseña.");
-      }
-    }
-
     loadMentees();
-    finishGoogleRedirectLogin();
-
   }, []);
 
   const doy = Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/(1000*60*60*24));
@@ -425,27 +391,6 @@ const [nadd,setNadd] = useState("");
     setView("mentee");
   }
 
-  async function doGoogleLogin() {
-    try {
-      const provider = new GoogleAuthProvider();
-      provider.setCustomParameters({ prompt: "select_account" });
-
-      if (isMobileDevice()) {
-        sessionStorage.setItem("sol_google_redirect_pending", "1");
-        await signInWithRedirect(auth, provider);
-        return;
-      }
-
-      const result = await signInWithPopup(auth, provider);
-      const email = result.user.email ? result.user.email.toLowerCase() : "";
-      await openSessionByEmail(email);
-    } catch (error) {
-      console.error("Error ingresando con Google:", error);
-      sessionStorage.removeItem("sol_google_redirect_pending");
-      setLe("No se pudo ingresar con Google. Prueba con correo y contraseña.");
-    }
-  }
-
   async function doEmailLogin() {
     const email = me.trim().toLowerCase();
     const password = mp;
@@ -471,7 +416,6 @@ const [nadd,setNadd] = useState("");
       console.error("Error cerrando sesión:", error);
     }
 
-    sessionStorage.removeItem("sol_google_redirect_pending");
     setUser(null);
     setView("login");
     setLu("");
@@ -632,19 +576,11 @@ setMTab("list");
           <p style={{margin:"2px 0 0",fontSize:13,color:"#888"}}>Tu entrenamiento cerebral personalizado</p>
         </div>
         <div style={C}>
-          <p style={{fontSize:14,fontWeight:500,color:NAVY,margin:"0 0 14px",textAlign:"center"}}>Ingresa a tu cuenta</p>
-
-          <button style={{...OB(NAVY),width:"100%",padding:"10px 20px"}} onClick={doGoogleLogin}>
-            Ingresar con Google
-          </button>
-
-          <div style={{margin:"18px 0 10px",textAlign:"center",fontSize:12,color:"#aaa"}}>
-            O ingresa con correo
-          </div>
+          <p style={{fontSize:14,fontWeight:500,color:NAVY,margin:"0 0 14px",textAlign:"center"}}>Ingresa con correo y contraseña</p>
 
           <div style={{marginBottom:10}}>
             <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Correo electrónico</label>
-            <input style={I} type="email" value={me} onChange={e=>setMe(e.target.value)} placeholder="tu correo"/>
+            <input style={I} type="email" value={me} onChange={e=>setMe(e.target.value)} placeholder="tu correo electrónico"/>
           </div>
 
           <div style={{marginBottom:12}}>
