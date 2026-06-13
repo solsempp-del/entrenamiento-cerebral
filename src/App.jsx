@@ -16,6 +16,7 @@ const NAVY = "#0f243e";
 const CORAL = "#dd6d60";
 const BEIGE = "#d6c7b1";
 const DARK = "#333333";
+const ADMIN_EMAIL = "solsempp@gmail.com";
 
 const DAYS = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
 
@@ -337,63 +338,29 @@ const [nadd,setNadd] = useState("");
   const doy = Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/(1000*60*60*24));
   const phrase = DAILY_PHRASES[doy%DAILY_PHRASES.length];
 
- async function doLogin() {
-  if (lu === "sol") {
-    try {
-      await signInWithEmailAndPassword(auth, "solsempp@gmail.com", lp);
-      const dbMentees = await getMenteesFromDB();
+ async function openSessionByEmail(email, dbMentees = null) {
+  const cleanEmail = email ? email.toLowerCase() : "";
 
-      setUser({ id: "sol", name: "Sol Sempértegui", role: "mentor" });
-      setLe("");
-      setMentees(dbMentees);
-      saveMentees(dbMentees);
-      setView("mentor");
-      return;
-    } catch (error) {
-      console.error("Error ingresando como Sol:", error);
-      setLe("Contraseña incorrecta");
-      return;
-    }
-  }
-
-  const m = getMentees().find(x => x.id === lu && x.pass === lp && x.active);
-  if (!m) {
-    setLe("Usuario o contraseña incorrectos");
+  if (cleanEmail === ADMIN_EMAIL) {
+    const freshMentees = dbMentees || await getMenteesFromDB();
+    setUser({ id: "sol", name: "Sol Sempértegui", role: "mentor", email: ADMIN_EMAIL });
+    setLe("");
+    setMentees(freshMentees);
+    saveMentees(freshMentees);
+    setView("mentor");
     return;
   }
 
-  setUser({ ...m, role: "mentee" });
-  setLe("");
+  const freshMentees = dbMentees || await getMenteesFromDB();
+  const mentee = freshMentees.find(x => x.email && x.email.toLowerCase() === cleanEmail && x.active);
 
-  let w = getWeeks(m.id);
-  if (w.length === 0) {
-    w = [newWeek(1)];
-    saveWeeks(m.id, w);
+  if (!mentee) {
+    setLe("Este correo no está registrado. Escríbele a Sol.");
+    return;
   }
 
-  try {
-  const dbWeeks = await getWeeksFromDB(m.id);
-  const finalWeeks = dbWeeks.length > 0 ? dbWeeks : w;
-
-  const dbActiveWeek = await getActiveWeekFromDB(m.id);
-  const dbResponses = await getResponsesFromDB(m.id, dbActiveWeek);
-
-  setWeeks(finalWeeks);
-  setAwi(dbActiveWeek);
-  setResps(dbResponses);
-  setDay(0);
-  setView("mentee");
-} catch (error) {
-  console.error("Error cargando datos del mentee:", error);
-
-  setWeeks(w);
-  const wi = getAW(m.id);
-  setAwi(wi);
-  setResps(getR(m.id, wi));
-  setDay(0);
-  setView("mentee");
+  await openMenteeSession(mentee, freshMentees);
 }
-   }
 
   async function openMenteeSession(m, dbMentees = null) {
     setUser({ ...m, role: "mentee" });
@@ -427,45 +394,28 @@ const [nadd,setNadd] = useState("");
       const result = await signInWithPopup(auth, provider);
       const email = result.user.email ? result.user.email.toLowerCase() : "";
 
-      const dbMentees = await getMenteesFromDB();
-      const m = dbMentees.find(x => x.email && x.email.toLowerCase() === email && x.active);
-
-      if (!m) {
-        setLe("Este correo no está registrado como mentee. Escríbele a Sol.");
-        return;
-      }
-
-      await openMenteeSession(m, dbMentees);
+      await openSessionByEmail(email);
     } catch (error) {
       console.error("Error ingresando con Google:", error);
       setLe("No se pudo ingresar con Google.");
     }
   }
 
-  async function doEmailMenteeLogin() {
+  async function doEmailLogin() {
     const email = me.trim().toLowerCase();
     const password = mp;
 
     if (!email || !password) {
-      setLe("Completa correo y contraseña del mentee.");
+      setLe("Completa correo y contraseña.");
       return;
     }
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-
-      const dbMentees = await getMenteesFromDB();
-      const m = dbMentees.find(x => x.email && x.email.toLowerCase() === email && x.active);
-
-      if (!m) {
-        setLe("Este correo no está registrado como mentee. Escríbele a Sol.");
-        return;
-      }
-
-      await openMenteeSession(m, dbMentees);
+      await openSessionByEmail(email);
     } catch (error) {
       console.error("Error ingresando con correo:", error);
-      setLe("Correo o contraseña de mentee incorrectos.");
+      setLe("Correo o contraseña incorrectos.");
     }
   }
 
@@ -575,32 +525,17 @@ setMTab("list");
 
   // ── LOGIN ──
   if(view==="login"){
-    const all=[{id:"sol",name:"Sol Sempértegui"}];
     return (
       <div style={W}>
         <div style={{textAlign:"center",marginBottom:"2rem"}}>
           <img src="/logo.png" alt="Sol Sempértegui" style={{height:100,objectFit:"contain",marginBottom:8}}/>
-<h2 style={{margin:0,fontSize:24,fontWeight:600,color:NAVY}}>Sol Sempértegui</h2>
+          <h2 style={{margin:0,fontSize:24,fontWeight:600,color:NAVY}}>Sol Sempértegui</h2>
           <p style={{margin:"6px 0 0",fontSize:14,color:CORAL,fontWeight:500}}>Entrenamiento Cerebral 6M</p>
           <p style={{margin:"2px 0 0",fontSize:13,color:"#888"}}>Tu entrenamiento cerebral personalizado</p>
         </div>
         <div style={C}>
-          <div style={{marginBottom:14}}>
-            <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Selecciona tu nombre</label>
-            <select style={I} value={lu} onChange={e=>setLu(e.target.value)}>
-              <option value="">— elige —</option>
-              {all.map(u=><option key={u.id} value={u.id}>{u.name}</option>)}
-            </select>
-          </div>
-          <div style={{marginBottom:16}}>
-            <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Contraseña</label>
-            <input style={I} type="password" value={lp} onChange={e=>setLp(e.target.value)} onKeyDown={e=>e.key==="Enter"&&doLogin()} placeholder="••••••"/>
-          </div>
-          {le&&<p style={{color:CORAL,fontSize:13,margin:"0 0 12px"}}>{le}</p>}
-          <button style={{...PB(),width:"100%"}} onClick={doLogin}>Ingresar</button>
-          <div style={{margin:"16px 0 10px",textAlign:"center",fontSize:12,color:"#aaa"}}>
-            Acceso para menteés
-          </div>
+          <p style={{fontSize:14,fontWeight:500,color:NAVY,margin:"0 0 14px",textAlign:"center"}}>Ingresa a tu cuenta</p>
+
           <button style={{...OB(NAVY),width:"100%",padding:"10px 20px"}} onClick={doGoogleLogin}>
             Ingresar con Google
           </button>
@@ -610,18 +545,18 @@ setMTab("list");
           </div>
 
           <div style={{marginBottom:10}}>
-            <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Correo del mentee</label>
+            <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Correo electrónico</label>
             <input style={I} type="email" value={me} onChange={e=>setMe(e.target.value)} placeholder="tu correo"/>
           </div>
 
           <div style={{marginBottom:12}}>
-            <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Contraseña del mentee</label>
-            <input style={I} type="password" value={mp} onChange={e=>setMp(e.target.value)} onKeyDown={e=>e.key==="Enter"&&doEmailMenteeLogin()} placeholder="••••••"/>
+            <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Contraseña</label>
+            <input style={I} type="password" value={mp} onChange={e=>setMp(e.target.value)} onKeyDown={e=>e.key==="Enter"&&doEmailLogin()} placeholder="••••••"/>
           </div>
 
-          <button style={{...OB(NAVY),width:"100%",padding:"10px 20px"}} onClick={doEmailMenteeLogin}>
-            Ingresar con correo
-          </button>
+          {le&&<p style={{color:CORAL,fontSize:13,margin:"0 0 12px"}}>{le}</p>}
+
+          <button style={{...PB(),width:"100%"}} onClick={doEmailLogin}>Ingresar</button>
         </div>
       </div>
     );
