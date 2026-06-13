@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "./firebase";
 import {
   getMenteesFromDB,
@@ -336,19 +336,6 @@ const [nadd,setNadd] = useState("");
 
   loadMentees();
 
-  async function checkGoogleRedirect() {
-    try {
-      const result = await getRedirectResult(auth);
-      if (result && result.user && result.user.email) {
-        await openSessionByEmail(result.user.email.toLowerCase());
-      }
-    } catch (error) {
-      console.error("Error finalizando ingreso con Google:", error);
-      setLe("No se pudo ingresar con Google. Prueba con correo y contraseña.");
-    }
-  }
-
-  checkGoogleRedirect();
 }, []);
 
   const doy = Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/(1000*60*60*24));
@@ -407,10 +394,12 @@ const [nadd,setNadd] = useState("");
   async function doGoogleLogin() {
     try {
       const provider = new GoogleAuthProvider();
-      await signInWithRedirect(auth, provider);
+      const result = await signInWithPopup(auth, provider);
+      const email = result.user.email ? result.user.email.toLowerCase() : "";
+      await openSessionByEmail(email);
     } catch (error) {
-      console.error("Error iniciando ingreso con Google:", error);
-      setLe("No se pudo iniciar Google. Prueba con correo y contraseña.");
+      console.error("Error ingresando con Google:", error);
+      setLe("No se pudo ingresar con Google. Prueba con correo y contraseña.");
     }
   }
 
