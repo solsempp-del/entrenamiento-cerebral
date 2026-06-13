@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { auth } from "./firebase";
 import {
   getMenteesFromDB,
@@ -9,7 +9,9 @@ import {
   getActiveWeekFromDB,
   saveActiveWeekToDB,
   getResponsesFromDB,
-  saveResponseToDB
+  saveResponseToDB,
+  deleteMenteeFromDB,
+  updateMenteeInDB
 } from "./firestoreHelpers";
 
 const NAVY = "#0f243e";
@@ -333,6 +335,20 @@ const [nadd,setNadd] = useState("");
   }
 
   loadMentees();
+
+  async function checkGoogleRedirect() {
+    try {
+      const result = await getRedirectResult(auth);
+      if (result && result.user && result.user.email) {
+        await openSessionByEmail(result.user.email.toLowerCase());
+      }
+    } catch (error) {
+      console.error("Error finalizando ingreso con Google:", error);
+      setLe("No se pudo ingresar con Google. Prueba con correo y contraseña.");
+    }
+  }
+
+  checkGoogleRedirect();
 }, []);
 
   const doy = Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/(1000*60*60*24));
@@ -391,13 +407,10 @@ const [nadd,setNadd] = useState("");
   async function doGoogleLogin() {
     try {
       const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      const email = result.user.email ? result.user.email.toLowerCase() : "";
-
-      await openSessionByEmail(email);
+      await signInWithRedirect(auth, provider);
     } catch (error) {
-      console.error("Error ingresando con Google:", error);
-      setLe("No se pudo ingresar con Google.");
+      console.error("Error iniciando ingreso con Google:", error);
+      setLe("No se pudo iniciar Google. Prueba con correo y contraseña.");
     }
   }
 
@@ -459,8 +472,39 @@ setMTab("list");
   }
 }
 
-  function doToggle(id){const u=getMentees().map(m=>m.id===id?{...m,active:!m.active}:m);saveMentees(u);setMentees(u);}
-  function doDel(id){delAll(id);const u=getMentees().filter(m=>m.id!==id);saveMentees(u);setMentees(u);if(selId===id)setSelId(null);setCdel(null);}
+  async function doToggle(id){
+    const current = mentees.find(m => m.id === id);
+    if (!current) return;
+
+    const updated = { ...current, active: !current.active };
+
+    try {
+      await updateMenteeInDB(id, { active: updated.active });
+    } catch (error) {
+      console.error("Error actualizando mentee en Firebase:", error);
+      setLe("No se pudo actualizar el mentee.");
+      return;
+    }
+
+    const u = mentees.map(m => m.id === id ? updated : m);
+    saveMentees(u);
+    setMentees(u);
+  }
+
+  async function doDel(id){
+    try {
+      await deleteMenteeFromDB(id);
+      delAll(id);
+      const u = mentees.filter(m => m.id !== id);
+      saveMentees(u);
+      setMentees(u);
+      if(selId === id) setSelId(null);
+      setCdel(null);
+    } catch (error) {
+      console.error("Error eliminando mentee en Firebase:", error);
+      setLe("No se pudo eliminar el mentee.");
+    }
+  }
 
   async function doSel(id) {
   setSelId(id);
