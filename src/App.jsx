@@ -125,6 +125,20 @@ function setR(uid,wi,di,ei,val) { try{const k="sol_r_"+uid+"_"+wi+"_"+di;const d
 function delAll(uid) { const ws=getWeeks(uid); ws.forEach((_,wi)=>{for(let i=0;i<7;i++)localStorage.removeItem("sol_r_"+uid+"_"+wi+"_"+i);}); localStorage.removeItem("sol_weeks_"+uid); localStorage.removeItem("sol_aw_"+uid); }
 function newWeek(n) { return {label:"Semana "+n,welcome:"",closing:"",createdAt:new Date().toLocaleDateString("es-EC"),days:DAYS.map(d=>({day:d,exercises:[]}))}; }
 function isWDone(weeks,wi,uid) { const w=weeks[wi]; if(!w)return false; const r=getR(uid,wi); return w.days.every((d,di)=>{ if(d.exercises.length===0)return true; return d.exercises.every((_,ei)=>r[di]&&r[di][ei]); }); }
+function generateTempPassword() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789";
+  let raw = "";
+
+  try {
+    const values = new Uint32Array(8);
+    window.crypto.getRandomValues(values);
+    raw = Array.from(values).map(v => chars[v % chars.length]).join("");
+  } catch {
+    raw = Array.from({ length: 8 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+  }
+
+  return `Sol-${raw.slice(0,4)}-${raw.slice(4,8)}!`;
+}
 
 
 // ── Shared styles ────────────────────────────────────────
@@ -314,8 +328,9 @@ export default function App() {
   const [eWi,setEWi] = useState(null);
 const [nn,setNn] = useState("");
 const [ne,setNe] = useState("");
-const [np,setNp] = useState("");
+const [np,setNp] = useState(() => generateTempPassword());
 const [nadd,setNadd] = useState("");
+const [createdInfo,setCreatedInfo] = useState(null);
   const [cdel,setCdel] = useState(null);
 
   useEffect(() => {
@@ -427,48 +442,57 @@ const [nadd,setNadd] = useState("");
     setDay(0);
     setResps({});
     setMResps({});
+    setCreatedInfo(null);
     setSelId(null);
     setMTab("list");
     setSTab("resp");
   }
 
   async function doAdd() {
- if (!nn.trim() || !ne.trim()) {
-  setNadd("Completa nombre y correo.");
-  return;
-}
+    if (!nn.trim() || !ne.trim()) {
+      setNadd("Completa nombre y correo.");
+      return;
+    }
 
-  const id = "m_" + Date.now();
+    setCreatedInfo(null);
 
-const newMentee = {
-  id,
-  name: nn.trim(),
-  email: ne.trim().toLowerCase(),
-  active: true,
-  createdAt: new Date().toLocaleDateString("es-EC")
-};
+    const id = "m_" + Date.now();
+    const tempPassword = np.trim() || generateTempPassword();
 
-  const initialWeeks = [newWeek(1)];
+    const newMentee = {
+      id,
+      name: nn.trim(),
+      email: ne.trim().toLowerCase(),
+      active: true,
+      createdAt: new Date().toLocaleDateString("es-EC")
+    };
 
-  try {
-    await saveMenteeToDB(newMentee);
-    await saveWeeksToDB(id, initialWeeks);
+    const initialWeeks = [newWeek(1)];
 
-    const updatedMentees = [...mentees, newMentee];
+    try {
+      await saveMenteeToDB(newMentee);
+      await saveWeeksToDB(id, initialWeeks);
 
-    saveMentees(updatedMentees);
-    setMentees(updatedMentees);
+      const updatedMentees = [...mentees, newMentee];
 
-setNn("");
-setNe("");
-setNp("");
-setNadd("");
-setMTab("list");
-  } catch (error) {
-    console.error("Error guardando mentee:", error);
-    setNadd("No se pudo guardar. Revisa Firebase.");
+      saveMentees(updatedMentees);
+      setMentees(updatedMentees);
+
+      setCreatedInfo({
+        name: newMentee.name,
+        email: newMentee.email,
+        password: tempPassword
+      });
+
+      setNn("");
+      setNe("");
+      setNp(generateTempPassword());
+      setNadd("");
+    } catch (error) {
+      console.error("Error guardando mentee:", error);
+      setNadd("No se pudo guardar. Revisa Firebase.");
+    }
   }
-}
 
   async function doToggle(id){
     const current = mentees.find(m => m.id === id);
@@ -749,12 +773,35 @@ setMTab("list");
               <input style={I} value={nn} onChange={e=>setNn(e.target.value)} placeholder="Ej: Ana García"/>
             </div>
             <div style={{marginBottom:14}}>
-  <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Correo del mentee</label>
-  <input style={I} value={ne} onChange={e=>setNe(e.target.value)} placeholder="Ej: ana@gmail.com"/>
-</div>
+              <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Correo del mentee</label>
+              <input style={I} value={ne} onChange={e=>setNe(e.target.value)} placeholder="Ej: ana@gmail.com"/>
+            </div>
+            <div style={{marginBottom:14}}>
+              <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Contraseña temporal sugerida</label>
+              <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+                <input style={{...I,flex:1,minWidth:180}} value={np} onChange={e=>setNp(e.target.value)} />
+                <button style={OB(NAVY,{fontSize:12})} onClick={()=>setNp(generateTempPassword())}>Generar otra</button>
+                <button style={OB(CORAL,{fontSize:12})} onClick={async()=>{
+                  try {
+                    await navigator.clipboard.writeText(np);
+                    setNadd("Contraseña copiada.");
+                  } catch {
+                    setNadd("Copia la contraseña manualmente.");
+                  }
+                }}>Copiar</button>
+              </div>
+            </div>
             <p style={{fontSize:12,color:"#888",margin:"0 0 16px",lineHeight:1.5}}>
-              Para que el mentee entre con correo, crea su usuario en Firebase Authentication con este mismo correo.
+              Esta contraseña no se guarda aquí. Crea el usuario en Firebase Authentication con el mismo correo y esta contraseña temporal.
             </p>
+            {createdInfo&&(
+              <div style={{background:"#E8F5E9",border:"0.5px solid #A5D6A7",borderRadius:8,padding:"12px",marginBottom:14}}>
+                <p style={{fontSize:13,fontWeight:500,color:"#2E7D32",margin:"0 0 8px"}}>Mentee creado. Ahora crea su acceso en Firebase Authentication:</p>
+                <p style={{fontSize:13,margin:"3px 0"}}>Nombre: {createdInfo.name}</p>
+                <p style={{fontSize:13,margin:"3px 0"}}>Correo: {createdInfo.email}</p>
+                <p style={{fontSize:13,margin:"3px 0"}}>Contraseña temporal: {createdInfo.password}</p>
+              </div>
+            )}
             {nadd&&<p style={{color:CORAL,fontSize:13,margin:"0 0 12px"}}>{nadd}</p>}
             <button style={PB()} onClick={doAdd}>Agregar mentee</button>
           </div>
