@@ -291,6 +291,8 @@ export default function App() {
   const [user,setUser] = useState(null);
   const [lu,setLu] = useState("");
   const [lp,setLp] = useState("");
+  const [me,setMe] = useState("");
+  const [mp,setMp] = useState("");
   const [le,setLe] = useState("");
   const [mentees,setMentees] = useState([]);
   const [mTab,setMTab] = useState("list");
@@ -393,6 +395,32 @@ const [nadd,setNadd] = useState("");
 }
    }
 
+  async function openMenteeSession(m, dbMentees = null) {
+    setUser({ ...m, role: "mentee" });
+    setLe("");
+
+    if (dbMentees) {
+      setMentees(dbMentees);
+      saveMentees(dbMentees);
+    }
+
+    let w = await getWeeksFromDB(m.id);
+
+    if (w.length === 0) {
+      w = [newWeek(1)];
+      await saveWeeksToDB(m.id, w);
+    }
+
+    const dbActiveWeek = await getActiveWeekFromDB(m.id);
+    const dbResponses = await getResponsesFromDB(m.id, dbActiveWeek);
+
+    setWeeks(w);
+    setAwi(dbActiveWeek);
+    setResps(dbResponses);
+    setDay(0);
+    setView("mentee");
+  }
+
   async function doGoogleLogin() {
     try {
       const provider = new GoogleAuthProvider();
@@ -407,33 +435,41 @@ const [nadd,setNadd] = useState("");
         return;
       }
 
-      setUser({ ...m, role: "mentee" });
-      setLe("");
-      setMentees(dbMentees);
-      saveMentees(dbMentees);
-
-      let w = await getWeeksFromDB(m.id);
-
-      if (w.length === 0) {
-        w = [newWeek(1)];
-        await saveWeeksToDB(m.id, w);
-      }
-
-      const dbActiveWeek = await getActiveWeekFromDB(m.id);
-      const dbResponses = await getResponsesFromDB(m.id, dbActiveWeek);
-
-      setWeeks(w);
-      setAwi(dbActiveWeek);
-      setResps(dbResponses);
-      setDay(0);
-      setView("mentee");
+      await openMenteeSession(m, dbMentees);
     } catch (error) {
       console.error("Error ingresando con Google:", error);
       setLe("No se pudo ingresar con Google.");
     }
   }
 
-  function doLogout(){setUser(null);setView("login");setLu("");setLp("");setWeeks([]);setSelId(null);setMTab("list");}
+  async function doEmailMenteeLogin() {
+    const email = me.trim().toLowerCase();
+    const password = mp;
+
+    if (!email || !password) {
+      setLe("Completa correo y contraseña del mentee.");
+      return;
+    }
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+
+      const dbMentees = await getMenteesFromDB();
+      const m = dbMentees.find(x => x.email && x.email.toLowerCase() === email && x.active);
+
+      if (!m) {
+        setLe("Este correo no está registrado como mentee. Escríbele a Sol.");
+        return;
+      }
+
+      await openMenteeSession(m, dbMentees);
+    } catch (error) {
+      console.error("Error ingresando con correo:", error);
+      setLe("Correo o contraseña de mentee incorrectos.");
+    }
+  }
+
+  function doLogout(){setUser(null);setView("login");setLu("");setLp("");setMe("");setMp("");setWeeks([]);setSelId(null);setMTab("list");}
 
   async function doAdd() {
  if (!nn.trim() || !ne.trim()) {
@@ -447,7 +483,6 @@ const newMentee = {
   id,
   name: nn.trim(),
   email: ne.trim().toLowerCase(),
-  pass: np.trim(),
   active: true,
   createdAt: new Date().toLocaleDateString("es-EC")
 };
@@ -568,6 +603,24 @@ setMTab("list");
           </div>
           <button style={{...OB(NAVY),width:"100%",padding:"10px 20px"}} onClick={doGoogleLogin}>
             Ingresar con Google
+          </button>
+
+          <div style={{margin:"18px 0 10px",textAlign:"center",fontSize:12,color:"#aaa"}}>
+            O ingresa con correo
+          </div>
+
+          <div style={{marginBottom:10}}>
+            <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Correo del mentee</label>
+            <input style={I} type="email" value={me} onChange={e=>setMe(e.target.value)} placeholder="tu correo"/>
+          </div>
+
+          <div style={{marginBottom:12}}>
+            <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Contraseña del mentee</label>
+            <input style={I} type="password" value={mp} onChange={e=>setMp(e.target.value)} onKeyDown={e=>e.key==="Enter"&&doEmailMenteeLogin()} placeholder="••••••"/>
+          </div>
+
+          <button style={{...OB(NAVY),width:"100%",padding:"10px 20px"}} onClick={doEmailMenteeLogin}>
+            Ingresar con correo
           </button>
         </div>
       </div>
@@ -730,10 +783,9 @@ setMTab("list");
   <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Correo del mentee</label>
   <input style={I} value={ne} onChange={e=>setNe(e.target.value)} placeholder="Ej: ana@gmail.com"/>
 </div>
-            <div style={{marginBottom:16}}>
-              <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Contraseña para el mentee</label>
-              <input style={I} value={np} onChange={e=>setNp(e.target.value)} placeholder="Ej: ana2026"/>
-            </div>
+            <p style={{fontSize:12,color:"#888",margin:"0 0 16px",lineHeight:1.5}}>
+              Para que el mentee entre con correo, crea su usuario en Firebase Authentication con este mismo correo.
+            </p>
             {nadd&&<p style={{color:CORAL,fontSize:13,margin:"0 0 12px"}}>{nadd}</p>}
             <button style={PB()} onClick={doAdd}>Agregar mentee</button>
           </div>
