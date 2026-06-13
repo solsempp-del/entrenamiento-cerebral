@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { auth } from "./firebase";
 import {
   getMenteesFromDB,
@@ -394,6 +394,7 @@ const [nadd,setNadd] = useState("");
   async function doGoogleLogin() {
     try {
       const provider = new GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: "select_account" });
       const result = await signInWithPopup(auth, provider);
       const email = result.user.email ? result.user.email.toLowerCase() : "";
       await openSessionByEmail(email);
@@ -421,7 +422,28 @@ const [nadd,setNadd] = useState("");
     }
   }
 
-  function doLogout(){setUser(null);setView("login");setLu("");setLp("");setMe("");setMp("");setWeeks([]);setSelId(null);setMTab("list");}
+  async function doLogout(){
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Error cerrando sesión:", error);
+    }
+
+    setUser(null);
+    setView("login");
+    setLu("");
+    setLp("");
+    setMe("");
+    setMp("");
+    setWeeks([]);
+    setAwi(0);
+    setDay(0);
+    setResps({});
+    setMResps({});
+    setSelId(null);
+    setMTab("list");
+    setSTab("resp");
+  }
 
   async function doAdd() {
  if (!nn.trim() || !ne.trim()) {
