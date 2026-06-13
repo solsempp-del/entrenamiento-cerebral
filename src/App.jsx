@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
+  signOut
+} from "firebase/auth";
 import { auth } from "./firebase";
 import {
   getMenteesFromDB,
@@ -125,6 +132,11 @@ function setR(uid,wi,di,ei,val) { try{const k="sol_r_"+uid+"_"+wi+"_"+di;const d
 function delAll(uid) { const ws=getWeeks(uid); ws.forEach((_,wi)=>{for(let i=0;i<7;i++)localStorage.removeItem("sol_r_"+uid+"_"+wi+"_"+i);}); localStorage.removeItem("sol_weeks_"+uid); localStorage.removeItem("sol_aw_"+uid); }
 function newWeek(n) { return {label:"Semana "+n,welcome:"",closing:"",createdAt:new Date().toLocaleDateString("es-EC"),days:DAYS.map(d=>({day:d,exercises:[]}))}; }
 function isWDone(weeks,wi,uid) { const w=weeks[wi]; if(!w)return false; const r=getR(uid,wi); return w.days.every((d,di)=>{ if(d.exercises.length===0)return true; return d.exercises.every((_,ei)=>r[di]&&r[di][ei]); }); }
+function isMobileDevice() {
+  if (typeof navigator === "undefined") return false;
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 
 // ── Shared styles ────────────────────────────────────────
 const W = {fontFamily:"system-ui,sans-serif",padding:"1.5rem",maxWidth:680,margin:"0 auto",color:DARK};
@@ -318,25 +330,47 @@ const [nadd,setNadd] = useState("");
   const [cdel,setCdel] = useState(null);
 
   useEffect(() => {
-  async function loadMentees() {
-    try {
-      const dbMentees = await getMenteesFromDB();
+    async function loadMentees() {
+      try {
+        const dbMentees = await getMenteesFromDB();
 
-      if (dbMentees.length > 0) {
-        setMentees(dbMentees);
-        saveMentees(dbMentees);
-      } else {
+        if (dbMentees.length > 0) {
+          setMentees(dbMentees);
+          saveMentees(dbMentees);
+        } else {
+          setMentees(getMentees());
+        }
+      } catch (error) {
+        console.error("Error cargando mentees:", error);
         setMentees(getMentees());
       }
-    } catch (error) {
-      console.error("Error cargando mentees:", error);
-      setMentees(getMentees());
     }
-  }
 
-  loadMentees();
+    async function finishGoogleRedirectLogin() {
+      const pendingGoogleLogin = sessionStorage.getItem("sol_google_redirect_pending");
 
-}, []);
+      if (!pendingGoogleLogin) return;
+
+      try {
+        const result = await getRedirectResult(auth);
+        const email = result?.user?.email || auth.currentUser?.email || "";
+
+        if (email) {
+          sessionStorage.removeItem("sol_google_redirect_pending");
+          await openSessionByEmail(email.toLowerCase());
+          return;
+        }
+      } catch (error) {
+        console.error("Error terminando ingreso con Google:", error);
+        sessionStorage.removeItem("sol_google_redirect_pending");
+        setLe("No se pudo terminar el ingreso con Google. Prueba con correo y contraseña.");
+      }
+    }
+
+    loadMentees();
+    finishGoogleRedirectLogin();
+
+  }, []);
 
   const doy = Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/(1000*60*60*24));
   const phrase = DAILY_PHRASES[doy%DAILY_PHRASES.length];
@@ -395,11 +429,19 @@ const [nadd,setNadd] = useState("");
     try {
       const provider = new GoogleAuthProvider();
       provider.setCustomParameters({ prompt: "select_account" });
+
+      if (isMobileDevice()) {
+        sessionStorage.setItem("sol_google_redirect_pending", "1");
+        await signInWithRedirect(auth, provider);
+        return;
+      }
+
       const result = await signInWithPopup(auth, provider);
       const email = result.user.email ? result.user.email.toLowerCase() : "";
       await openSessionByEmail(email);
     } catch (error) {
       console.error("Error ingresando con Google:", error);
+      sessionStorage.removeItem("sol_google_redirect_pending");
       setLe("No se pudo ingresar con Google. Prueba con correo y contraseña.");
     }
   }
@@ -429,6 +471,7 @@ const [nadd,setNadd] = useState("");
       console.error("Error cerrando sesión:", error);
     }
 
+    sessionStorage.removeItem("sol_google_redirect_pending");
     setUser(null);
     setView("login");
     setLu("");
