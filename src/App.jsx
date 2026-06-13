@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "./firebase";
 import {
   getMenteesFromDB,
@@ -306,9 +306,10 @@ export default function App() {
   const [mDay,setMDay] = useState(0);
   const [eWeek,setEWeek] = useState(null);
   const [eWi,setEWi] = useState(null);
-  const [nn,setNn] = useState("");
-  const [np,setNp] = useState("");
-  const [nadd,setNadd] = useState("");
+const [nn,setNn] = useState("");
+const [ne,setNe] = useState("");
+const [np,setNp] = useState("");
+const [nadd,setNadd] = useState("");
   const [cdel,setCdel] = useState(null);
 
   useEffect(() => {
@@ -338,12 +339,16 @@ export default function App() {
   if (lu === "sol") {
     try {
       await signInWithEmailAndPassword(auth, "solsempp@gmail.com", lp);
+      const dbMentees = await getMenteesFromDB();
+
       setUser({ id: "sol", name: "Sol Sempértegui", role: "mentor" });
       setLe("");
-      setMentees(getMentees());
+      setMentees(dbMentees);
+      saveMentees(dbMentees);
       setView("mentor");
       return;
     } catch (error) {
+      console.error("Error ingresando como Sol:", error);
       setLe("Contraseña incorrecta");
       return;
     }
@@ -388,23 +393,64 @@ export default function App() {
 }
    }
 
+  async function doGoogleLogin() {
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const email = result.user.email ? result.user.email.toLowerCase() : "";
+
+      const dbMentees = await getMenteesFromDB();
+      const m = dbMentees.find(x => x.email && x.email.toLowerCase() === email && x.active);
+
+      if (!m) {
+        setLe("Este correo no está registrado como mentee. Escríbele a Sol.");
+        return;
+      }
+
+      setUser({ ...m, role: "mentee" });
+      setLe("");
+      setMentees(dbMentees);
+      saveMentees(dbMentees);
+
+      let w = await getWeeksFromDB(m.id);
+
+      if (w.length === 0) {
+        w = [newWeek(1)];
+        await saveWeeksToDB(m.id, w);
+      }
+
+      const dbActiveWeek = await getActiveWeekFromDB(m.id);
+      const dbResponses = await getResponsesFromDB(m.id, dbActiveWeek);
+
+      setWeeks(w);
+      setAwi(dbActiveWeek);
+      setResps(dbResponses);
+      setDay(0);
+      setView("mentee");
+    } catch (error) {
+      console.error("Error ingresando con Google:", error);
+      setLe("No se pudo ingresar con Google.");
+    }
+  }
+
   function doLogout(){setUser(null);setView("login");setLu("");setLp("");setWeeks([]);setSelId(null);setMTab("list");}
 
   async function doAdd() {
-  if (!nn.trim() || !np.trim()) {
-    setNadd("Completa nombre y contraseña.");
-    return;
-  }
+ if (!nn.trim() || !ne.trim()) {
+  setNadd("Completa nombre y correo.");
+  return;
+}
 
   const id = "m_" + Date.now();
 
-  const newMentee = {
-    id,
-    name: nn.trim(),
-    pass: np.trim(),
-    active: true,
-    createdAt: new Date().toLocaleDateString("es-EC")
-  };
+const newMentee = {
+  id,
+  name: nn.trim(),
+  email: ne.trim().toLowerCase(),
+  pass: np.trim(),
+  active: true,
+  createdAt: new Date().toLocaleDateString("es-EC")
+};
 
   const initialWeeks = [newWeek(1)];
 
@@ -417,10 +463,11 @@ export default function App() {
     saveMentees(updatedMentees);
     setMentees(updatedMentees);
 
-    setNn("");
-    setNp("");
-    setNadd("");
-    setMTab("list");
+setNn("");
+setNe("");
+setNp("");
+setNadd("");
+setMTab("list");
   } catch (error) {
     console.error("Error guardando mentee:", error);
     setNadd("No se pudo guardar. Revisa Firebase.");
@@ -493,7 +540,7 @@ export default function App() {
 
   // ── LOGIN ──
   if(view==="login"){
-    const all=[{id:"sol",name:"Sol Sempértegui"},...getMentees().filter(m=>m.active)];
+    const all=[{id:"sol",name:"Sol Sempértegui"}];
     return (
       <div style={W}>
         <div style={{textAlign:"center",marginBottom:"2rem"}}>
@@ -516,6 +563,12 @@ export default function App() {
           </div>
           {le&&<p style={{color:CORAL,fontSize:13,margin:"0 0 12px"}}>{le}</p>}
           <button style={{...PB(),width:"100%"}} onClick={doLogin}>Ingresar</button>
+          <div style={{margin:"16px 0 10px",textAlign:"center",fontSize:12,color:"#aaa"}}>
+            Acceso para menteés
+          </div>
+          <button style={{...OB(NAVY),width:"100%",padding:"10px 20px"}} onClick={doGoogleLogin}>
+            Ingresar con Google
+          </button>
         </div>
       </div>
     );
@@ -673,6 +726,10 @@ export default function App() {
               <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Nombre completo</label>
               <input style={I} value={nn} onChange={e=>setNn(e.target.value)} placeholder="Ej: Ana García"/>
             </div>
+            <div style={{marginBottom:14}}>
+  <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Correo del mentee</label>
+  <input style={I} value={ne} onChange={e=>setNe(e.target.value)} placeholder="Ej: ana@gmail.com"/>
+</div>
             <div style={{marginBottom:16}}>
               <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Contraseña para el mentee</label>
               <input style={I} value={np} onChange={e=>setNp(e.target.value)} placeholder="Ej: ana2026"/>
