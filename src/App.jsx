@@ -306,10 +306,9 @@ export default function App() {
   const [mDay,setMDay] = useState(0);
   const [eWeek,setEWeek] = useState(null);
   const [eWi,setEWi] = useState(null);
-const [nn,setNn] = useState("");
-const [ne,setNe] = useState("");
-const [np,setNp] = useState("");
-const [nadd,setNadd] = useState("");
+  const [nn,setNn] = useState("");
+  const [np,setNp] = useState("");
+  const [nadd,setNadd] = useState("");
   const [cdel,setCdel] = useState(null);
 
   useEffect(() => {
@@ -392,21 +391,20 @@ const [nadd,setNadd] = useState("");
   function doLogout(){setUser(null);setView("login");setLu("");setLp("");setWeeks([]);setSelId(null);setMTab("list");}
 
   async function doAdd() {
- if (!nn.trim() || !ne.trim()) {
-  setNadd("Completa nombre y correo.");
-  return;
-}
+  if (!nn.trim() || !np.trim()) {
+    setNadd("Completa nombre y contraseña.");
+    return;
+  }
 
   const id = "m_" + Date.now();
 
-const newMentee = {
-  id,
-  name: nn.trim(),
-  email: ne.trim().toLowerCase(),
-  pass: np.trim(),
-  active: true,
-  createdAt: new Date().toLocaleDateString("es-EC")
-};
+  const newMentee = {
+    id,
+    name: nn.trim(),
+    pass: np.trim(),
+    active: true,
+    createdAt: new Date().toLocaleDateString("es-EC")
+  };
 
   const initialWeeks = [newWeek(1)];
 
@@ -419,11 +417,10 @@ const newMentee = {
     saveMentees(updatedMentees);
     setMentees(updatedMentees);
 
-setNn("");
-setNe("");
-setNp("");
-setNadd("");
-setMTab("list");
+    setNn("");
+    setNp("");
+    setNadd("");
+    setMTab("list");
   } catch (error) {
     console.error("Error guardando mentee:", error);
     setNadd("No se pudo guardar. Revisa Firebase.");
@@ -676,10 +673,6 @@ setMTab("list");
               <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Nombre completo</label>
               <input style={I} value={nn} onChange={e=>setNn(e.target.value)} placeholder="Ej: Ana García"/>
             </div>
-            <div style={{marginBottom:14}}>
-  <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Correo del mentee</label>
-  <input style={I} value={ne} onChange={e=>setNe(e.target.value)} placeholder="Ej: ana@gmail.com"/>
-</div>
             <div style={{marginBottom:16}}>
               <label style={{fontSize:13,color:"#666",display:"block",marginBottom:4}}>Contraseña para el mentee</label>
               <input style={I} value={np} onChange={e=>setNp(e.target.value)} placeholder="Ej: ana2026"/>
