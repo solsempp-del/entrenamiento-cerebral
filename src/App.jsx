@@ -111,6 +111,81 @@ const TEMPLATES = {
       {type:"libre",title:"Novedad del día",instructions:"¿Qué aprendiste hoy de ti mismo/a?",items:[]},
     ]}))
   },
+  graciela_m1_s1: {
+  name: "🧠 Graciela M1 S1",
+  label: "Mes 1 · Semana 1 · Registro y entrenamiento cerebral",
+  days: DAYS.map((d, i) => {
+    if (i > 3) return { day: d, exercises: [] };
+
+    const diario = [
+      {
+        type: "energia",
+        title: "Nivel de energía",
+        instructions: "Del 1 al 10, registra cómo estuvo tu energía hoy.",
+        items: []
+      },
+      {
+        type: "emocion",
+        title: "Estado emocional",
+        instructions: "Del 1 al 10, registra cómo estuvo tu estado emocional hoy.",
+        items: []
+      },
+      {
+        type: "libre",
+        title: "Registro diario",
+        instructions: "Escribe: día del ciclo menstrual, hora en que dormiste, hora en que despertaste, novedades del día y cualquier cosa que quieras contarme.",
+        items: []
+      }
+    ];
+
+    const entrenamiento = [
+      {
+        type: "enfoque",
+        title: "Atención y observación",
+        instructions: "Haz el ejercicio 5-4-3-2-1. Escribe 5 cosas que ves, 4 cosas que escuchas, 3 cosas que puedes tocar, 2 cosas que puedes oler y 1 cosa que agradeces. Luego escribe si te resultó fácil permanecer en el presente o si tu mente se fue a otros temas.",
+        items: []
+      },
+      {
+        type: "checklist",
+        title: "Reconocer patrones",
+        instructions: "Marca qué factores influyeron hoy en cómo te sentiste. Luego escribe cuál crees que influyó más.",
+        items: [
+          "Dormí bien",
+          "Dormí mal",
+          "Hice ejercicio",
+          "No hice ejercicio",
+          "Tuve estrés",
+          "Estuve tranquila",
+          "Compartí con alguien",
+          "Pasé mucho tiempo sola",
+          "Tuve dolor físico",
+          "Comí diferente"
+        ]
+      },
+      {
+        type: "gimnasia",
+        title: "Flexibilidad cognitiva",
+        instructions: "Piensa en una situación incómoda de hoy. Escribe tu primera interpretación y luego busca dos explicaciones alternativas. Observa si tu emoción cambia al mirar más de una posibilidad.",
+        items: [
+          "Identifiqué mi primera interpretación",
+          "Encontré una segunda explicación",
+          "Encontré una tercera explicación"
+        ]
+      },
+      {
+        type: "reflexion",
+        title: "Mi mapa cerebral de la semana",
+        instructions: "Completa estas frases: Esta semana tuve más energía cuando... Esta semana tuve menos energía cuando... Lo que más me ayudó fue... Lo que más me drenó fue... Algo que descubrí sobre mí fue...",
+        items: []
+      }
+    ];
+
+    return {
+      day: d,
+      exercises: [...diario, entrenamiento[i]]
+    };
+  })
+},
 };
 
 // ── Storage helpers ──────────────────────────────────────
