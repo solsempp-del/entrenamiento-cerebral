@@ -115,8 +115,6 @@ const TEMPLATES = {
   name: "🧠 Graciela M1 S1",
   label: "Mes 1 · Semana 1 · Registro y entrenamiento cerebral",
   days: DAYS.map((d, i) => {
-    if (i > 3) return { day: d, exercises: [] };
-
     const diario = [
       {
         type: "energia",
@@ -177,12 +175,25 @@ const TEMPLATES = {
         title: "Mi mapa cerebral de la semana",
         instructions: "Completa estas frases: Esta semana tuve más energía cuando... Esta semana tuve menos energía cuando... Lo que más me ayudó fue... Lo que más me drenó fue... Algo que descubrí sobre mí fue...",
         items: []
+      },
+      {
+        type: "reflexion",
+        title: "Cierre de entrenamiento semanal",
+        instructions: "Mira lo que trabajaste esta semana y responde: ¿qué patrón observaste en tu energía?, ¿qué herramienta te ayudó más?, ¿qué quieres seguir observando la próxima semana?",
+        items: []
       }
     ];
 
+    if (i <= 4) {
+      return {
+        day: d,
+        exercises: [...diario, entrenamiento[i]]
+      };
+    }
+
     return {
       day: d,
-      exercises: [...diario, entrenamiento[i]]
+      exercises: diario
     };
   })
 },
