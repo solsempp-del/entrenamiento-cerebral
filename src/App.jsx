@@ -198,232 +198,70 @@ const TEMPLATES = {
   })
 },
   {
-  id: "semana10",
-  titulo: "Semana 10 - Entrenamiento de Autocontrol e Impulsos",
-  objetivo: "Aprender a crear espacio entre el impulso y la acción, fortaleciendo la capacidad de elegir conscientemente en lugar de reaccionar automáticamente.",
-  dias: [
-    {
-      dia: 1,
-      titulo: "La Regla de los 20 Minutos",
-      contenido: `
-Cada vez que aparezca alguno de estos impulsos:
+  ,
+richard_autocontrol: {
+  name: "Richard · Autocontrol",
+  label: "Recta final · Autocontrol y continuidad",
+  days: DAYS.map((d, i) => {
+    const base = [
+      {
+        type: "energia",
+        title: "Nivel de energía",
+        instructions: "Marca tu nivel de energía hoy del 1 al 10.",
+        items: []
+      }
+    ];
 
-• Buscar una chica
-• Escribirle a alguien por impulso
-• Buscar conversación por aburrimiento
-• Buscar algo que te distraiga inmediatamente
+    const ejercicios = [
+      {
+        type: "conductual",
+        title: "Regla de los 20 minutos",
+        instructions: "Cuando aparezca una necesidad fuerte de buscar estímulo, compañía, conversación o contacto íntimo, no actúes de inmediato. Pon un temporizador de 20 minutos. Durante ese tiempo haz una actividad concreta: caminar, ordenar algo, ducharte, cocinar, leer o salir a comprar algo necesario. Después escribe si seguías queriendo hacer exactamente lo mismo.",
+        items: ["Puse el temporizador", "Esperé 20 minutos", "Hice otra actividad antes de decidir"]
+      },
+      {
+        type: "checklist",
+        title: "Qué necesitaba realmente",
+        instructions: "Cuando aparezca una necesidad fuerte de buscar algo externo, marca qué necesitabas realmente en ese momento.",
+        items: ["Descansar", "Compañía", "Diversión", "Contacto íntimo", "Cariño", "Conversar", "Sentirme importante", "Evitar pensar", "Otra cosa"]
+      },
+      {
+        type: "conductual",
+        title: "Dopamina sana",
+        instructions: "Haz una actividad que te dé satisfacción sin depender de otra persona: cocinar, leer, caminar, aprender algo, ordenar un espacio, escuchar algo útil o hacer ejercicio. Escribe qué hiciste y cómo cambió tu energía.",
+        items: ["Hice una actividad solo", "No dependí de otra persona", "Registré cómo me sentí después"]
+      },
+      {
+        type: "reto",
+        title: "Reinicio inmediato",
+        instructions: "Cuando te descubras procrastinando, acostado sin querer levantarte o negociando contigo mismo, di en voz alta 5, 4, 3, 2, 1 y empieza. No importa cuánto hagas. Solo empieza.",
+        items: ["Hice el conteo", "Me levanté o empecé", "Hice al menos una acción pequeña"]
+      },
+      {
+        type: "habito",
+        title: "La cadena no se rompe",
+        instructions: "Elige una sola actividad para sostener: leer, caminar, cocinar, ordenar o hacer ejercicio. No tiene que salir perfecto. Aunque hagas 5 minutos, cuenta. Lo importante es no romper la cadena.",
+        items: ["Hice algo, aunque fuera poco", "No abandoné por hacerlo imperfecto"]
+      },
+      {
+        type: "reflexion",
+        title: "Observación de continuidad",
+        instructions: "Escribe en qué momento te costó más sostener una decisión y qué hiciste para no abandonar por completo.",
+        items: []
+      },
+      {
+        type: "reflexion",
+        title: "Cierre de entrenamiento",
+        instructions: "Completa: Esta semana mis impulsos aparecieron más cuando... La estrategia que más me ayudó fue... Lo que necesito seguir entrenando es...",
+        items: []
+      }
+    ];
 
-NO lo hagas de inmediato.
-
-Primero pon un temporizador de 20 minutos.
-
-Durante esos 20 minutos realiza una sola actividad:
-
-• Caminar
-• Ordenar algo
-• Ducharte
-• Cocinar
-• Leer
-• Comprar algo que necesites
-
-Cuando termine el tiempo responde:
-¿Sigo queriendo hacer exactamente lo mismo?
-      `,
-      preguntas: [
-        {
-          tipo: "textarea",
-          pregunta: "¿Qué impulso apareció?"
-        },
-        {
-          tipo: "textarea",
-          pregunta: "¿Qué hiciste durante los 20 minutos?"
-        },
-        {
-          tipo: "radio",
-          pregunta: "Después de los 20 minutos, ¿seguías queriendo hacer exactamente lo mismo?",
-          opciones: ["Sí", "No", "Menos", "Más"]
-        }
-      ]
-    },
-
-    {
-      dia: 2,
-      titulo: "¿Qué necesito realmente?",
-      contenido: `
-Tres veces durante el día, cuando aparezca una necesidad fuerte de buscar algo externo, detente y pregúntate:
-
-¿Qué necesito realmente ahora?
-      `,
-      preguntas: [
-        {
-          tipo: "checkbox",
-          pregunta: "Marca lo que más necesitabas en ese momento",
-          opciones: [
-            "Descansar",
-            "Compañía",
-            "Diversión",
-            "Sexo",
-            "Cariño",
-            "Conversar",
-            "Sentirme importante",
-            "Evitar pensar",
-            "Otra cosa"
-          ]
-        },
-        {
-          tipo: "textarea",
-          pregunta: "¿Qué descubriste?"
-        }
-      ]
-    },
-
-    {
-      dia: 3,
-      titulo: "Dopamina Sana",
-      contenido: `
-Realiza una actividad que genere satisfacción sin depender de otra persona.
-
-Ejemplos:
-
-• Cocinar
-• Leer
-• Gimnasio
-• Aprender algo nuevo
-• Ordenar un espacio
-• Escuchar un podcast
-• Caminar
-      `,
-      preguntas: [
-        {
-          tipo: "number",
-          pregunta: "Nivel de energía antes (1-10)"
-        },
-        {
-          tipo: "number",
-          pregunta: "Nivel de energía después (1-10)"
-        },
-        {
-          tipo: "textarea",
-          pregunta: "¿Qué actividad realizaste?"
-        }
-      ]
-    },
-
-    {
-      dia: 4,
-      titulo: "Reinicio Inmediato",
-      contenido: `
-Cuando te descubras procrastinando, posponiendo algo o negociando contigo mismo:
-
-Di en voz alta:
-
-5
-4
-3
-2
-1
-
-Y empieza.
-
-No importa cuánto hagas.
-
-Solo empieza.
-      `,
-      preguntas: [
-        {
-          tipo: "textarea",
-          pregunta: "¿Qué actividad retomaste?"
-        },
-        {
-          tipo: "textarea",
-          pregunta: "¿Cómo te sentías antes de empezar?"
-        },
-        {
-          tipo: "textarea",
-          pregunta: "¿Cómo te sentías después?"
-        }
-      ]
-    },
-
-    {
-      dia: 5,
-      titulo: "La Cadena No Se Rompe",
-      contenido: `
-Elige UNA sola actividad para toda la semana.
-
-Puede ser:
-
-• Leer
-• Caminar
-• Cocinar
-• Gimnasio
-• Ordenar
-
-La meta no es hacerlo perfecto.
-
-La meta es NO romper la cadena.
-      `,
-      preguntas: [
-        {
-          tipo: "textarea",
-          pregunta: "¿Qué actividad elegiste?"
-        },
-        {
-          tipo: "radio",
-          pregunta: "¿La realizaste hoy?",
-          opciones: ["Sí", "No"]
-        },
-        {
-          tipo: "textarea",
-          pregunta: "¿Qué tan difícil fue mantener la continuidad?"
-        }
-      ]
-    },
-
-    {
-      dia: 6,
-      titulo: "Observando mi Patrón",
-      contenido: `
-Mira toda tu semana.
-
-No busques explicaciones complejas.
-
-Solo observa.
-      `,
-      preguntas: [
-        {
-          tipo: "textarea",
-          pregunta: "¿En qué momentos aparecieron más impulsos?"
-        },
-        {
-          tipo: "textarea",
-          pregunta: "¿Qué situaciones te hicieron más difícil sostener una decisión?"
-        }
-      ]
-    },
-
-    {
-      dia: 7,
-      titulo: "Reflexión Final",
-      contenido: `
-Completa las siguientes frases:
-      `,
-      preguntas: [
-        {
-          tipo: "textarea",
-          pregunta: "Esta semana descubrí que mis impulsos aparecen más cuando..."
-        },
-        {
-          tipo: "textarea",
-          pregunta: "La estrategia que más me ayudó fue..."
-        },
-        {
-          tipo: "textarea",
-          pregunta: "Lo que quiero seguir practicando la próxima semana es..."
-        }
-      ]
-    }
-  ]
+    return {
+      day: d,
+      exercises: [...base, ejercicios[i]]
+    };
+  })
 }
 };
 
