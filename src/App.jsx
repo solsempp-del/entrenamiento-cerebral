@@ -197,6 +197,234 @@ const TEMPLATES = {
     };
   })
 },
+  {
+  id: "semana10",
+  titulo: "Semana 10 - Entrenamiento de Autocontrol e Impulsos",
+  objetivo: "Aprender a crear espacio entre el impulso y la acción, fortaleciendo la capacidad de elegir conscientemente en lugar de reaccionar automáticamente.",
+  dias: [
+    {
+      dia: 1,
+      titulo: "La Regla de los 20 Minutos",
+      contenido: `
+Cada vez que aparezca alguno de estos impulsos:
+
+• Buscar una chica
+• Escribirle a alguien por impulso
+• Buscar conversación por aburrimiento
+• Buscar algo que te distraiga inmediatamente
+
+NO lo hagas de inmediato.
+
+Primero pon un temporizador de 20 minutos.
+
+Durante esos 20 minutos realiza una sola actividad:
+
+• Caminar
+• Ordenar algo
+• Ducharte
+• Cocinar
+• Leer
+• Comprar algo que necesites
+
+Cuando termine el tiempo responde:
+¿Sigo queriendo hacer exactamente lo mismo?
+      `,
+      preguntas: [
+        {
+          tipo: "textarea",
+          pregunta: "¿Qué impulso apareció?"
+        },
+        {
+          tipo: "textarea",
+          pregunta: "¿Qué hiciste durante los 20 minutos?"
+        },
+        {
+          tipo: "radio",
+          pregunta: "Después de los 20 minutos, ¿seguías queriendo hacer exactamente lo mismo?",
+          opciones: ["Sí", "No", "Menos", "Más"]
+        }
+      ]
+    },
+
+    {
+      dia: 2,
+      titulo: "¿Qué necesito realmente?",
+      contenido: `
+Tres veces durante el día, cuando aparezca una necesidad fuerte de buscar algo externo, detente y pregúntate:
+
+¿Qué necesito realmente ahora?
+      `,
+      preguntas: [
+        {
+          tipo: "checkbox",
+          pregunta: "Marca lo que más necesitabas en ese momento",
+          opciones: [
+            "Descansar",
+            "Compañía",
+            "Diversión",
+            "Sexo",
+            "Cariño",
+            "Conversar",
+            "Sentirme importante",
+            "Evitar pensar",
+            "Otra cosa"
+          ]
+        },
+        {
+          tipo: "textarea",
+          pregunta: "¿Qué descubriste?"
+        }
+      ]
+    },
+
+    {
+      dia: 3,
+      titulo: "Dopamina Sana",
+      contenido: `
+Realiza una actividad que genere satisfacción sin depender de otra persona.
+
+Ejemplos:
+
+• Cocinar
+• Leer
+• Gimnasio
+• Aprender algo nuevo
+• Ordenar un espacio
+• Escuchar un podcast
+• Caminar
+      `,
+      preguntas: [
+        {
+          tipo: "number",
+          pregunta: "Nivel de energía antes (1-10)"
+        },
+        {
+          tipo: "number",
+          pregunta: "Nivel de energía después (1-10)"
+        },
+        {
+          tipo: "textarea",
+          pregunta: "¿Qué actividad realizaste?"
+        }
+      ]
+    },
+
+    {
+      dia: 4,
+      titulo: "Reinicio Inmediato",
+      contenido: `
+Cuando te descubras procrastinando, posponiendo algo o negociando contigo mismo:
+
+Di en voz alta:
+
+5
+4
+3
+2
+1
+
+Y empieza.
+
+No importa cuánto hagas.
+
+Solo empieza.
+      `,
+      preguntas: [
+        {
+          tipo: "textarea",
+          pregunta: "¿Qué actividad retomaste?"
+        },
+        {
+          tipo: "textarea",
+          pregunta: "¿Cómo te sentías antes de empezar?"
+        },
+        {
+          tipo: "textarea",
+          pregunta: "¿Cómo te sentías después?"
+        }
+      ]
+    },
+
+    {
+      dia: 5,
+      titulo: "La Cadena No Se Rompe",
+      contenido: `
+Elige UNA sola actividad para toda la semana.
+
+Puede ser:
+
+• Leer
+• Caminar
+• Cocinar
+• Gimnasio
+• Ordenar
+
+La meta no es hacerlo perfecto.
+
+La meta es NO romper la cadena.
+      `,
+      preguntas: [
+        {
+          tipo: "textarea",
+          pregunta: "¿Qué actividad elegiste?"
+        },
+        {
+          tipo: "radio",
+          pregunta: "¿La realizaste hoy?",
+          opciones: ["Sí", "No"]
+        },
+        {
+          tipo: "textarea",
+          pregunta: "¿Qué tan difícil fue mantener la continuidad?"
+        }
+      ]
+    },
+
+    {
+      dia: 6,
+      titulo: "Observando mi Patrón",
+      contenido: `
+Mira toda tu semana.
+
+No busques explicaciones complejas.
+
+Solo observa.
+      `,
+      preguntas: [
+        {
+          tipo: "textarea",
+          pregunta: "¿En qué momentos aparecieron más impulsos?"
+        },
+        {
+          tipo: "textarea",
+          pregunta: "¿Qué situaciones te hicieron más difícil sostener una decisión?"
+        }
+      ]
+    },
+
+    {
+      dia: 7,
+      titulo: "Reflexión Final",
+      contenido: `
+Completa las siguientes frases:
+      `,
+      preguntas: [
+        {
+          tipo: "textarea",
+          pregunta: "Esta semana descubrí que mis impulsos aparecen más cuando..."
+        },
+        {
+          tipo: "textarea",
+          pregunta: "La estrategia que más me ayudó fue..."
+        },
+        {
+          tipo: "textarea",
+          pregunta: "Lo que quiero seguir practicando la próxima semana es..."
+        }
+      ]
+    }
+  ]
+}
 };
 
 // ── Storage helpers ──────────────────────────────────────
