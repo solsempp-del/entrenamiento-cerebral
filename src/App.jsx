@@ -431,7 +431,7 @@ function PlanEditor({plan,onChange,onSave,onCancel,onTemplate}) {
       </div>
       {plan.days.map((d,di)=>(
         <div key={di} style={C}>
-          <p style={{fontWeight:500,fontSize:14,margin:"0 0 10px",color:NAVY}}>{d.day}</p>
+          <p style={{fontWeight:500,fontSize:14,margin:"0 0 10px",color:NAVY}}>{`Día ${di + 1}`}</p>
           {d.exercises.map((ex,ei)=>(
             <div key={ei} style={{borderLeft:"2px solid "+CORAL,paddingLeft:12,marginBottom:12}}>
               <div style={{display:"flex",gap:8,marginBottom:6,alignItems:"center",flexWrap:"wrap"}}>
@@ -817,10 +817,10 @@ const [createdInfo,setCreatedInfo] = useState(null);
         <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:"1.25rem"}}>
           {week.days.map((d,i)=>{
             const done=d.exercises.length>0&&d.exercises.every((_,ei)=>resps[i]&&resps[i][ei]);
-            return <button key={i} style={DB(day===i)} onClick={()=>setDay(i)}>{d.day.slice(0,3)}{done?" ✓":""}</button>;
+            return <button key={i} style={DB(day===i)} onClick={()=>setDay(i)}>{`Día ${i + 1}`}{done?" ✓":""}</button>;
           })}
         </div>
-        <h3 style={{fontSize:15,fontWeight:500,color:NAVY,margin:"0 0 1rem"}}>{dp.day}</h3>
+        <h3 style={{fontSize:15,fontWeight:500,color:NAVY,margin:"0 0 1rem"}}>{`Día ${day + 1}`}</h3>
         {dp.exercises.length===0
           ?<div style={{...C,textAlign:"center",color:"#888"}}>Día libre 🌿 Descansa y recarga.</div>
           :dp.exercises.map((ex,ei)=>(
@@ -1005,7 +1005,7 @@ const [createdInfo,setCreatedInfo] = useState(null);
             {sTab==="resp"&&curW&&(
               <div>
                 <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:"1rem"}}>
-                  {curW.days.map((d,i)=><button key={i} style={DB(mDay===i)} onClick={()=>setMDay(i)}>{d.day.slice(0,3)}</button>)}
+                  {curW.days.map((d,i)=><button key={i} style={DB(mDay===i)} onClick={()=>setMDay(i)}>{`Día ${i + 1}`}</button>)}
                 </div>
                 {curW.days[mDay].exercises.length===0
                   ?<div style={{...C,textAlign:"center",color:"#888"}}>Día libre</div>
