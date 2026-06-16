@@ -79,188 +79,237 @@ const CLOSE_OPTS = [
 ];
 
 const TEMPLATES = {
-  regulacion: {
-    name:"🧘 Regulación emocional", label:"Semana de Regulación Emocional",
-    days: DAYS.map((d,i) => ({ day:d, exercises: i===6 ? [] : [
-      {type:"energia",title:"¿Cómo amaneces?",instructions:"Selecciona tu nivel de energía al inicio del día.",items:[]},
-      {type:"respiracion",title:"Respiración 4-7-8",instructions:"Inhala 4s, sostén 7s, exhala 8s. Repite 4 veces.",items:["Lo practiqué hoy"]},
-      {type:"libre",title:"¿Cómo te vas?",instructions:"Cuéntame cómo terminaste el día.",items:[]},
-    ]}))
-  },
-  enfoque: {
-    name:"🔍 Enfoque y claridad", label:"Semana de Enfoque y Claridad",
-    days: DAYS.map((d,i) => ({ day:d, exercises: i===6 ? [] : [
-      {type:"energia",title:"Nivel de energía",instructions:"¿Cómo está tu energía para concentrarte?",items:[]},
-      {type:"enfoque",title:"Bloque de enfoque",instructions:"Elige UNA tarea y trabájala 25 min sin interrupciones.",items:["Completé el bloque"]},
-      {type:"checklist",title:"Check del día",instructions:"¿Cómo estuvo tu concentración?",items:["Evité distracciones","Completé mi tarea","Hice pausas"]},
-    ]}))
-  },
-  habitos: {
-    name:"📌 Hábitos y constancia", label:"Semana de Hábitos",
-    days: DAYS.map((d,i) => ({ day:d, exercises: i===6 ? [] : [
-      {type:"habito",title:"Seguimiento de hábitos",instructions:"¿Cumpliste tus hábitos?",items:["Hábito 1","Hábito 2","Hábito 3"]},
-      {type:"gimnasia",title:"Gimnasia cerebral",instructions:"5 min de sudoku, memorización o lectura activa.",items:["Lo hice hoy"]},
-      {type:"reflexion",title:"Reflexión de cierre",instructions:"¿Qué hábito te costó más hoy?",items:[]},
-    ]}))
-  },
-  rendimiento: {
-    name:"🚀 Rendimiento y logros", label:"Semana de Rendimiento",
-    days: DAYS.map((d,i) => ({ day:d, exercises: i===6 ? [] : [
-      {type:"energia",title:"Energía de arranque",instructions:"¿Con cuánta energía inicias?",items:[]},
-      {type:"reto",title:"Reto del día",instructions:"Sal de tu zona de confort en algo concreto.",items:["Acepté el reto","Lo completé"]},
-      {type:"libre",title:"Novedad del día",instructions:"¿Qué aprendiste hoy de ti mismo/a?",items:[]},
-    ]}))
-  },
   graciela_m1_s1: {
-  name: "🧠 Graciela M1 S1",
-  label: "Mes 1 · Semana 1 · Registro y entrenamiento cerebral",
-  days: DAYS.map((d, i) => {
-    const diario = [
-      {
-        type: "energia",
-        title: "Nivel de energía",
-        instructions: "Del 1 al 10, registra cómo estuvo tu energía hoy.",
-        items: []
-      },
-      {
-        type: "emocion",
-        title: "Estado emocional",
-        instructions: "Del 1 al 10, registra cómo estuvo tu estado emocional hoy.",
-        items: []
-      },
-      {
-        type: "libre",
-        title: "Registro diario",
-        instructions: "Escribe: día del ciclo menstrual, hora en que dormiste, hora en que despertaste, novedades del día y cualquier cosa que quieras contarme.",
-        items: []
-      }
-    ];
+    name: "🧠 Graciela M1 S1",
+    label: "Mes 1 · Semana 1 · Registro y entrenamiento cerebral",
+    days: DAYS.map((d, i) => {
+      const diario = [
+        {
+          type: "energia",
+          title: "Nivel de energía",
+          instructions: "Del 1 al 10, registra cómo estuvo tu energía hoy.",
+          items: []
+        },
+        {
+          type: "emocion",
+          title: "Estado emocional",
+          instructions: "Del 1 al 10, registra cómo estuvo tu estado emocional hoy.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Registro diario",
+          instructions: "Escribe: día del ciclo menstrual, hora en que dormiste, hora en que despertaste, novedades del día y cualquier cosa que quieras contarme.",
+          items: []
+        }
+      ];
 
-    const entrenamiento = [
-      {
-        type: "enfoque",
-        title: "Atención y observación",
-        instructions: "Haz el ejercicio 5-4-3-2-1. Escribe 5 cosas que ves, 4 cosas que escuchas, 3 cosas que puedes tocar, 2 cosas que puedes oler y 1 cosa que agradeces. Luego escribe si te resultó fácil permanecer en el presente o si tu mente se fue a otros temas.",
-        items: []
-      },
-      {
-        type: "checklist",
-        title: "Reconocer patrones",
-        instructions: "Marca qué factores influyeron hoy en cómo te sentiste. Luego escribe cuál crees que influyó más.",
-        items: [
-          "Dormí bien",
-          "Dormí mal",
-          "Hice ejercicio",
-          "No hice ejercicio",
-          "Tuve estrés",
-          "Estuve tranquila",
-          "Compartí con alguien",
-          "Pasé mucho tiempo sola",
-          "Tuve dolor físico",
-          "Comí diferente"
-        ]
-      },
-      {
-        type: "gimnasia",
-        title: "Flexibilidad cognitiva",
-        instructions: "Piensa en una situación incómoda de hoy. Escribe tu primera interpretación y luego busca dos explicaciones alternativas. Observa si tu emoción cambia al mirar más de una posibilidad.",
-        items: [
-          "Identifiqué mi primera interpretación",
-          "Encontré una segunda explicación",
-          "Encontré una tercera explicación"
-        ]
-      },
-      {
-        type: "reflexion",
-        title: "Mi mapa cerebral de la semana",
-        instructions: "Completa estas frases: Esta semana tuve más energía cuando... Esta semana tuve menos energía cuando... Lo que más me ayudó fue... Lo que más me drenó fue... Algo que descubrí sobre mí fue...",
-        items: []
-      },
-      {
-        type: "reflexion",
-        title: "Cierre de entrenamiento semanal",
-        instructions: "Mira lo que trabajaste esta semana y responde: ¿qué patrón observaste en tu energía?, ¿qué herramienta te ayudó más?, ¿qué quieres seguir observando la próxima semana?",
-        items: []
-      }
-    ];
+      const entrenamiento = [
+        {
+          type: "enfoque",
+          title: "Atención y observación",
+          instructions: "Haz el ejercicio 5-4-3-2-1. Escribe 5 cosas que ves, 4 cosas que escuchas, 3 cosas que puedes tocar, 2 cosas que puedes oler y 1 cosa que agradeces. Luego escribe si te resultó fácil permanecer en el presente o si tu mente se fue a otros temas.",
+          items: []
+        },
+        {
+          type: "checklist",
+          title: "Reconocer patrones",
+          instructions: "Marca qué factores influyeron hoy en cómo te sentiste. Luego escribe cuál crees que influyó más.",
+          items: [
+            "Dormí bien",
+            "Dormí mal",
+            "Hice ejercicio",
+            "No hice ejercicio",
+            "Tuve estrés",
+            "Estuve tranquila",
+            "Compartí con alguien",
+            "Pasé mucho tiempo sola",
+            "Tuve dolor físico",
+            "Comí diferente"
+          ]
+        },
+        {
+          type: "gimnasia",
+          title: "Flexibilidad cognitiva",
+          instructions: "Piensa en una situación incómoda de hoy. Escribe tu primera interpretación y luego busca dos explicaciones alternativas. Observa si tu emoción cambia al mirar más de una posibilidad.",
+          items: [
+            "Identifiqué mi primera interpretación",
+            "Encontré una segunda explicación",
+            "Encontré una tercera explicación"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "Mi mapa cerebral de la semana",
+          instructions: "Completa estas frases: Esta semana tuve más energía cuando... Esta semana tuve menos energía cuando... Lo que más me ayudó fue... Lo que más me drenó fue... Algo que descubrí sobre mí fue...",
+          items: []
+        },
+        {
+          type: "reflexion",
+          title: "Cierre de entrenamiento semanal",
+          instructions: "Mira lo que trabajaste esta semana y responde: ¿qué patrón observaste en tu energía?, ¿qué herramienta te ayudó más?, ¿qué quieres seguir observando la próxima semana?",
+          items: []
+        }
+      ];
 
-    if (i <= 4) {
+      if (i <= 4) {
+        return {
+          day: d,
+          exercises: [...diario, entrenamiento[i]]
+        };
+      }
+
       return {
         day: d,
-        exercises: [...diario, entrenamiento[i]]
+        exercises: diario
       };
-    }
+    })
+  },
 
-    return {
-      day: d,
-      exercises: diario
-    };
-  })
-},
-richard_autocontrol: {
-  name: "Richard · Autocontrol",
-  label: "Recta final · Autocontrol y continuidad",
-  days: DAYS.map((d, i) => {
-    const base = [
-      {
-        type: "energia",
-        title: "Nivel de energía",
-        instructions: "Marca tu nivel de energía hoy del 1 al 10.",
-        items: []
-      }
-    ];
+  richard_autocontrol: {
+    name: "Richard · Autocontrol",
+    label: "Recta final · Autocontrol y continuidad",
+    days: DAYS.map((d, i) => {
+      const base = [
+        {
+          type: "energia",
+          title: "Nivel de energía",
+          instructions: "Marca tu nivel de energía hoy del 1 al 10.",
+          items: []
+        }
+      ];
 
-    const ejercicios = [
-      {
-        type: "conductual",
-        title: "Regla de los 20 minutos",
-        instructions: "Cuando aparezca una necesidad fuerte de buscar estímulo, compañía, conversación o contacto íntimo, no actúes de inmediato. Pon un temporizador de 20 minutos. Durante ese tiempo haz una actividad concreta: caminar, ordenar algo, ducharte, cocinar, leer o salir a comprar algo necesario. Después escribe si seguías queriendo hacer exactamente lo mismo.",
-        items: ["Puse el temporizador", "Esperé 20 minutos", "Hice otra actividad antes de decidir"]
-      },
-      {
-        type: "checklist",
-        title: "Qué necesitaba realmente",
-        instructions: "Cuando aparezca una necesidad fuerte de buscar algo externo, marca qué necesitabas realmente en ese momento.",
-        items: ["Descansar", "Compañía", "Diversión", "Contacto íntimo", "Cariño", "Conversar", "Sentirme importante", "Evitar pensar", "Otra cosa"]
-      },
-      {
-        type: "conductual",
-        title: "Dopamina sana",
-        instructions: "Haz una actividad que te dé satisfacción sin depender de otra persona: cocinar, leer, caminar, aprender algo, ordenar un espacio, escuchar algo útil o hacer ejercicio. Escribe qué hiciste y cómo cambió tu energía.",
-        items: ["Hice una actividad solo", "No dependí de otra persona", "Registré cómo me sentí después"]
-      },
-      {
-        type: "reto",
-        title: "Reinicio inmediato",
-        instructions: "Cuando te descubras procrastinando, acostado sin querer levantarte o negociando contigo mismo, di en voz alta 5, 4, 3, 2, 1 y empieza. No importa cuánto hagas. Solo empieza.",
-        items: ["Hice el conteo", "Me levanté o empecé", "Hice al menos una acción pequeña"]
-      },
-      {
-        type: "habito",
-        title: "La cadena no se rompe",
-        instructions: "Elige una sola actividad para sostener: leer, caminar, cocinar, ordenar o hacer ejercicio. No tiene que salir perfecto. Aunque hagas 5 minutos, cuenta. Lo importante es no romper la cadena.",
-        items: ["Hice algo, aunque fuera poco", "No abandoné por hacerlo imperfecto"]
-      },
-      {
-        type: "reflexion",
-        title: "Observación de continuidad",
-        instructions: "Escribe en qué momento te costó más sostener una decisión y qué hiciste para no abandonar por completo.",
-        items: []
-      },
-      {
-        type: "reflexion",
-        title: "Cierre de entrenamiento",
-        instructions: "Completa: Esta semana mis impulsos aparecieron más cuando... La estrategia que más me ayudó fue... Lo que necesito seguir entrenando es...",
-        items: []
-      }
-    ];
+      const ejercicios = [
+        {
+          type: "conductual",
+          title: "Regla de los 20 minutos",
+          instructions: "Cuando aparezca una necesidad fuerte de buscar estímulo, compañía, conversación o contacto íntimo, no actúes de inmediato. Pon un temporizador de 20 minutos. Durante ese tiempo haz una actividad concreta: caminar, ordenar algo, ducharte, cocinar, leer o salir a comprar algo necesario. Después escribe si seguías queriendo hacer exactamente lo mismo.",
+          items: ["Puse el temporizador", "Esperé 20 minutos", "Hice otra actividad antes de decidir"]
+        },
+        {
+          type: "checklist",
+          title: "Qué necesitaba realmente",
+          instructions: "Cuando aparezca una necesidad fuerte de buscar algo externo, marca qué necesitabas realmente en ese momento.",
+          items: ["Descansar", "Compañía", "Diversión", "Contacto íntimo", "Cariño", "Conversar", "Sentirme importante", "Evitar pensar", "Otra cosa"]
+        },
+        {
+          type: "conductual",
+          title: "Dopamina sana",
+          instructions: "Haz una actividad que te dé satisfacción sin depender de otra persona: cocinar, leer, caminar, aprender algo, ordenar un espacio, escuchar algo útil o hacer ejercicio. Escribe qué hiciste y cómo cambió tu energía.",
+          items: ["Hice una actividad solo", "No dependí de otra persona", "Registré cómo me sentí después"]
+        },
+        {
+          type: "reto",
+          title: "Reinicio inmediato",
+          instructions: "Cuando te descubras procrastinando, acostado sin querer levantarte o negociando contigo mismo, di en voz alta 5, 4, 3, 2, 1 y empieza. No importa cuánto hagas. Solo empieza.",
+          items: ["Hice el conteo", "Me levanté o empecé", "Hice al menos una acción pequeña"]
+        },
+        {
+          type: "habito",
+          title: "La cadena no se rompe",
+          instructions: "Elige una sola actividad para sostener: leer, caminar, cocinar, ordenar o hacer ejercicio. No tiene que salir perfecto. Aunque hagas 5 minutos, cuenta. Lo importante es no romper la cadena.",
+          items: ["Hice algo, aunque fuera poco", "No abandoné por hacerlo imperfecto"]
+        },
+        {
+          type: "reflexion",
+          title: "Observación de continuidad",
+          instructions: "Escribe en qué momento te costó más sostener una decisión y qué hiciste para no abandonar por completo.",
+          items: []
+        },
+        {
+          type: "reflexion",
+          title: "Cierre de entrenamiento",
+          instructions: "Completa: Esta semana mis impulsos aparecieron más cuando... La estrategia que más me ayudó fue... Lo que necesito seguir entrenando es...",
+          items: []
+        }
+      ];
 
-    return {
-      day: d,
-      exercises: [...base, ejercicios[i]]
-    };
-  })
-}
+      return {
+        day: d,
+        exercises: [...base, ejercicios[i]]
+      };
+    })
+  },
+
+  maria_elena_cierre1_vision: {
+    name: "María Elena · Cierre 1 · Visión de futuro",
+    label: "Semana de cierre 1 · Recuperar visión de futuro",
+    days: DAYS.map((d, i) => {
+      const base = [
+        {
+          type: "energia",
+          title: "Nivel de energía",
+          instructions: "Del 1 al 10, registra cómo estuvo tu energía hoy.",
+          items: []
+        },
+        {
+          type: "checklist",
+          title: "Modo del día",
+          instructions: "Marca cómo sentiste que funcionó más tu mente hoy.",
+          items: ["Modo máquina", "Modo barca"]
+        }
+      ];
+
+      const ejercicios = [
+        {
+          type: "libre",
+          title: "Lo que extraño de mí",
+          instructions: "Piensa en ti más allá de resolver y sostener. ¿Qué parte de ti extrañas y te gustaría volver a sentir más viva? Al final escribe una sola frase con lo que más te sorprendió descubrir.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Lo que todavía me da ilusión",
+          instructions: "No pienses en deberes ni en metas útiles. Piensa en ilusión. ¿Qué cosas todavía te dan ilusión, curiosidad o ganas, aunque sean pequeñas? Luego responde: ¿qué me dice esto sobre mí hoy?",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Si mi vida no fuera solo resolver",
+          instructions: "Imagina por un momento que tu vida no gira solo alrededor de sostener lo urgente. Si tu vida no fuera solo resolver, ¿qué espacio te gustaría recuperar? Luego escribe si hoy sientes ese espacio lejos o cerca.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "La mujer que quiero ver más viva",
+          instructions: "No respondas desde lo correcto. Responde desde lo que sí quieres ver crecer. ¿Qué versión de ti quieres ver más viva de aquí a seis meses? Luego escribe tres palabras que describan a esa mujer.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Lo que Dios podría estar despertando",
+          instructions: "Mira esta etapa no solo como cansancio, sino como transición. Si Dios estuviera abriendo una etapa nueva en ti, ¿qué podría estar queriendo despertar? Luego escribe: ¿qué parte de esto me da paz y qué parte me da miedo?",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Lo que ya no quiero seguir sosteniendo igual",
+          instructions: "A veces no aparece futuro porque todo el espacio está ocupado por lo que sigues cargando. ¿Qué ya no quieres seguir sosteniendo de la misma manera? Luego responde: ¿qué tendría que cambiar para empezar a soltarlo?",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Primer retrato de mi futuro",
+          instructions: "No busques perfección. Solo junta lo que apareció esta semana. Después de esta semana, ¿cómo se ve hoy tu futuro un poco más claro? Completa también esta frase: Lo que más necesito recordar de mí en esta nueva etapa es...",
+          items: []
+        }
+      ];
+
+      const cierre = [
+        {
+          type: "habito",
+          title: "Pausa corporal",
+          instructions: "Si sentiste presión en la garganta o tensión interna, aplica tu protocolo: respirar, cambiar de ambiente o caminar un poco. Marca si lo hiciste hoy.",
+          items: ["Hice mi pausa corporal hoy"]
+        }
+      ];
+
+      return {
+        day: d,
+        exercises: [...base, ejercicios[i], ...cierre]
+      };
+    })
+  }
 };
 
 // ── Storage helpers ──────────────────────────────────────
