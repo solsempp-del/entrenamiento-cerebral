@@ -20,7 +20,7 @@ const BEIGE = "#d6c7b1";
 const DARK = "#333333";
 const ADMIN_EMAIL = "solsempp@gmail.com";
 
-const DAYS = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
+const DAYS = ["Día 1","Día 2","Día 3","Día 4","Día 5","Día 6","Día 7"];
 
 const EX_TYPES = {
   respiracion:{ label:"Respiración", icon:"🌬️" },
