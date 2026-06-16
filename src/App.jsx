@@ -197,8 +197,6 @@ const TEMPLATES = {
     };
   })
 },
-  {
-  ,
 richard_autocontrol: {
   name: "Richard · Autocontrol",
   label: "Recta final · Autocontrol y continuidad",
