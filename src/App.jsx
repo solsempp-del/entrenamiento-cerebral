@@ -307,8 +307,9 @@ const TEMPLATES = {
       return {
         day: d,
         exercises: [...base, ejercicios[i], ...cierre]
-      };
+     };
     })
+  },
   guillermo_dinero_adulto: {
     name: "Guillermo · Dinero adulto",
     label: "Semana 17 · Dinero adulto y decisiones con criterio",
@@ -479,7 +480,8 @@ const TEMPLATES = {
         exercises: base
       };
     })
-  },
+  }
+};
 
 // ── Storage helpers ──────────────────────────────────────
 function getMentees() { try { return JSON.parse(localStorage.getItem("sol_mentees")||"[]"); } catch { return []; } }
