@@ -309,8 +309,177 @@ const TEMPLATES = {
         exercises: [...base, ejercicios[i], ...cierre]
       };
     })
-  }
-};
+  guillermo_dinero_adulto: {
+    name: "Guillermo · Dinero adulto",
+    label: "Semana 17 · Dinero adulto y decisiones con criterio",
+    welcome: "Esta semana vas a registrar qué entra, qué gastas y desde qué parte de ti decides: adulto, ansiedad, vacío, cansancio o impulso.",
+    closing: "Semana cerrada. Lo importante no es que haya salido perfecto, sino que hayas podido mirar tus decisiones con más honestidad.",
+    days: DAYS.map((d, i) => {
+      const enfoque = [
+        "Día 1: Observar sin juzgar. Hoy solo registra qué pasa con tu dinero.",
+        "Día 2: Identificar. Mira si gastaste desde adulto o desde impulso.",
+        "Día 3: Separar. Si entra dinero, divídelo en esencial, inversión en mí y placer con límite.",
+        "Día 4: Frenar. Usa la regla de 24 horas si aparece un gasto emocional.",
+        "Día 5: Salidas. Si sales, define antes cuánto gastas, cuánto tomas y cómo regresas.",
+        "Día 6: Reparar. Si hubo gasto rojo, escribe qué harás diferente la próxima vez.",
+        "Día 7: Cierre. Revisa cuál fue tu color dominante de la semana."
+      ];
+
+      const base = [
+        {
+          type: "energia",
+          title: "Energía de hoy",
+          instructions: "Del 1 al 10, registra cómo está tu energía hoy.",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Guillermo adulto",
+          instructions: "Del 1 al 10, registra qué tan adulto te sentiste hoy en tus decisiones.",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Control de decisiones",
+          instructions: "Del 1 al 10, registra cuánto control sentiste hoy sobre tus decisiones.",
+          items: []
+        },
+        {
+          type: "checklist",
+          title: "Movimiento de dinero",
+          instructions: "Marca lo que pasó hoy. Luego escribe cuánto entró, cuánto gastaste y en qué.",
+          items: [
+            "Entró dinero hoy",
+            "Gasté dinero hoy",
+            "No gasté dinero hoy",
+            "Separé algo antes de gastar",
+            "Gasté sin pensarlo"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Tipo de gasto",
+          instructions: "Si gastaste hoy, marca el color del gasto principal. Verde construye tu vida. Amarillo depende de tu estado interno. Rojo fue impulso o te costó autocontrol.",
+          items: [
+            "Verde: construye mi vida",
+            "Amarillo: depende de mi estado interno",
+            "Rojo: fue impulso o me costó autocontrol"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "¿En qué gasté?",
+          instructions: "Marca el gasto principal de hoy.",
+          items: [
+            "Comida U",
+            "Salidas",
+            "Alcohol",
+            "Cigarrillo",
+            "Transporte",
+            "Ayuda a otra persona",
+            "Universidad",
+            "Perro",
+            "Ahorro",
+            "Libros o crecimiento",
+            "Gusto pequeño",
+            "Otro"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "¿Desde dónde decidí?",
+          instructions: "Marca desde qué parte de ti salió la decisión principal de gasto o no gasto.",
+          items: [
+            "Adulto",
+            "Hambre real",
+            "Ansiedad",
+            "Vacío",
+            "Cansancio",
+            "Tristeza",
+            "Presión de otros",
+            "Impulso",
+            "Quería sentirme libre"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "¿Qué me dio y qué me costó?",
+          instructions: "Marca lo que te dio ese gasto y lo que te costó después.",
+          items: [
+            "Me dio calma",
+            "Me dio placer",
+            "Me hizo sentir vivo",
+            "Me dio seguridad",
+            "Me dio claridad",
+            "Me ayudó a evitar sentir algo",
+            "Me costó dinero",
+            "Me costó cansancio",
+            "Me costó culpa",
+            "Me costó jaqueca",
+            "Me costó ocultar algo",
+            "Me costó trasnochada",
+            "Me costó perder control",
+            "No me costó nada importante"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Regla de 24 horas",
+          instructions: "Si el gasto no era urgente, no era necesario y nació de una emoción fuerte, debía esperar 24 horas. Marca qué pasó.",
+          items: [
+            "No tuve gasto emocional",
+            "Esperé antes de decidir",
+            "Pedí tiempo para decidir",
+            "Gasté igual",
+            "Todavía lo estoy pensando"
+          ]
+        },
+        {
+          type: "libre",
+          title: enfoque[i],
+          instructions: "Escribe una frase corta. Puede ser: cuánto entró, cuánto gastaste, cuál fue el color del día o qué harías diferente la próxima vez.",
+          items: []
+        }
+      ];
+
+      if (i === 6) {
+        return {
+          day: d,
+          exercises: [
+            ...base,
+            {
+              type: "checklist",
+              title: "Cierre semanal",
+              instructions: "Marca el resumen de tu semana.",
+              items: [
+                "Mi color dominante fue verde",
+                "Mi color dominante fue amarillo",
+                "Mi color dominante fue rojo",
+                "Mi gasto más adulto fue claro",
+                "Identifiqué mi gasto más impulsivo",
+                "Necesito repetir la regla de 24 horas",
+                "Necesito cuidar salidas",
+                "Necesito cuidar cigarrillo",
+                "Necesito cuidar ayudas económicas",
+                "Necesito separar dinero antes de gastar"
+              ]
+            },
+            {
+              type: "reflexion",
+              title: "Frase final de la semana",
+              instructions: "Completa: Esta semana aprendí que mi dinero... La próxima semana necesito cuidar... Mi frase para decidir mejor es...",
+              items: []
+            }
+          ]
+        };
+      }
+
+      return {
+        day: d,
+        exercises: base
+      };
+    })
+  },
 
 // ── Storage helpers ──────────────────────────────────────
 function getMentees() { try { return JSON.parse(localStorage.getItem("sol_mentees")||"[]"); } catch { return []; } }
