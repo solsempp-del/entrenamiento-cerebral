@@ -481,12 +481,12 @@ const TEMPLATES = {
       };
     })
   },
-  {
-  title: "Semana App 1 – Volver al cuerpo",
-  description: `Esta semana no vamos a hacer cuaderno largo.
+ letty_volver_cuerpo_app1: {
+  name: "Letty · Volver al cuerpo",
+  label: "Semana App 1 · Volver al cuerpo y sostener continuidad",
+  welcome: `Esta semana no vamos a hacer cuaderno largo.
 
 Solo quiero que registres algo muy simple cada día:
-
 - si volviste a sentir tu cuerpo 1 minuto, 3 veces al día
 - si hiciste ejercicio o estiramientos
 - si leíste 5 minutos
@@ -495,255 +495,39 @@ Solo quiero que registres algo muy simple cada día:
 
 No busques hacerlo perfecto.
 La meta es volver a empezar y mantener continuidad.`,
-
-  days: [
-    {
-      day: 1,
-      title: "Registro del día",
-      questions: [
-        {
-          id: "cuerpo_3_veces",
-          type: "select",
-          label: "¿Hiciste el ejercicio de sentir tu cuerpo por 1 minuto, 3 veces al día?",
-          options: ["Sí", "No", "Parcial"]
-        },
-        {
-          id: "ejercicio_fisico",
-          type: "select",
-          label: "¿Hiciste ejercicio físico o estiramientos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "lectura_5_min",
-          type: "select",
-          label: "¿Leíste 5 minutos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "como_estuvo_dia",
-          type: "select",
-          label: "¿Cómo estuvo tu día?",
-          options: ["Bueno", "Regular", "Difícil"]
-        },
-        {
-          id: "algo_mas",
-          type: "textarea",
-          label: "¿Hay algo más que quieras contarme hoy?"
-        }
-      ]
-    },
-    {
-      day: 2,
-      title: "Registro del día",
-      questions: [
-        {
-          id: "cuerpo_3_veces",
-          type: "select",
-          label: "¿Hiciste el ejercicio de sentir tu cuerpo por 1 minuto, 3 veces al día?",
-          options: ["Sí", "No", "Parcial"]
-        },
-        {
-          id: "ejercicio_fisico",
-          type: "select",
-          label: "¿Hiciste ejercicio físico o estiramientos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "lectura_5_min",
-          type: "select",
-          label: "¿Leíste 5 minutos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "como_estuvo_dia",
-          type: "select",
-          label: "¿Cómo estuvo tu día?",
-          options: ["Bueno", "Regular", "Difícil"]
-        },
-        {
-          id: "algo_mas",
-          type: "textarea",
-          label: "¿Hay algo más que quieras contarme hoy?"
-        }
-      ]
-    },
-    {
-      day: 3,
-      title: "Registro del día",
-      questions: [
-        {
-          id: "cuerpo_3_veces",
-          type: "select",
-          label: "¿Hiciste el ejercicio de sentir tu cuerpo por 1 minuto, 3 veces al día?",
-          options: ["Sí", "No", "Parcial"]
-        },
-        {
-          id: "ejercicio_fisico",
-          type: "select",
-          label: "¿Hiciste ejercicio físico o estiramientos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "lectura_5_min",
-          type: "select",
-          label: "¿Leíste 5 minutos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "como_estuvo_dia",
-          type: "select",
-          label: "¿Cómo estuvo tu día?",
-          options: ["Bueno", "Regular", "Difícil"]
-        },
-        {
-          id: "algo_mas",
-          type: "textarea",
-          label: "¿Hay algo más que quieras contarme hoy?"
-        }
-      ]
-    },
-    {
-      day: 4,
-      title: "Registro del día",
-      questions: [
-        {
-          id: "cuerpo_3_veces",
-          type: "select",
-          label: "¿Hiciste el ejercicio de sentir tu cuerpo por 1 minuto, 3 veces al día?",
-          options: ["Sí", "No", "Parcial"]
-        },
-        {
-          id: "ejercicio_fisico",
-          type: "select",
-          label: "¿Hiciste ejercicio físico o estiramientos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "lectura_5_min",
-          type: "select",
-          label: "¿Leíste 5 minutos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "como_estuvo_dia",
-          type: "select",
-          label: "¿Cómo estuvo tu día?",
-          options: ["Bueno", "Regular", "Difícil"]
-        },
-        {
-          id: "algo_mas",
-          type: "textarea",
-          label: "¿Hay algo más que quieras contarme hoy?"
-        }
-      ]
-    },
-    {
-      day: 5,
-      title: "Registro del día",
-      questions: [
-        {
-          id: "cuerpo_3_veces",
-          type: "select",
-          label: "¿Hiciste el ejercicio de sentir tu cuerpo por 1 minuto, 3 veces al día?",
-          options: ["Sí", "No", "Parcial"]
-        },
-        {
-          id: "ejercicio_fisico",
-          type: "select",
-          label: "¿Hiciste ejercicio físico o estiramientos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "lectura_5_min",
-          type: "select",
-          label: "¿Leíste 5 minutos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "como_estuvo_dia",
-          type: "select",
-          label: "¿Cómo estuvo tu día?",
-          options: ["Bueno", "Regular", "Difícil"]
-        },
-        {
-          id: "algo_mas",
-          type: "textarea",
-          label: "¿Hay algo más que quieras contarme hoy?"
-        }
-      ]
-    },
-    {
-      day: 6,
-      title: "Registro del día",
-      questions: [
-        {
-          id: "cuerpo_3_veces",
-          type: "select",
-          label: "¿Hiciste el ejercicio de sentir tu cuerpo por 1 minuto, 3 veces al día?",
-          options: ["Sí", "No", "Parcial"]
-        },
-        {
-          id: "ejercicio_fisico",
-          type: "select",
-          label: "¿Hiciste ejercicio físico o estiramientos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "lectura_5_min",
-          type: "select",
-          label: "¿Leíste 5 minutos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "como_estuvo_dia",
-          type: "select",
-          label: "¿Cómo estuvo tu día?",
-          options: ["Bueno", "Regular", "Difícil"]
-        },
-        {
-          id: "algo_mas",
-          type: "textarea",
-          label: "¿Hay algo más que quieras contarme hoy?"
-        }
-      ]
-    },
-    {
-      day: 7,
-      title: "Registro del día",
-      questions: [
-        {
-          id: "cuerpo_3_veces",
-          type: "select",
-          label: "¿Hiciste el ejercicio de sentir tu cuerpo por 1 minuto, 3 veces al día?",
-          options: ["Sí", "No", "Parcial"]
-        },
-        {
-          id: "ejercicio_fisico",
-          type: "select",
-          label: "¿Hiciste ejercicio físico o estiramientos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "lectura_5_min",
-          type: "select",
-          label: "¿Leíste 5 minutos hoy?",
-          options: ["Sí", "No"]
-        },
-        {
-          id: "como_estuvo_dia",
-          type: "select",
-          label: "¿Cómo estuvo tu día?",
-          options: ["Bueno", "Regular", "Difícil"]
-        },
-        {
-          id: "algo_mas",
-          type: "textarea",
-          label: "¿Hay algo más que quieras contarme hoy?"
-        }
-      ]
-    }
-  ]
-}
+  closing: "Semana cerrada. Lo importante no fue hacerlo perfecto, sino volver a empezar y sostener continuidad.",
+  days: DAYS.map((d) => ({
+    day: d,
+    exercises: [
+      {
+        type: "checklist",
+        title: "Registro del día",
+        instructions: "Marca lo que sí lograste hacer hoy. No lo uses para culparte, solo para observar continuidad.",
+        items: [
+          "Sentí mi cuerpo por 1 minuto, 3 veces al día",
+          "Hice ejercicio físico o estiramientos",
+          "Leí 5 minutos"
+        ]
+      },
+      {
+        type: "checklist",
+        title: "¿Cómo estuvo tu día?",
+        instructions: "Marca cómo sentiste tu día hoy.",
+        items: [
+          "Bueno",
+          "Regular",
+          "Difícil"
+        ]
+      },
+      {
+        type: "libre",
+        title: "Algo más que quieras contarme",
+        instructions: "Escribe aquí cualquier cosa importante del día: cómo te sentiste, qué te costó, qué lograste o qué necesitas que revise.",
+        items: []
+      }
+    ]
+  }))
+},
 
 // ── Storage helpers ──────────────────────────────────────
 function getMentees() { try { return JSON.parse(localStorage.getItem("sol_mentees")||"[]"); } catch { return []; } }
