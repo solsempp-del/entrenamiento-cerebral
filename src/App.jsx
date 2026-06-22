@@ -527,7 +527,8 @@ La meta es volver a empezar y mantener continuidad.`,
       }
     ]
   }))
-},
+}
+};
 
 // ── Storage helpers ──────────────────────────────────────
 function getMentees() { try { return JSON.parse(localStorage.getItem("sol_mentees")||"[]"); } catch { return []; } }
