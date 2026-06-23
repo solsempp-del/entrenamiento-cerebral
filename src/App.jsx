@@ -310,6 +310,88 @@ const TEMPLATES = {
      };
     })
   },
+    },
+
+  maria_elena_cierre2_direccion: {
+    name: "María Elena · Cierre 2 · Dirección",
+    label: "Semana de cierre 2 · De visión a dirección",
+    days: DAYS.map((d, i) => {
+      const base = [
+        {
+          type: "energia",
+          title: "Nivel de energía",
+          instructions: "Del 1 al 10, registra cómo estuvo tu energía hoy.",
+          items: []
+        },
+        {
+          type: "checklist",
+          title: "Modo del día",
+          instructions: "Marca cómo sentiste que funcionó más tu mente hoy.",
+          items: ["Modo máquina", "Modo barca"]
+        }
+      ];
+
+      const ejercicios = [
+        {
+          type: "libre",
+          title: "Lo que quiero cuidar",
+          instructions: "De todo lo que apareció en la sesión pasada, ¿qué quieres cuidar de manera especial en esta nueva etapa? Escribe lo que no quieres volver a perder.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Lo que necesito proteger",
+          instructions: "Piensa en tu noche. ¿Qué necesitas proteger concretamente para que la escritura sí tenga espacio? Escribe qué vas a hacer apenas entres a tu cuarto.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero soltar",
+          instructions: "¿Qué forma de vivir, cargar o resolver ya no quieres seguir sosteniendo igual? Escríbelo con honestidad.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Mi dirección para esta etapa",
+          instructions: "No escribas un plan perfecto. Escribe dirección. ¿Hacia dónde sientes que Dios te está llevando en esta etapa de tu vida?",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Mi práctica concreta",
+          instructions: "Esta semana, ¿cómo se verá en la práctica tu decisión de volver a escribir? Escribe algo realista: cuántas noches, cuánto tiempo y qué tipo de escritura.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Mi recordatorio personal",
+          instructions: "Completa esta frase: Cuando sienta que vuelvo al modo máquina, necesito recordar que...",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Cierre del proceso",
+          instructions: "Después de este proceso, ¿qué cambió en ti? ¿Qué te llevas? ¿Qué quieres seguir cuidando después de terminar estas sesiones?",
+          items: []
+        }
+      ];
+
+      const cierre = [
+        {
+          type: "habito",
+          title: "Espacio de escritura",
+          instructions: "Marca si hoy protegiste tu espacio de escritura al entrar a tu cuarto en vez de coger el control.",
+          items: ["Cogí el cuaderno en vez del control"]
+        }
+      ];
+
+      return {
+        day: d,
+        exercises: [...base, ejercicios[i], ...cierre]
+      };
+    })
+  }
+},
   guillermo_dinero_adulto: {
     name: "Guillermo · Dinero adulto",
     label: "Semana 17 · Dinero adulto y decisiones con criterio",
