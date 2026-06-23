@@ -390,6 +390,96 @@ const TEMPLATES = {
       };
     })
   },
+  graciela_m1_s2: {
+  name: "Graciela M1 S2",
+  label: "Mes 1 · Semana 2 · Exigencia, suficiencia y patrones",
+  days: DAYS.map((d, i) => {
+    const diario = [
+      {
+        type: "energia",
+        title: "Nivel de energía",
+        instructions: "Del 1 al 10, registra cómo estuvo tu energía hoy.",
+        items: []
+      },
+      {
+        type: "emocion",
+        title: "Estado emocional",
+        instructions: "Del 1 al 10, registra cómo estuvo tu estado emocional hoy.",
+        items: []
+      },
+      {
+        type: "libre",
+        title: "Registro diario",
+        instructions: "Escribe: día del ciclo menstrual, hora en que dormiste, hora en que despertaste, novedades del día y cualquier cosa que quieras contarme.",
+        items: []
+      }
+    ];
+
+    const entrenamiento = [
+      {
+        type: "reflexion",
+        title: "Detectando la exigencia",
+        instructions: "Hoy observa si apareció exigencia interna. Responde: ¿en qué momento sentiste que debías hacerlo mejor, más rápido o más perfecto? ¿Qué te exigiste? ¿Cómo te sentiste?",
+        items: []
+      },
+      {
+        type: "reflexion",
+        title: "La voz interna",
+        instructions: "Cuando algo no salió como esperabas, observa qué te dijiste a ti misma. Responde: ¿qué pasó? ¿Qué te dijiste? ¿Qué le habrías dicho a una amiga si estuviera en tu lugar?",
+        items: []
+      },
+      {
+        type: "checklist",
+        title: "Compensar",
+        instructions: "Observa si hoy intentaste demostrar algo. Marca lo que aplique y luego escribe una breve explicación.",
+        items: [
+          "Que soy responsable",
+          "Que soy buena esposa",
+          "Que soy buena madre",
+          "Que puedo sola",
+          "Que soy capaz",
+          "Que no necesito ayuda",
+          "Que tengo todo bajo control",
+          "Otra"
+        ]
+      },
+      {
+        type: "reflexion",
+        title: "Suficiente",
+        instructions: "Hoy observa si hubo algún momento en que te sentiste suficiente tal como eres. Responde: ¿qué pasó? ¿Qué sentiste? ¿Cuánto duró esa sensación?",
+        items: []
+      },
+      {
+        type: "respiracion",
+        title: "Pausa consciente",
+        instructions: "Hoy observa si lograste respirar antes de reaccionar. Responde: ¿qué pasó? ¿Qué emoción apareció? ¿Qué hiciste diferente?",
+        items: [
+          "Hice una pausa antes de responder",
+          "Respiré antes de reaccionar",
+          "Nombré lo que estaba sintiendo",
+          "Elegí responder diferente"
+        ]
+      },
+      {
+        type: "reflexion",
+        title: "Comparaciones",
+        instructions: "Observa si hoy te comparaste con alguien. Responde: ¿con quién te comparaste? ¿En qué aspecto? ¿Qué conclusión sacaste sobre ti? ¿Esa conclusión es un hecho o una interpretación?",
+        items: []
+      },
+      {
+        type: "reflexion",
+        title: "Reflexión semanal",
+        instructions: "Cierra la semana respondiendo: ¿qué descubriste sobre ti? ¿Qué patrón viste repetirse más? ¿Qué te gustaría trabajar en nuestra próxima sesión?",
+        items: []
+      }
+    ];
+
+    return {
+      day: d,
+      exercises: [...diario, entrenamiento[i]]
+    };
+  })
+},
   guillermo_dinero_adulto: {
     name: "Guillermo · Dinero adulto",
     label: "Semana 17 · Dinero adulto y decisiones con criterio",
