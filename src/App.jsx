@@ -480,177 +480,146 @@ const TEMPLATES = {
     };
   })
 },
-  guillermo_dinero_adulto: {
-    name: "Guillermo · Dinero adulto",
-    label: "Semana 17 · Dinero adulto y decisiones con criterio",
-    welcome: "Esta semana vas a registrar qué entra, qué gastas y desde qué parte de ti decides: adulto, ansiedad, vacío, cansancio o impulso.",
-    closing: "Semana cerrada. Lo importante no es que haya salido perfecto, sino que hayas podido mirar tus decisiones con más honestidad.",
-    days: DAYS.map((d, i) => {
-      const enfoque = [
-        "Día 1: Observar sin juzgar. Hoy solo registra qué pasa con tu dinero.",
-        "Día 2: Identificar. Mira si gastaste desde adulto o desde impulso.",
-        "Día 3: Separar. Si entra dinero, divídelo en esencial, inversión en mí y placer con límite.",
-        "Día 4: Frenar. Usa la regla de 24 horas si aparece un gasto emocional.",
-        "Día 5: Salidas. Si sales, define antes cuánto gastas, cuánto tomas y cómo regresas.",
-        "Día 6: Reparar. Si hubo gasto rojo, escribe qué harás diferente la próxima vez.",
-        "Día 7: Cierre. Revisa cuál fue tu color dominante de la semana."
-      ];
-
-      const base = [
+const semanaGuillermoVinculos = {
+  titulo: "Semana 18 – Vínculos con criterio",
+  mensajeBienvenida:
+    "Esta semana no vamos a buscar vínculos perfectos. Vamos a aprender a leerlos. Un vínculo sano no siempre es cómodo, pero te deja con más claridad, más paz o más ganas de hacer cosas. Un vínculo que te drena puede parecer normal en el momento, pero después te apaga, te cansa o te saca de tu centro.",
+  mensajeCierre:
+    "No se trata de alejarte de todos ni de controlar cada relación. Se trata de aprender a elegir desde paz, criterio y dirección. Si algo te da ganas de hacer cosas, probablemente te construye. Si algo te apaga, te da sueño o te hace perderte, necesitas ponerle límite.",
+  dias: [
+    {
+      dia: "Día 1",
+      ejercicios: [
         {
-          type: "energia",
-          title: "Energía de hoy",
-          instructions: "Del 1 al 10, registra cómo está tu energía hoy.",
-          items: []
+          tipo: "nivel de energía",
+          titulo: "Energía del día",
+          instrucciones:
+            "Del 1 al 10, registra cómo está tu energía hoy antes de hacer el ejercicio."
         },
         {
-          type: "energia",
-          title: "Guillermo adulto",
-          instructions: "Del 1 al 10, registra qué tan adulto te sentiste hoy en tus decisiones.",
-          items: []
+          tipo: "reflexión escrita",
+          titulo: "Mi filtro de vínculos",
+          instrucciones:
+            "Completa la frase: “Yo quiero vínculos que me den ________, que no me quiten ________ y que me ayuden a ________.” Luego responde: 1. ¿Qué vínculo esta semana quiero cuidar más? 2. ¿Qué vínculo necesito poner en observación? 3. ¿Qué vínculo necesito no obedecer automáticamente?"
         },
         {
-          type: "energia",
-          title: "Control de decisiones",
-          instructions: "Del 1 al 10, registra cuánto control sentiste hoy sobre tus decisiones.",
-          items: []
-        },
-        {
-          type: "checklist",
-          title: "Movimiento de dinero",
-          instructions: "Marca lo que pasó hoy. Luego escribe cuánto entró, cuánto gastaste y en qué.",
-          items: [
-            "Entró dinero hoy",
-            "Gasté dinero hoy",
-            "No gasté dinero hoy",
-            "Separé algo antes de gastar",
-            "Gasté sin pensarlo"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "Tipo de gasto",
-          instructions: "Si gastaste hoy, marca el color del gasto principal. Verde construye tu vida. Amarillo depende de tu estado interno. Rojo fue impulso o te costó autocontrol.",
-          items: [
-            "Verde: construye mi vida",
-            "Amarillo: depende de mi estado interno",
-            "Rojo: fue impulso o me costó autocontrol"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "¿En qué gasté?",
-          instructions: "Marca el gasto principal de hoy.",
-          items: [
-            "Comida U",
-            "Salidas",
-            "Alcohol",
-            "Cigarrillo",
-            "Transporte",
-            "Ayuda a otra persona",
-            "Universidad",
-            "Perro",
-            "Ahorro",
-            "Libros o crecimiento",
-            "Gusto pequeño",
-            "Otro"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "¿Desde dónde decidí?",
-          instructions: "Marca desde qué parte de ti salió la decisión principal de gasto o no gasto.",
-          items: [
-            "Adulto",
-            "Hambre real",
-            "Ansiedad",
-            "Vacío",
-            "Cansancio",
-            "Tristeza",
-            "Presión de otros",
-            "Impulso",
-            "Quería sentirme libre"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "¿Qué me dio y qué me costó?",
-          instructions: "Marca lo que te dio ese gasto y lo que te costó después.",
-          items: [
-            "Me dio calma",
-            "Me dio placer",
-            "Me hizo sentir vivo",
-            "Me dio seguridad",
-            "Me dio claridad",
-            "Me ayudó a evitar sentir algo",
-            "Me costó dinero",
-            "Me costó cansancio",
-            "Me costó culpa",
-            "Me costó jaqueca",
-            "Me costó ocultar algo",
-            "Me costó trasnochada",
-            "Me costó perder control",
-            "No me costó nada importante"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "Regla de 24 horas",
-          instructions: "Si el gasto no era urgente, no era necesario y nació de una emoción fuerte, debía esperar 24 horas. Marca qué pasó.",
-          items: [
-            "No tuve gasto emocional",
-            "Esperé antes de decidir",
-            "Pedí tiempo para decidir",
-            "Gasté igual",
-            "Todavía lo estoy pensando"
-          ]
-        },
-        {
-          type: "libre",
-          title: enfoque[i],
-          instructions: "Escribe una frase corta. Puede ser: cuánto entró, cuánto gastaste, cuál fue el color del día o qué harías diferente la próxima vez.",
-          items: []
+          tipo: "espacio libre",
+          titulo: "Evidencia mínima",
+          instrucciones:
+            "Envía una foto o un audio de 15 segundos con tu frase de filtro de vínculos."
         }
-      ];
-
-      if (i === 6) {
-        return {
-          day: d,
-          exercises: [
-            ...base,
-            {
-              type: "checklist",
-              title: "Cierre semanal",
-              instructions: "Marca el resumen de tu semana.",
-              items: [
-                "Mi color dominante fue verde",
-                "Mi color dominante fue amarillo",
-                "Mi color dominante fue rojo",
-                "Mi gasto más adulto fue claro",
-                "Identifiqué mi gasto más impulsivo",
-                "Necesito repetir la regla de 24 horas",
-                "Necesito cuidar salidas",
-                "Necesito cuidar cigarrillo",
-                "Necesito cuidar ayudas económicas",
-                "Necesito separar dinero antes de gastar"
-              ]
-            },
-            {
-              type: "reflexion",
-              title: "Frase final de la semana",
-              instructions: "Completa: Esta semana aprendí que mi dinero... La próxima semana necesito cuidar... Mi frase para decidir mejor es...",
-              items: []
-            }
-          ]
-        };
-      }
-
-      return {
-        day: d,
-        exercises: base
-      };
-    })
-  },
+      ]
+    },
+    {
+      dia: "Día 2",
+      ejercicios: [
+        {
+          tipo: "registro emocional",
+          titulo: "Termómetro corporal",
+          instrucciones:
+            "Elige una persona o vínculo con el que hayas tenido contacto hoy. Responde: 1. Antes de ese vínculo me sentía... 2. Durante ese vínculo me sentí... 3. Después de ese vínculo quedé... 4. Mi cuerpo me dijo: me dio ganas de hacer cosas / me dio sueño / me dio paz / me dejó pensando demasiado."
+        },
+        {
+          tipo: "reflexión escrita",
+          titulo: "Color del vínculo",
+          instrucciones:
+            "Ese vínculo hoy fue: verde, amarillo o rojo. Verde: me construyó. Amarillo: me calmó, pero necesita límite. Rojo: me drenó, me apagó o me sacó de mi centro. Explica por qué."
+        }
+      ]
+    },
+    {
+      dia: "Día 3",
+      ejercicios: [
+        {
+          tipo: "tarea conductual",
+          titulo: "Regla con Víctor",
+          instrucciones:
+            "Hoy observa si aparece la tendencia a sentarte o quedarte cerca de alguien que te apaga. Tu regla es: “Puedo saludar y convivir, pero no necesito sentarme siempre al lado de alguien que me drena.”"
+        },
+        {
+          tipo: "reflexión escrita",
+          titulo: "Después de tomar distancia",
+          instrucciones:
+            "Responde al final del día: 1. ¿Pude tomar distancia sin pelear ni desaparecer? 2. ¿Cómo quedé después? 3. ¿Me dio más paz o más incomodidad?"
+        }
+      ]
+    },
+    {
+      dia: "Día 4",
+      ejercicios: [
+        {
+          tipo: "tarea conductual",
+          titulo: "Regla con Lía",
+          instrucciones:
+            "Tu regla es: “Puedo compartir si ya tengo, pero no compro por incomodidad ni para gustarle.” Observa si aparece el impulso de gastar para evitar sentirte incómodo o para caer bien."
+        },
+        {
+          tipo: "reflexión escrita",
+          titulo: "Amabilidad o rescate",
+          instrucciones:
+            "Responde: 1. ¿Sentí ganas de gastar para caer bien o no sentirme incómodo? 2. ¿Qué hice? 3. ¿Fue amabilidad o rescate? 4. ¿Qué habría hecho el Guillermo adulto?"
+        },
+        {
+          tipo: "espacio libre",
+          titulo: "Evidencia opcional",
+          instrucciones:
+            "Si lograste no gastar por incomodidad, envía un audio de 15 segundos contando qué hiciste."
+        }
+      ]
+    },
+    {
+      dia: "Día 5",
+      ejercicios: [
+        {
+          tipo: "registro emocional",
+          titulo: "Calma limpia vs calma con costo",
+          instrucciones:
+            "Hoy identifica qué usaste para calmarte. Puede ser MAUY, música, celular, comida, estar solo, hablar con alguien, Dios u otra cosa."
+        },
+        {
+          tipo: "reflexión escrita",
+          titulo: "Qué me dio y qué me costó",
+          instrucciones:
+            "Responde: 1. ¿Qué usé para calmarme? 2. ¿Qué me dio? 3. ¿Qué me costó? 4. ¿Quedé mejor o solo distraído? Cierra con una de estas opciones: calma limpia / útil pero con límite / con costo."
+        }
+      ]
+    },
+    {
+      dia: "Día 6",
+      ejercicios: [
+        {
+          tipo: "tarea conductual",
+          titulo: "Vínculo verde",
+          instrucciones:
+            "Haz una acción pequeña con un vínculo que te construye. Puede ser hablar con tu mamá sin discutir, hacer algo con MAUY, orar o hablar con Dios 3 minutos, ordenar algo, avanzar algo de universidad o hacer algo que te dé ganas de moverte."
+        },
+        {
+          tipo: "reflexión escrita",
+          titulo: "Cómo quedé después",
+          instrucciones:
+            "Responde: 1. ¿Qué hice? 2. ¿Me costó empezar? 3. ¿Cómo quedé después? 4. ¿Me dio más ganas de hacer cosas?"
+        }
+      ]
+    },
+    {
+      dia: "Día 7",
+      ejercicios: [
+        {
+          tipo: "espacio libre",
+          titulo: "Resumen de vínculos",
+          instrucciones:
+            "Haz un audio de 15 a 30 segundos respondiendo: 1. Un vínculo que me construyó esta semana fue... 2. Un vínculo que me calmó fue... 3. Un vínculo que me drenó o me apagó fue... 4. Una regla que quiero seguir usando es..."
+        },
+        {
+          tipo: "reflexión escrita",
+          titulo: "Cierre de la semana",
+          instrucciones:
+            "Completa la frase: “Esta semana aprendí que mis vínculos se notan por cómo quedo después, y por eso necesito elegir más desde ________ y menos desde ________.”"
+        }
+      ]
+    }
+  ]
+},
  letty_volver_cuerpo_app1: {
   name: "Letty · Volver al cuerpo",
   label: "Semana App 1 · Volver al cuerpo y sostener continuidad",
