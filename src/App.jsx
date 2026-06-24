@@ -480,141 +480,158 @@ const TEMPLATES = {
     };
   })
 },
-const semanaGuillermoVinculos = {
-  titulo: "Semana 18 – Vínculos con criterio",
-  mensajeBienvenida:
+guillermo_vinculos: {
+  name: "Guillermo · Vínculos con criterio",
+  label: "Semana 18 · Vínculos con criterio",
+  welcome:
     "Esta semana no vamos a buscar vínculos perfectos. Vamos a aprender a leerlos. Un vínculo sano no siempre es cómodo, pero te deja con más claridad, más paz o más ganas de hacer cosas. Un vínculo que te drena puede parecer normal en el momento, pero después te apaga, te cansa o te saca de tu centro.",
-  mensajeCierre:
+  closing:
     "No se trata de alejarte de todos ni de controlar cada relación. Se trata de aprender a elegir desde paz, criterio y dirección. Si algo te da ganas de hacer cosas, probablemente te construye. Si algo te apaga, te da sueño o te hace perderte, necesitas ponerle límite.",
-  dias: [
+  days: [
     {
-      dia: "Día 1",
-      ejercicios: [
+      day: "Día 1",
+      exercises: [
         {
-          tipo: "nivel de energía",
-          titulo: "Energía del día",
-          instrucciones:
-            "Del 1 al 10, registra cómo está tu energía hoy antes de hacer el ejercicio."
+          type: "energia",
+          title: "Energía del día",
+          instructions:
+            "Del 1 al 10, registra cómo está tu energía hoy antes de hacer el ejercicio.",
+          items: []
         },
         {
-          tipo: "reflexión escrita",
-          titulo: "Mi filtro de vínculos",
-          instrucciones:
-            "Completa la frase: “Yo quiero vínculos que me den ________, que no me quiten ________ y que me ayuden a ________.” Luego responde: 1. ¿Qué vínculo esta semana quiero cuidar más? 2. ¿Qué vínculo necesito poner en observación? 3. ¿Qué vínculo necesito no obedecer automáticamente?"
+          type: "reflexion",
+          title: "Mi filtro de vínculos",
+          instructions:
+            "Completa la frase: “Yo quiero vínculos que me den ________, que no me quiten ________ y que me ayuden a ________.” Luego responde: 1. ¿Qué vínculo esta semana quiero cuidar más? 2. ¿Qué vínculo necesito poner en observación? 3. ¿Qué vínculo necesito no obedecer automáticamente?",
+          items: []
         },
         {
-          tipo: "espacio libre",
-          titulo: "Evidencia mínima",
-          instrucciones:
-            "Envía una foto o un audio de 15 segundos con tu frase de filtro de vínculos."
+          type: "libre",
+          title: "Evidencia mínima",
+          instructions:
+            "Envía una foto o un audio de 15 segundos con tu frase de filtro de vínculos.",
+          items: []
         }
       ]
     },
     {
-      dia: "Día 2",
-      ejercicios: [
+      day: "Día 2",
+      exercises: [
         {
-          tipo: "registro emocional",
-          titulo: "Termómetro corporal",
-          instrucciones:
-            "Elige una persona o vínculo con el que hayas tenido contacto hoy. Responde: 1. Antes de ese vínculo me sentía... 2. Durante ese vínculo me sentí... 3. Después de ese vínculo quedé... 4. Mi cuerpo me dijo: me dio ganas de hacer cosas / me dio sueño / me dio paz / me dejó pensando demasiado."
+          type: "emocion",
+          title: "Termómetro corporal",
+          instructions:
+            "Elige una persona o vínculo con el que hayas tenido contacto hoy. Responde: 1. Antes de ese vínculo me sentía... 2. Durante ese vínculo me sentí... 3. Después de ese vínculo quedé... 4. Mi cuerpo me dijo: me dio ganas de hacer cosas / me dio sueño / me dio paz / me dejó pensando demasiado.",
+          items: []
         },
         {
-          tipo: "reflexión escrita",
-          titulo: "Color del vínculo",
-          instrucciones:
-            "Ese vínculo hoy fue: verde, amarillo o rojo. Verde: me construyó. Amarillo: me calmó, pero necesita límite. Rojo: me drenó, me apagó o me sacó de mi centro. Explica por qué."
+          type: "reflexion",
+          title: "Color del vínculo",
+          instructions:
+            "Ese vínculo hoy fue: verde, amarillo o rojo. Verde: me construyó. Amarillo: me calmó, pero necesita límite. Rojo: me drenó, me apagó o me sacó de mi centro. Explica por qué.",
+          items: []
         }
       ]
     },
     {
-      dia: "Día 3",
-      ejercicios: [
+      day: "Día 3",
+      exercises: [
         {
-          tipo: "tarea conductual",
-          titulo: "Regla con Víctor",
-          instrucciones:
-            "Hoy observa si aparece la tendencia a sentarte o quedarte cerca de alguien que te apaga. Tu regla es: “Puedo saludar y convivir, pero no necesito sentarme siempre al lado de alguien que me drena.”"
+          type: "conductual",
+          title: "Regla con Víctor",
+          instructions:
+            "Hoy observa si aparece la tendencia a sentarte o quedarte cerca de alguien que te apaga. Tu regla es: “Puedo saludar y convivir, pero no necesito sentarme siempre al lado de alguien que me drena.”",
+          items: []
         },
         {
-          tipo: "reflexión escrita",
-          titulo: "Después de tomar distancia",
-          instrucciones:
-            "Responde al final del día: 1. ¿Pude tomar distancia sin pelear ni desaparecer? 2. ¿Cómo quedé después? 3. ¿Me dio más paz o más incomodidad?"
+          type: "reflexion",
+          title: "Después de tomar distancia",
+          instructions:
+            "Responde al final del día: 1. ¿Pude tomar distancia sin pelear ni desaparecer? 2. ¿Cómo quedé después? 3. ¿Me dio más paz o más incomodidad?",
+          items: []
         }
       ]
     },
     {
-      dia: "Día 4",
-      ejercicios: [
+      day: "Día 4",
+      exercises: [
         {
-          tipo: "tarea conductual",
-          titulo: "Regla con Lía",
-          instrucciones:
-            "Tu regla es: “Puedo compartir si ya tengo, pero no compro por incomodidad ni para gustarle.” Observa si aparece el impulso de gastar para evitar sentirte incómodo o para caer bien."
+          type: "conductual",
+          title: "Regla con Lía",
+          instructions:
+            "Tu regla es: “Puedo compartir si ya tengo, pero no compro por incomodidad ni para gustarle.” Observa si aparece el impulso de gastar para evitar sentirte incómodo o para caer bien.",
+          items: []
         },
         {
-          tipo: "reflexión escrita",
-          titulo: "Amabilidad o rescate",
-          instrucciones:
-            "Responde: 1. ¿Sentí ganas de gastar para caer bien o no sentirme incómodo? 2. ¿Qué hice? 3. ¿Fue amabilidad o rescate? 4. ¿Qué habría hecho el Guillermo adulto?"
+          type: "reflexion",
+          title: "Amabilidad o rescate",
+          instructions:
+            "Responde: 1. ¿Sentí ganas de gastar para caer bien o no sentirme incómodo? 2. ¿Qué hice? 3. ¿Fue amabilidad o rescate? 4. ¿Qué habría hecho el Guillermo adulto?",
+          items: []
         },
         {
-          tipo: "espacio libre",
-          titulo: "Evidencia opcional",
-          instrucciones:
-            "Si lograste no gastar por incomodidad, envía un audio de 15 segundos contando qué hiciste."
+          type: "libre",
+          title: "Evidencia opcional",
+          instructions:
+            "Si lograste no gastar por incomodidad, envía un audio de 15 segundos contando qué hiciste.",
+          items: []
         }
       ]
     },
     {
-      dia: "Día 5",
-      ejercicios: [
+      day: "Día 5",
+      exercises: [
         {
-          tipo: "registro emocional",
-          titulo: "Calma limpia vs calma con costo",
-          instrucciones:
-            "Hoy identifica qué usaste para calmarte. Puede ser MAUY, música, celular, comida, estar solo, hablar con alguien, Dios u otra cosa."
+          type: "emocion",
+          title: "Calma limpia vs calma con costo",
+          instructions:
+            "Hoy identifica qué usaste para calmarte. Puede ser MAUY, música, celular, comida, estar solo, hablar con alguien, Dios u otra cosa.",
+          items: []
         },
         {
-          tipo: "reflexión escrita",
-          titulo: "Qué me dio y qué me costó",
-          instrucciones:
-            "Responde: 1. ¿Qué usé para calmarme? 2. ¿Qué me dio? 3. ¿Qué me costó? 4. ¿Quedé mejor o solo distraído? Cierra con una de estas opciones: calma limpia / útil pero con límite / con costo."
+          type: "reflexion",
+          title: "Qué me dio y qué me costó",
+          instructions:
+            "Responde: 1. ¿Qué usé para calmarme? 2. ¿Qué me dio? 3. ¿Qué me costó? 4. ¿Quedé mejor o solo distraído? Cierra con una de estas opciones: calma limpia / útil pero con límite / con costo.",
+          items: []
         }
       ]
     },
     {
-      dia: "Día 6",
-      ejercicios: [
+      day: "Día 6",
+      exercises: [
         {
-          tipo: "tarea conductual",
-          titulo: "Vínculo verde",
-          instrucciones:
-            "Haz una acción pequeña con un vínculo que te construye. Puede ser hablar con tu mamá sin discutir, hacer algo con MAUY, orar o hablar con Dios 3 minutos, ordenar algo, avanzar algo de universidad o hacer algo que te dé ganas de moverte."
+          type: "conductual",
+          title: "Vínculo verde",
+          instructions:
+            "Haz una acción pequeña con un vínculo que te construye. Puede ser hablar con tu mamá sin discutir, hacer algo con MAUY, orar o hablar con Dios 3 minutos, ordenar algo, avanzar algo de universidad o hacer algo que te dé ganas de moverte.",
+          items: []
         },
         {
-          tipo: "reflexión escrita",
-          titulo: "Cómo quedé después",
-          instrucciones:
-            "Responde: 1. ¿Qué hice? 2. ¿Me costó empezar? 3. ¿Cómo quedé después? 4. ¿Me dio más ganas de hacer cosas?"
+          type: "reflexion",
+          title: "Cómo quedé después",
+          instructions:
+            "Responde: 1. ¿Qué hice? 2. ¿Me costó empezar? 3. ¿Cómo quedé después? 4. ¿Me dio más ganas de hacer cosas?",
+          items: []
         }
       ]
     },
     {
-      dia: "Día 7",
-      ejercicios: [
+      day: "Día 7",
+      exercises: [
         {
-          tipo: "espacio libre",
-          titulo: "Resumen de vínculos",
-          instrucciones:
-            "Haz un audio de 15 a 30 segundos respondiendo: 1. Un vínculo que me construyó esta semana fue... 2. Un vínculo que me calmó fue... 3. Un vínculo que me drenó o me apagó fue... 4. Una regla que quiero seguir usando es..."
+          type: "libre",
+          title: "Resumen de vínculos",
+          instructions:
+            "Haz un audio de 15 a 30 segundos respondiendo: 1. Un vínculo que me construyó esta semana fue... 2. Un vínculo que me calmó fue... 3. Un vínculo que me drenó o me apagó fue... 4. Una regla que quiero seguir usando es...",
+          items: []
         },
         {
-          tipo: "reflexión escrita",
-          titulo: "Cierre de la semana",
-          instrucciones:
-            "Completa la frase: “Esta semana aprendí que mis vínculos se notan por cómo quedo después, y por eso necesito elegir más desde ________ y menos desde ________.”"
+          type: "reflexion",
+          title: "Cierre de la semana",
+          instructions:
+            "Completa la frase: “Esta semana aprendí que mis vínculos se notan por cómo quedo después, y por eso necesito elegir más desde ________ y menos desde ________.”",
+          items: []
         }
       ]
     }
