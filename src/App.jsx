@@ -480,6 +480,256 @@ const TEMPLATES = {
     };
   })
 },
+  estefy_f2_c3_duelo_sin_huir: {
+  name: "Estefy · Fase 2 · Duelo sin huir",
+  label: "Fase 2 · Cuaderno 3 · Sostener el duelo sin huir",
+  welcome: `Esta semana no vamos a resolver tu tristeza ni a analizar más la relación.
+
+Vamos a entrenar algo más concreto: quedarte contigo cuando aparezca tristeza, nostalgia, picazón, ansiedad o ganas de distraerte.
+
+No tienes que hacerlo perfecto.
+Solo necesitas practicar algo pequeño cada día.
+
+El objetivo no es que no duela.
+El objetivo es que puedas sentir sin abandonarte.`,
+  closing: "Semana cerrada. Esta vez el logro no fue dejar de sentir, sino empezar a quedarte contigo sin salir corriendo a apagar el dolor.",
+  days: [
+    {
+      day: "Día 1",
+      exercises: [
+        {
+          type: "emocion",
+          title: "Presencia corporal de 5 minutos",
+          instructions:
+            "Deja el celular lejos por 5 minutos. Siéntate en silencio y observa tu cuerpo sin intentar cambiar nada. Luego escribe: ¿dónde sentí algo en el cuerpo?, ¿qué emoción apareció?, ¿qué impulso apareció?",
+          items: []
+        },
+        {
+          type: "checklist",
+          title: "¿Dónde lo sentí hoy?",
+          instructions:
+            "Marca las zonas donde sentiste tensión, picazón, presión o incomodidad.",
+          items: [
+            "Brazos",
+            "Cuello",
+            "Pecho",
+            "Garganta",
+            "Estómago",
+            "Cabeza",
+            "Espalda",
+            "Otra zona"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "Lo que me cuesta aceptar",
+          instructions:
+            "Completa esta frase con honestidad: Hoy me cuesta aceptar que... No expliques demasiado. Solo escribe lo primero que aparezca.",
+          items: []
+        }
+      ]
+    },
+    {
+      day: "Día 2",
+      exercises: [
+        {
+          type: "respiracion",
+          title: "Protocolo de picazón emocional",
+          instructions:
+            "Cuando aparezca la picazón, antes de rascarte o distraerte, pon una mano sobre la zona, respira lento 3 veces y repite: “Mi cuerpo no está fallando. Está intentando procesar algo que duele.” Luego escribe qué emoción apareció.",
+          items: [
+            "Puse la mano sobre la zona",
+            "Respiré 3 veces",
+            "Nombré la emoción",
+            "Esperé antes de distraerme"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "La emoción principal fue",
+          instructions:
+            "Marca la emoción que más se acercó a lo que sentiste hoy.",
+          items: [
+            "Tristeza",
+            "Nostalgia",
+            "Abandono",
+            "Ira",
+            "Ansiedad",
+            "Cansancio",
+            "Vergüenza",
+            "Otra"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Qué intentaba evitar sentir",
+          instructions:
+            "Responde corto: ¿qué emoción o pensamiento estabas intentando no sentir cuando apareció la incomodidad?",
+          items: []
+        }
+      ]
+    },
+    {
+      day: "Día 3",
+      exercises: [
+        {
+          type: "conductual",
+          title: "Pausa antes de anestesiarme",
+          instructions:
+            "Cuando sientas ganas de irte al celular, escribir, revisar algo, distraerte o buscar conversación para no sentir, espera 10 minutos. Durante esos 10 minutos puedes respirar, tomar agua, caminar lento o llorar. Después escribe qué pasó.",
+          items: [
+            "Esperé antes de agarrar el celular",
+            "No actué de inmediato",
+            "Me quedé conmigo al menos unos minutos",
+            "Observé qué estaba tratando de evitar"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "Si una amiga viviera esto",
+          instructions:
+            "Imagina que una amiga vivió exactamente lo mismo que tú. ¿Qué le dirías si se está juzgando por haber confiado, haberse ilusionado o haberse entregado rápido?",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Eso mismo necesito decirme",
+          instructions:
+            "Ahora escribe una frase para ti, usando el mismo tono con el que hablarías a una amiga querida.",
+          items: []
+        }
+      ]
+    },
+    {
+      day: "Día 4",
+      exercises: [
+        {
+          type: "mindfulness",
+          title: "El poder del ahora",
+          instructions:
+            "Haz este ejercicio: mira a tu alrededor y nombra 5 cosas que ves, 4 cosas que puedes tocar, 3 sonidos que escuchas, 2 sensaciones del cuerpo y 1 cosa que en este momento está bien. Luego escribe qué cambió en tu cuerpo.",
+          items: [
+            "Nombré 5 cosas que veo",
+            "Nombré 4 cosas que puedo tocar",
+            "Nombré 3 sonidos",
+            "Nombré 2 sensaciones del cuerpo",
+            "Nombré 1 cosa que ahora está bien"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "¿Esto está pasando ahora?",
+          instructions:
+            "Responde: ¿lo que mi mente está recordando está pasando en este momento o es un recuerdo/una posibilidad? ¿Qué necesita saber mi cuerpo para volver al presente?",
+          items: []
+        },
+        {
+          type: "habito",
+          title: "Volver al cuerpo",
+          instructions:
+            "Durante el día, haz una pausa breve y repite: “Estoy aquí. Esto es un recuerdo, no el momento presente.” Marca si lo hiciste.",
+          items: [
+            "Hice la pausa",
+            "Respiré",
+            "Volví al presente",
+            "No obedecí el primer impulso"
+          ]
+        }
+      ]
+    },
+    {
+      day: "Día 5",
+      exercises: [
+        {
+          type: "emocion",
+          title: "Tristeza sin resolverla",
+          instructions:
+            "Durante 5 minutos permite sentir tristeza sin explicarla, justificarla ni resolverla. Solo observa dónde se siente en el cuerpo. Luego escribe: ¿qué pasó cuando dejé de pelear con la tristeza?",
+          items: []
+        },
+        {
+          type: "checklist",
+          title: "Hoy quise huir hacia",
+          instructions:
+            "Marca hacia dónde quiso irse tu mente o tu cuerpo para no sentir.",
+          items: [
+            "Celular",
+            "Trabajo",
+            "Ordenar o hacer cosas",
+            "Conversar con alguien",
+            "Dormir",
+            "Pensar demasiado",
+            "Reclamar",
+            "Recordar lo vivido",
+            "Otra cosa"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "Lo que realmente necesitaba",
+          instructions:
+            "Detrás de ese impulso, ¿qué necesitabas realmente: descanso, consuelo, compañía segura, llorar, silencio, sentirte cuidada, claridad o algo más?",
+          items: []
+        }
+      ]
+    },
+    {
+      day: "Día 6",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "Aceptar no es aprobar",
+          instructions:
+            "Completa: Aceptar que esto pasó no significa que estuvo bien. Significa que hoy dejo de pelear con... Luego escribe qué parte de la historia todavía estás intentando cambiar en tu mente.",
+          items: []
+        },
+        {
+          type: "conductual",
+          title: "Una acción de cuidado real",
+          instructions:
+            "Haz una acción concreta de cuidado para ti: bañarte con calma, comer algo real, descansar, caminar, ordenar un espacio pequeño, pedir ayuda sana o acostarte más temprano. Luego escribe qué hiciste.",
+          items: [
+            "Hice una acción de cuidado",
+            "No esperé a tener ganas",
+            "No lo hice perfecto, pero lo hice",
+            "Registré cómo me sentí después"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Cómo cuidaría a Mica",
+          instructions:
+            "Si Mica estuviera triste, confundida o decepcionada de sí misma, ¿cómo la tratarías? Ahora escribe cómo podrías tratarte hoy un poquito más parecido a eso.",
+          items: []
+        }
+      ]
+    },
+    {
+      day: "Día 7",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "Qué aprendí de mi cuerpo esta semana",
+          instructions:
+            "Responde: ¿qué emoción apareció más?, ¿qué parte del cuerpo habló más?, ¿qué hice para evitar sentir?, ¿qué pasó cuando me quedé conmigo unos minutos?",
+          items: []
+        },
+        {
+          type: "emocion",
+          title: "Cierre emocional",
+          instructions:
+            "Del 1 al 10, escribe en el cuadro: tristeza de la semana, urgencia de huir, urgencia de escribir o reclamar, y capacidad de quedarme conmigo.",
+          items: []
+        },
+        {
+          type: "reflexion",
+          title: "Mi frase de continuidad",
+          instructions:
+            "Completa esta frase: Esta semana entendí que no necesito entender más para empezar a entrenar; necesito practicar aunque...",
+          items: []
+        };
+  })
+},  
 guillermo_vinculos: {
   name: "Guillermo · Vínculos con criterio",
   label: "Semana 18 · Vínculos con criterio",
