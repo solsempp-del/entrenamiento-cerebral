@@ -727,9 +727,12 @@ El objetivo es que puedas sentir sin abandonarte.`,
           instructions:
             "Completa esta frase: Esta semana entendí que no necesito entender más para empezar a entrenar; necesito practicar aunque...",
           items: []
-        };
-  })
-},  
+        }
+      ]
+    }
+  ]
+},
+
 guillermo_vinculos: {
   name: "Guillermo · Vínculos con criterio",
   label: "Semana 18 · Vínculos con criterio",
