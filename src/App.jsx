@@ -480,6 +480,91 @@ const TEMPLATES = {
     };
   })
 },
+  graciela_m1_s3: {
+  name: "Graciela M1 S3",
+  label: "Mes 1 · Semana 3 · Aprender sin castigarme",
+  welcome:
+    "Gracy, esta semana vamos a seguir observando tu energía, tu estado emocional, tu ciclo y las novedades del día. Además, tres veces en la semana vamos a trabajar cómo aprender sin exigirte ni castigarte cuando algo te cuesta.",
+  closing:
+    "Esta semana no buscaba perfección, sino observación. Cada registro nos ayuda a entender mejor cómo funciona tu energía, tu ciclo, tu ánimo y tu forma de aprender.",
+  days: DAYS.map((d, i) => {
+    const diario = [
+      {
+        type: "libre",
+        title: "Fecha de hoy",
+        instructions:
+          "Escribe la fecha de hoy. Esto nos ayuda a ubicar mejor tus registros y ver qué días se repiten ciertos patrones.",
+        items: []
+      },
+      {
+        type: "energia",
+        title: "Nivel de energía",
+        instructions:
+          "Del 1 al 10, registra cómo estuvo tu energía hoy. 1 es muy baja energía y 10 es energía muy alta.",
+        items: []
+      },
+      {
+        type: "emocion",
+        title: "Estado de ánimo",
+        instructions:
+          "Del 1 al 10, registra cómo estuvo tu estado de ánimo hoy. 1 es muy bajo y 10 es muy estable o positivo.",
+        items: []
+      },
+      {
+        type: "libre",
+        title: "Ciclo, sueño y novedades",
+        instructions:
+          "Responde en orden: 1. Día aproximado de mi ciclo. 2. ¿Cómo dormí anoche? 3. ¿Tuve algún síntoma físico hoy? 4. ¿Apareció voz crítica, frustración o pensamientos del pasado? 5. ¿Qué novedad importante pasó hoy? 6. ¿Qué me ayudó a regularme o sentirme mejor?",
+        items: []
+      }
+    ];
+
+    const entrenamientos = {
+      0: {
+        type: "reflexion",
+        title: "No soy incapaz",
+        instructions:
+          "Piensa en algo que te haya costado aprender o hacer. Responde: 1. ¿Qué me costó? 2. ¿Qué pensamiento apareció sobre mí? 3. ¿Me traté como si estuviera aprendiendo o como si estuviera fallando? 4. ¿Qué método o ayuda habría hecho esto más fácil? 5. Completa la frase: “No soy incapaz; necesito...”",
+        items: []
+      },
+      2: {
+        type: "checklist",
+        title: "Qué entrada necesita mi cerebro",
+        instructions:
+          "Marca lo que más te ayuda a entender algo nuevo. Luego responde: ¿cuál de estas formas puedo usar esta semana con el neerlandés?",
+        items: [
+          "Ejemplos prácticos",
+          "Repetición",
+          "Dibujos o esquemas",
+          "Que alguien me explique paso a paso",
+          "Practicar en vez de solo leer",
+          "Escuchar varias veces",
+          "Relacionarlo con algo que ya conozco",
+          "Hacer pausas cortas"
+        ]
+      },
+      4: {
+        type: "conductual",
+        title: "10 minutos sin perfección",
+        instructions:
+          "Hoy estudia neerlandés solo 10 minutos con esta regla: “No tengo que entender todo. Solo voy a encontrar una cosa que sí pueda reconocer.” Después responde: 1. ¿Qué sí entendí o reconocí? 2. ¿Qué me costó? 3. ¿Qué método me ayudaría más? 4. ¿Me hablé con paciencia o con exigencia? 5. ¿Qué frase más justa puedo decirme?",
+        items: [
+          "Estudié 10 minutos",
+          "No intenté hacerlo perfecto",
+          "Encontré al menos una cosa que sí reconocí",
+          "Observé cómo me hablé"
+        ]
+      }
+    };
+
+    const entrenamientoDelDia = entrenamientos[i] ? [entrenamientos[i]] : [];
+
+    return {
+      day: d,
+      exercises: [...diario, ...entrenamientoDelDia]
+    };
+  })
+},
   estefy_f2_c3_duelo_sin_huir: {
   name: "Estefy · Fase 2 · Duelo sin huir",
   label: "Fase 2 · Cuaderno 3 · Sostener el duelo sin huir",
