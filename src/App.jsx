@@ -565,6 +565,130 @@ const TEMPLATES = {
     };
   })
 },
+  graciela_m1_s5: {
+  name: "Graciela M1 S5",
+  label: "Mes 1 · Semana 5 · Del sueño al primer mapa operativo",
+  welcome:
+    "Gracy, esta semana vamos a bajar tu propósito a pasos concretos.\n\nNo tienes que decidir todo todavía. El objetivo es investigar, observar qué te emociona, qué te pesa y qué se alinea con la vida que quieres construir: autonomía, enseñanza, fe, viajes, conferencias, libertad financiera y ayuda con límites.\n\nEsta semana no vamos a buscar el negocio perfecto. Vamos a ordenar tres cosas: a quién quieres ayudar, qué formación necesitas y qué límites debe tener tu proyecto para que no se convierta en sacrificio.",
+  closing:
+    "Gracy, esta semana no buscábamos decidir toda tu vida. Buscábamos pasar del sueño a un primer mapa.\n\nTu propósito no tiene que nacer de presión ni de sacrificio. Puede empezar con una investigación pequeña, una decisión más clara y un primer paso que dependa de ti.\n\nLa próxima sesión vamos a revisar tus tres públicos, tus tres opciones de formación y vamos a elegir un primer camino posible para probar.",
+  days: DAYS.map((d, i) => {
+    const diario = [
+      {
+        type: "libre",
+        title: "Fecha de hoy",
+        instructions: "Escribe el día, mes y año.",
+        items: []
+      },
+      {
+        type: "energia",
+        title: "Nivel de energía",
+        instructions: "Del 1 al 10, ¿cómo estuvo tu energía hoy?",
+        items: []
+      },
+      {
+        type: "emocion",
+        title: "Estado de ánimo",
+        instructions:
+          "Del 1 al 10, ¿cómo estuvo tu ánimo hoy? ¿Qué emoción estuvo más presente?",
+        items: []
+      },
+      {
+        type: "reflexion",
+        title: "Foco del día",
+        instructions:
+          "Responde en máximo 3 líneas: 1. ¿Hoy avancé hacia mi proyecto o me fui al pasado? 2. ¿Qué hice, aunque haya sido pequeño? 3. ¿Qué necesito soltar para no cargar con todo?",
+        items: []
+      }
+    ];
+
+    const ejercicios = {
+      0: [
+        {
+          type: "reflexion",
+          title: "Mi proyecto no nace del sacrificio",
+          instructions:
+            "Hoy vamos a ordenar qué valores quieres que tenga tu proyecto. Responde: 1. ¿Qué significa para mí autonomía? 2. ¿Qué significa enseñar sin cargar con la vida de otros? 3. ¿Dónde entra mi fe en este proyecto? 4. ¿Qué lugar quiero que tengan los viajes, conferencias y libertad financiera? 5. ¿Qué NO quiero repetir en este proyecto? 6. ¿Qué límite necesito para no dejarme de lado otra vez?",
+          items: []
+        }
+      ],
+      1: [
+        {
+          type: "conductual",
+          title: "Tres públicos posibles",
+          instructions:
+            "Hoy vas a escribir 3 públicos posibles a los que podrías ayudar. Ejemplos: mujeres migrantes, mujeres que dejaron de soñar, mamás que se sienten culpables, mujeres que sienten que ya es tarde para empezar, personas que necesitan creer otra vez en sí mismas, mujeres que ayudan demasiado y no saben poner límites.\n\nPor cada público responde: 1. ¿Quiénes son? 2. ¿Qué problema tienen? 3. ¿Por qué me importa ese público? 4. ¿Qué podría enseñarles desde mi experiencia? 5. ¿Me emociona o me pesa?",
+          items: []
+        }
+      ],
+      2: [
+        {
+          type: "checklist",
+          title: "Elegir sin presión",
+          instructions:
+            "Marca qué público cumple más con estas señales. Luego responde las preguntas finales.",
+          items: [
+            "Me emociona hablarle.",
+            "Siento que entiendo su dolor.",
+            "Tengo algo real que enseñarle.",
+            "No siento que tendría que salvarle la vida.",
+            "Se alinea con conferencias, enseñanza o comunidad.",
+            "No me aleja de mi paz ni de mi familia.",
+            "Podría empezar con algo pequeño."
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "Lo que me muestra esta elección",
+          instructions:
+            "Responde: 1. ¿Cuál público parece más cercano a mí hoy? 2. ¿Cuál público me drena? 3. ¿Cuál público me da miedo, pero también me ilusiona? 4. Si tuviera que elegir solo uno para investigar más, ¿cuál sería?",
+          items: []
+        }
+      ],
+      3: [
+        {
+          type: "conductual",
+          title: "Buscar formación",
+          instructions:
+            "Hoy vas a buscar 3 opciones de formación. Pueden ser de coaching, mentoría, liderazgo, conferencias, acompañamiento emocional, mujeres y fe, comunicación o emprendimiento con propósito.\n\nPor cada opción anota: 1. Nombre de la formación. 2. País o modalidad: online/presencial. 3. Duración. 4. Costo aproximado. 5. Qué enseña. 6. Qué me gustó. 7. Qué duda me queda. 8. Del 1 al 10, ¿cuánto me acerca a mi visión?",
+          items: []
+        }
+      ],
+      4: [
+        {
+          type: "reflexion",
+          title: "Negocio propio, no negocio familiar",
+          instructions:
+            "Hoy vas a aclarar cómo tendría que ser un proyecto realmente tuyo. Responde: 1. ¿Por qué no quiero que este sea un negocio familiar? 2. ¿Qué necesito controlar yo? 3. ¿Qué sí podría aceptar de mi familia? 4. ¿Qué no quiero permitir? 5. ¿Qué decisiones deben ser solo mías? 6. ¿Cómo sabría que estoy construyendo desde autonomía y no desde presión?\n\nCompleta esta frase: Mi proyecto puede recibir apoyo, pero no puede perder mi voz, mi dirección ni mis límites.",
+          items: []
+        }
+      ],
+      5: [
+        {
+          type: "enfoque",
+          title: "Mi primera charla posible",
+          instructions:
+            "Imagina que das una charla pequeña para 5 mujeres. Completa: 1. El título de mi charla sería. 2. El público sería. 3. El problema que quiero tocar es. 4. Lo que quiero que entiendan al final es. 5. Una historia mía que podría usar como ejemplo es. 6. Una herramienta práctica que podría enseñarles es. 7. La frase central de mi mensaje sería.",
+          items: []
+        }
+      ],
+      6: [
+        {
+          type: "reflexion",
+          title: "Cierre de semana: mi primer mapa",
+          instructions:
+            "Completa este mapa: 1. Mis 3 valores principales son. 2. El público que más me interesa por ahora es. 3. La formación que más me llamó la atención es. 4. El formato que más me ilusiona es. 5. El formato que más me pesa es. 6. El límite que debo cuidar es. 7. Mi siguiente paso pequeño sería.\n\nFrase final: Mi propósito puede empezar ayudando a __________ a __________, usando mi experiencia de __________, con el límite de __________.",
+          items: []
+        }
+      ]
+    };
+
+    return {
+      day: d,
+      exercises: [...diario, ...(ejercicios[i] || [])]
+    };
+  })
+},
   estefy_f2_c3_duelo_sin_huir: {
   name: "Estefy · Fase 2 · Duelo sin huir",
   label: "Fase 2 · Cuaderno 3 · Sostener el duelo sin huir",
