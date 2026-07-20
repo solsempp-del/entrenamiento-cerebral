@@ -197,7 +197,8 @@ const TEMPLATES = {
       exercises: [...diario, ...(ejercicios[i] || [])]
     };
   })
-},
+}
+};
 
 // ── Storage helpers ──────────────────────────────────────
 function getMentees() { try { return JSON.parse(localStorage.getItem("sol_mentees")||"[]"); } catch { return []; } }
