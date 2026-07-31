@@ -197,7 +197,7 @@ const TEMPLATES = {
       exercises: [...diario, ...(ejercicios[i] || [])]
     };
   })
-}
+},
   letty_sentir_interrumpir_soltar_app3: {
   name: "Letty · Sentir, interrumpir y soltar",
   label: "Semana App 3 · Sentir el cuerpo y bajar el ruido mental",
