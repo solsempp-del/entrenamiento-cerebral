@@ -198,6 +198,79 @@ const TEMPLATES = {
     };
   })
 }
+  letty_sentir_interrumpir_soltar_app3: {
+  name: "Letty · Sentir, interrumpir y soltar",
+  label: "Semana App 3 · Sentir el cuerpo y bajar el ruido mental",
+  welcome: `Mi Letty, esta semana vamos a seguir simple.
+
+No vamos a analizar más la ansiedad ni a intentar entender todo lo que aparece en la mente.
+
+Solo quiero que entrenes tres cosas:
+
+1. Sentir tu cuerpo 5 minutos al día.
+2. Si aparece angustia fuerte, usar una herramienta sensorial: hielo, agua fría o apretar fuerte las manos.
+3. Si la mente se enreda demasiado, escribirlo en un cuaderno sin ordenarlo ni hacerlo perfecto.
+
+No buscamos que desaparezca todo de golpe.
+Buscamos que tu cuerpo aprenda, poco a poco, que puede sentir sin pelear.`,
+
+  closing: `Mi Letty, esta semana no medimos perfección.
+
+Medimos si pudiste darte 5 minutos para sentir tu cuerpo, si recordaste usar algo sensorial cuando la angustia subió, y si lograste sacar de tu mente lo que estaba demasiado enredado.
+
+Cada intento cuenta.
+
+Seguimos paso a paso.`,
+
+  days: DAYS.map((d, i) => {
+    if (i >= 5) {
+      return {
+        day: d,
+        exercises: []
+      };
+    }
+
+    return {
+      day: d,
+      exercises: [
+        {
+          type: "checklist",
+          title: "Sentir mi cuerpo 5 minutos",
+          instructions: "Busca un momento del día y quédate 5 minutos sintiendo tu cuerpo desde adentro. No tienes que calmarte, entenderlo ni controlarlo. Solo siente el cuerpo. Si vienen pensamientos, no los sigas. Vuelve al cuerpo.",
+          items: [
+            "Realizado"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Si apareció angustia fuerte",
+          instructions: "Si hoy apareció una angustia fuerte, usa una herramienta sensorial para ayudar a bajar la activación del cuerpo. Si no apareció angustia fuerte, no pasa nada.",
+          items: [
+            "Usé hielo en las manos o muñecas",
+            "Me lavé la cara con agua fría",
+            "Apreté fuerte las manos, pies o muslos",
+            "Hoy no lo necesité"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Si mi mente se enredó",
+          instructions: "Si hoy tu mente se llenó de pensamientos, escríbelos en un cuaderno sin intentar ordenarlos ni hacerlos perfectos. Solo sácalos de la cabeza al papel.",
+          items: [
+            "Escribí lo que tenía en la mente",
+            "Hoy no lo necesité"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme de tu día, de tu cuerpo, de tus emociones o de cualquier cosa importante para ti.",
+          items: []
+        }
+      ]
+    };
+  })
+},
 };
 
 // ── Storage helpers ──────────────────────────────────────
