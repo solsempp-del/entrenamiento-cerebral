@@ -271,6 +271,218 @@ Seguimos paso a paso.`,
     };
   })
 },
+  letty_no_estoy_encerrada_app4: {
+  name: "Letty · No estoy encerrada",
+  label: "Semana App 4 · No estoy encerrada, estoy acompañada",
+
+  welcome: `Mi Letty, esta semana vamos a trabajar con la imagen que apareció en la sesión: esa parte de ti que se siente encerrada, con miedo y sin fuerza.
+
+No vamos a analizar por qué está ahí.
+No vamos a buscar explicaciones.
+No vamos a pelear con la ansiedad.
+
+Solo vas a hacer una práctica sencilla:
+
+acercarte a esa parte de ti, hablarle con amor y recordarle que no está sola.
+
+La frase de esta semana es:
+
+“No estoy encerrada. Estoy acompañada por Dios y por mí.”`,
+
+  closing: `Mi Letty, esta semana no medimos si la ansiedad desapareció.
+
+Medimos si pudiste acompañar a esa parte de ti que se siente encerrada, si pudiste hablarle con amor y si recordaste que no tienes que sostener esto sola.
+
+Cada vez que le hablaste a esa parte, entrenaste seguridad interna.`,
+
+  days: DAYS.map((d, i) => {
+    if (i >= 5) {
+      return {
+        day: d,
+        exercises: []
+      };
+    }
+
+    const plan = [
+      [
+        {
+          type: "checklist",
+          title: "Elegí mi objeto ancla",
+          instructions: `Busca un objeto pequeño de tu casa que puedas llevar contigo o tener cerca durante la semana.
+
+No tiene que ser perfecto. Solo debe recordarte hogar, seguridad, calma o compañía.`,
+          items: [
+            "Elegí mi objeto ancla",
+            "Lo puse en un lugar donde pueda verlo o llevarlo",
+            "Hoy no pude elegirlo, pero lo intentaré mañana"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Le hablé a la parte encerrada",
+          instructions: `Cierra los ojos por un momento, imagina a esa parte de ti que se siente encerrada y dile:
+
+“No estás sola. Yo estoy aquí contigo. Dios está contigo. Puedes salir poco a poco.”`,
+          items: [
+            "Realizado",
+            "Lo intenté aunque me costó",
+            "Hoy no pude hacerlo"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme. No tienes que ordenar ni analizar nada.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Toqué mi objeto ancla",
+          instructions: `Toma tu objeto ancla en la mano por un momento y recuerda:
+
+“La seguridad no está solo en mi casa. También puede ir conmigo.”`,
+          items: [
+            "Toqué mi objeto ancla",
+            "Lo llevé conmigo",
+            "Me acordé de que no estoy sola",
+            "Hoy no pude hacerlo"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Le hablé a la parte encerrada",
+          instructions: `Dile a esa parte de ti:
+
+“Puedes tener miedo, pero ya no estás encerrada sola. Yo voy contigo.”`,
+          items: [
+            "Realizado",
+            "Lo intenté aunque me costó",
+            "Hoy no pude hacerlo"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme del día.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "La dejé en un lugar seguro",
+          instructions: `Imagina a esa parte de ti que se siente encerrada y déjala, por unos minutos, en los brazos de Dios.
+
+No tienes que hacer nada más.
+Solo dejarla ahí.`,
+          items: [
+            "La imaginé en los brazos de Dios",
+            "Sentí un poco de calma",
+            "Me costó, pero lo intenté",
+            "Hoy no pude hacerlo"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Frase de seguridad",
+          instructions: `Repite despacio:
+
+“No tengo que sostener esto sola. Dios me sostiene. Yo también puedo acompañarme.”`,
+          items: [
+            "Repetí la frase",
+            "La dije en voz baja",
+            "La pensé por dentro",
+            "Hoy no pude hacerlo"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Sentir el peso como fuerza",
+          instructions: `Quédate 3 a 5 minutos sintiendo el peso de tu cuerpo.
+
+No lo llames miedo.
+No lo llames peligro.
+
+Solo repite:
+
+“Este peso también puede ser ancla. Este cuerpo me sostiene.”`,
+          items: [
+            "Sentí el peso de mi cuerpo",
+            "Lo repetí como ancla",
+            "Me costó, pero me quedé un momento",
+            "Hoy no pude hacerlo"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Volví al objeto ancla",
+          instructions: "Toca tu objeto ancla y recuerda la parte de ti que tomó fuerza en la sesión.",
+          items: [
+            "Toqué mi objeto ancla",
+            "Recordé la sensación de fuerza",
+            "Me acordé de que no estoy sola",
+            "Hoy no pude hacerlo"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Acompañé a mi parte encerrada",
+          instructions: "Hoy solo registra lo que sí lograste esta semana.",
+          items: [
+            "Le hablé a esa parte de mí",
+            "Usé mi objeto ancla",
+            "La dejé en los brazos de Dios",
+            "Recordé que no estoy sola",
+            "Sentí mi cuerpo sin pelear tanto",
+            "Lo intenté, aunque me costó"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Frase de cierre",
+          instructions: `Repite esta frase:
+
+“No estoy encerrada. Estoy acompañada. Puedo salir poco a poco.”`,
+          items: [
+            "Repetí la frase",
+            "La escribí",
+            "La dije en oración",
+            "Hoy solo la leí"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme de esta semana.",
+          items: []
+        }
+      ]
+    ];
+
+    return {
+      day: d,
+      exercises: plan[i]
+    };
+  })
+},
 };
 
 // ── Storage helpers ──────────────────────────────────────
