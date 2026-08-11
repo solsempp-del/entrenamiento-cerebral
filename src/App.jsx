@@ -483,6 +483,265 @@ Solo repite:
     };
   })
 },
+  graciela_recuperacion_s1: {
+  name: "Graciela Recuperación S1",
+  label: "Registro pendiente · Semana 1",
+  welcome:
+    "Gracy, esta semana es solo para igualarte con tus registros pendientes.\n\nNo tienes que hacer ejercicios profundos ni resolver nada. Solo registra lo básico de cada día: fecha, ciclo menstrual, agua, cuerpo, energía, ánimo y novedades.\n\nLa idea es recuperar información para observar cómo estuvo tu cuerpo, tu energía y tu estado emocional durante estos días.",
+  closing:
+    "Gracy, esta semana sirvió para recuperar información importante de tu cuerpo, tu energía y tus emociones.\n\nEstos registros nos ayudan a observar patrones sin presionarte y sin tener que recordar todo de golpe.\n\nCuando terminemos de igualar las semanas pendientes, seguimos con el trabajo nuevo.",
+  days: DAYS.map((d) => ({
+    day: d,
+    exercises: [
+      {
+        type: "libre",
+        title: "Fecha de hoy",
+        instructions:
+          "Escribe la fecha que estás registrando y el día de tu ciclo menstrual si lo recuerdas.\n\nEjemplo: 16 de julio 2026 · Día del ciclo menstrual 20.",
+        items: []
+      },
+      {
+        type: "checklist",
+        title: "Agua y cuerpo",
+        instructions:
+          "Marca lo que hiciste o lo que observaste ese día. Si quieres, escribe una nota breve al final.",
+        items: [
+          "Tomé agua en la mañana",
+          "Tomé agua en la tarde",
+          "Observé si tuve dolor de cabeza o cansancio",
+          "Noté si mi cuerpo necesitaba descanso",
+          "No esperé a sentirme mal para tomar agua"
+        ]
+      },
+      {
+        type: "energia",
+        title: "Nivel de energía",
+        instructions:
+          "Del 1 al 10, registra cómo estuvo tu energía ese día.",
+        items: []
+      },
+      {
+        type: "emocion",
+        title: "Estado de ánimo",
+        instructions:
+          "Del 1 al 10, registra cómo estuvo tu ánimo ese día y qué emoción estuvo más presente.",
+        items: []
+      },
+      {
+        type: "libre",
+        title: "Novedades del día",
+        instructions:
+          "Escribe brevemente qué pasó ese día o qué recuerdas de tu cuerpo, emociones, descanso, viaje, familia o cualquier situación importante.",
+        items: []
+      }
+    ]
+  }))
+},
+  graciela_recuperacion_s2: {
+  name: "Graciela Recuperación S2",
+  label: "Registro pendiente · Semana 2",
+  welcome:
+    "Gracy, esta es la segunda semana para igualarte con tus registros pendientes.\n\nIgual que en la semana anterior, no vamos a hacer ejercicios profundos. Solo vamos a recuperar información básica de cada día: fecha, ciclo menstrual, agua, cuerpo, energía, ánimo y novedades.\n\nEsto nos ayuda a completar el seguimiento y observar cómo estuvo tu cuerpo, tu energía y tus emociones durante esos días.",
+  closing:
+    "Gracy, con esta segunda semana terminamos de recuperar los registros pendientes.\n\nEsta información nos ayuda a mirar patrones de energía, ánimo, cuerpo, descanso y ciclo menstrual con más claridad.\n\nDespués de esta recuperación, seguimos con el trabajo nuevo de honradez contigo misma y equilibrio de tus valores.",
+  days: DAYS.map((d) => ({
+    day: d,
+    exercises: [
+      {
+        type: "libre",
+        title: "Fecha de hoy",
+        instructions:
+          "Escribe la fecha que estás registrando y el día de tu ciclo menstrual si lo recuerdas.\n\nEjemplo: 23 de julio 2026 · Día del ciclo menstrual 27.",
+        items: []
+      },
+      {
+        type: "checklist",
+        title: "Agua y cuerpo",
+        instructions:
+          "Marca lo que hiciste o lo que observaste ese día. Si quieres, escribe una nota breve al final.",
+        items: [
+          "Tomé agua en la mañana",
+          "Tomé agua en la tarde",
+          "Observé si tuve dolor de cabeza o cansancio",
+          "Noté si mi cuerpo necesitaba descanso",
+          "No esperé a sentirme mal para tomar agua"
+        ]
+      },
+      {
+        type: "energia",
+        title: "Nivel de energía",
+        instructions:
+          "Del 1 al 10, registra cómo estuvo tu energía ese día.",
+        items: []
+      },
+      {
+        type: "emocion",
+        title: "Estado de ánimo",
+        instructions:
+          "Del 1 al 10, registra cómo estuvo tu ánimo ese día y qué emoción estuvo más presente.",
+        items: []
+      },
+      {
+        type: "libre",
+        title: "Novedades del día",
+        instructions:
+          "Escribe brevemente qué pasó ese día o qué recuerdas de tu cuerpo, emociones, descanso, viaje, familia o cualquier situación importante.",
+        items: []
+      }
+    ]
+  }))
+},
+  graciela_pendulo_honradez: {
+  name: "Graciela Péndulo de Honradez",
+  label: "Péndulo valórico · Honradez conmigo misma",
+  welcome:
+    "Gracy, esta semana vamos a trabajar el valor que más se movió en el ejercicio de péndulos: la honradez.\n\nNo vamos a mirar la honradez solo como decir la verdad o no tomar algo ajeno. Esta semana la vamos a mirar también hacia ti: tu tiempo, tu cuerpo, tu descanso, tu paz, tus límites y tu propósito.\n\nEl objetivo es observar dónde eres muy honrada con los demás, pero puedes estar dejándote a ti en segundo lugar.",
+  closing:
+    "Gracy, esta semana trabajaste la honradez contigo misma.\n\nLa honradez también incluye respetar tu cuerpo, tu descanso, tu energía, tus límites y tu propósito.\n\nEl objetivo no era resolver todo, sino empezar a volver al centro: dar sin abandonarte, ayudar sin perderte y construir tu propósito sin dejarte a ti para el final.",
+  days: DAYS.map((d, i) => {
+    const diario = [
+      {
+        type: "libre",
+        title: "Fecha de hoy",
+        instructions:
+          "Escribe la fecha de hoy y el día de tu ciclo menstrual si lo recuerdas.",
+        items: []
+      },
+      {
+        type: "checklist",
+        title: "Agua y cuerpo",
+        instructions:
+          "Marca lo que hiciste o lo que observaste hoy.",
+        items: [
+          "Tomé agua en la mañana",
+          "Tomé agua en la tarde",
+          "Observé si tuve dolor de cabeza o cansancio",
+          "Noté si mi cuerpo necesitaba descanso",
+          "No esperé a sentirme mal para cuidarme"
+        ]
+      },
+      {
+        type: "energia",
+        title: "Nivel de energía",
+        instructions:
+          "Del 1 al 10, registra cómo estuvo tu energía hoy.",
+        items: []
+      },
+      {
+        type: "emocion",
+        title: "Estado de ánimo",
+        instructions:
+          "Del 1 al 10, registra cómo estuvo tu ánimo hoy y qué emoción estuvo más presente.",
+        items: []
+      },
+      {
+        type: "libre",
+        title: "Novedades del día",
+        instructions:
+          "Escribe brevemente qué pasó hoy o qué fue importante observar en tu cuerpo, emociones, familia, viaje, descanso o pensamientos.",
+        items: []
+      }
+    ];
+
+    const ejercicios = {
+      0: [
+        {
+          type: "reflexion",
+          title: "Mi péndulo de honradez",
+          instructions:
+            "En la sesión vimos que tu péndulo de honradez estaba más cargado hacia los demás que hacia ti.\n\nResponde: 1. ¿En qué cosas suelo ser muy honrada con los demás? 2. ¿En qué cosas no estoy siendo tan honrada conmigo? 3. ¿Dónde me quito tiempo, descanso, paz o voz? 4. ¿Qué me muestra ese 30% para mí y 70% para los demás? 5. ¿Qué sería volver un poco más al centro esta semana?\n\nFrase final: Esta semana quiero ser más honrada conmigo en __________.",
+          items: []
+        }
+      ],
+      1: [
+        {
+          type: "checklist",
+          title: "Cuando doy de más",
+          instructions:
+            "Marca si hoy apareció algo de esto. Luego responde la pregunta final.",
+          items: [
+            "Dije que sí cuando quería decir que no",
+            "Ayudé aunque estaba cansada",
+            "Me preocupé por algo que no dependía de mí",
+            "Dejé mi descanso para después",
+            "Sentí culpa por poner un límite",
+            "Esperé que otros notaran lo que necesito"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "Qué buscaba al dar de más",
+          instructions:
+            "Responde: ¿Qué estaba buscando al dar de más: paz, aprobación, control, amor, evitar conflicto o sentirme útil?",
+          items: []
+        }
+      ],
+      2: [
+        {
+          type: "conductual",
+          title: "Honradez con mi cuerpo",
+          instructions:
+            "Hoy el ejercicio es cuidar tu cuerpo de forma concreta. Elige una acción: tomar más agua, dormir más temprano, descansar sin culpa, comer con más orden, salir a caminar, evitar sobreexigirte o pausar si aparece dolor de cabeza o cansancio.\n\nDespués escribe: Hoy fui honrada con mi cuerpo cuando __________.",
+          items: [
+            "Tomé más agua",
+            "Descansé sin culpa",
+            "Escuché una señal de mi cuerpo",
+            "No me exigí de más",
+            "Hice una pausa cuando la necesitaba"
+          ]
+        }
+      ],
+      3: [
+        {
+          type: "reflexion",
+          title: "Honradez con mis límites",
+          instructions:
+            "Responde: 1. ¿Qué límite me cuesta poner? 2. ¿Con quién me cuesta más? 3. ¿Qué miedo aparece cuando pienso en ponerlo? 4. ¿Qué pasa conmigo cuando no lo pongo? 5. ¿Cómo puedo decirlo de forma tranquila y firme?\n\nFrase guía: Poner un límite no me hace dura; me ayuda a no perderme.",
+          items: []
+        }
+      ],
+      4: [
+        {
+          type: "enfoque",
+          title: "Honradez con mi propósito",
+          instructions:
+            "Vuelve a la idea del libro o proyecto. Responde: 1. ¿Qué tema me gustaría contar o enseñar? 2. ¿Por qué este tema es importante para mí? 3. ¿A quién podría ayudar? 4. ¿Qué experiencia mía le da fuerza a este mensaje? 5. ¿Qué parte de mí se emociona con esta idea? 6. ¿Qué parte de mí se asusta?\n\nFrase final: Mi propósito empieza a tomar forma cuando me permito __________.",
+          items: []
+        }
+      ],
+      5: [
+        {
+          type: "conductual",
+          title: "Una acción pequeña para mi libro",
+          instructions:
+            "Hoy no tienes que escribir un libro. Solo dar un paso pequeño.\n\nElige una acción: buscar un curso de escritura, buscar un coach de escritura, ver cómo se publica un libro en Amazon, escribir 5 posibles títulos, escribir 5 temas que podría tener mi libro, grabar una nota de voz contando mi idea o escribir una página libre sobre mi historia.\n\nDespués responde: La acción que hice fue __________. Lo que descubrí fue __________.",
+          items: [
+            "Busqué una opción de curso o coach",
+            "Escribí posibles títulos",
+            "Escribí posibles temas",
+            "Grabé una nota de voz",
+            "Escribí una página libre",
+            "Investigué cómo publicar un libro"
+          ]
+        }
+      ],
+      6: [
+        {
+          type: "reflexion",
+          title: "Volver al centro",
+          instructions:
+            "Cierre semanal. Responde: 1. ¿Dónde fui más honrada conmigo esta semana? 2. ¿Dónde todavía me fui hacia los demás y me dejé a mí al final? 3. ¿Qué aprendí de mi péndulo? 4. ¿Qué acción quiero repetir la próxima semana? 5. ¿Qué tema del libro o propósito apareció con más fuerza?\n\nFrase final: Ser honrada conmigo significa __________.",
+          items: []
+        }
+      ]
+    };
+
+    return {
+      day: d,
+      exercises: [...diario, ...(ejercicios[i] || [])]
+    };
+  })
+}
 };
 
 // ── Storage helpers ──────────────────────────────────────
