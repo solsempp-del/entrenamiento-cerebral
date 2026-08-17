@@ -79,668 +79,176 @@ const CLOSE_OPTS = [
 ];
 
 const TEMPLATES = {
-  graciela_m1_s6: {
-  name: "Graciela M1 S6",
-  label: "Mes 1 · Semana 6 · Soltar control y ordenar ideas",
-  welcome:
-    "Gracy, esta semana vamos a trabajar dos cosas muy concretas: tu tranquilidad y tu enfoque.\n\nPor un lado, vamos a observar qué pasa cuando aparece la desconfianza, sin perseguir explicaciones ni hacerte daño pensando demasiado.\n\nPor otro lado, vamos a ordenar tus ideas para que todo lo que has aprendido no se quede solo en teoría, sino que empiece a tomar forma.\n\nEsta semana no vamos a decidir todo. Vamos a registrar, filtrar y ordenar.",
-  closing:
-    "Gracy, esta semana no buscábamos resolver toda tu vida ni decidir un negocio completo.\n\nBuscábamos entrenar tres cosas: cuidar tu cuerpo, soltar el control cuando aparece la desconfianza y ordenar las ideas que podrían convertirse en contenido.\n\nLa próxima sesión vamos a revisar qué tema apareció con más fuerza y cómo podemos convertirlo en un primer mapa sencillo.",
-  days: DAYS.map((d, i) => {
-    const diario = [
-      {
-        type: "libre",
-        title: "Fecha de hoy",
-        instructions: "Escribe día, mes y año.",
-        items: []
-      },
-      {
-        type: "checklist",
-        title: "Agua y cuerpo",
-        instructions: "Marca lo que hiciste hoy.",
-        items: [
-          "Tomé agua en la mañana",
-          "Tomé agua en la tarde",
-          "Observé si tuve dolor de cabeza o cansancio",
-          "Noté si mi cuerpo necesitaba descanso",
-          "No esperé a sentirme mal para tomar agua"
-        ]
-      },
-      {
-        type: "energia",
-        title: "Nivel de energía",
-        instructions: "Del 1 al 10, ¿cómo estuvo tu energía hoy?",
-        items: []
-      },
-      {
-        type: "emocion",
-        title: "Estado de ánimo",
-        instructions: "Del 1 al 10, ¿cómo estuvo tu ánimo hoy? ¿Qué emoción estuvo más presente?",
-        items: []
-      }
-    ];
+  {
+  titulo: "Semana 10 · Flexibilidad en acción",
+  mensajeBienvenida:
+    "Gracy, esta semana vamos a llevar a la práctica algo que descubrimos en sesión: tu capacidad de adaptarte, aprender y actualizarte. No quiero que hagas muchas cosas. Quiero que observes cómo respondes cuando necesitas aprender algo nuevo y que avances con pasos pequeños.",
 
-    const ejercicios = {
-      0: [
+  dias: [
+    {
+      dia: "Día 1",
+      ejercicios: [
         {
-          type: "reflexion",
-          title: "Cuando aparece la desconfianza",
-          instructions:
-            "Responde: 1. ¿Qué hecho real pasó? 2. ¿Qué empezó a imaginar mi mente? 3. ¿Qué emoción apareció? 4. ¿Qué necesitaba en ese momento: seguridad, claridad, paz, respeto o límite? 5. ¿Qué hice para no perseguir, revisar ni atormentarme?\n\nCompleta esta frase: Hoy puedo sentir desconfianza sin dejar que la desconfianza dirija todo mi día.",
-          items: []
-        }
-      ],
-      1: [
-        {
-          type: "conductual",
-          title: "Soltar el papel de detective",
-          instructions:
-            "Hoy, si aparece una duda con José, practica esto: 1. No preguntar de inmediato. 2. Respirar. 3. Esperar. 4. Escribir qué hecho real tengo y qué interpretación apareció. 5. Decidir si realmente necesito hablarlo o si puedo soltarlo.",
-          items: [
-            "Respiré antes de preguntar",
-            "Separé hecho de interpretación",
-            "No busqué comprobar todo",
-            "Elegí cuidar mi paz mental",
-            "Si hablé, lo hice sin reclamo"
+          tipo: "reflexion",
+          titulo: "Lo que conservo y lo que actualizo",
+          descripcion:
+            "Piensa en lo que vimos sobre generaciones. Responde de forma breve.",
+          preguntas: [
+            "¿Qué característica aprendida de tu familia o generación reconoces hoy como una fortaleza?",
+            "¿Qué forma de pensar o actuar sientes que hoy necesitas actualizar?"
           ]
-        }
-      ],
-      2: [
+        },
         {
-          type: "reflexion",
-          title: "Lo que sí hemos construido",
-          instructions:
-            "Haz una mirada breve de tus 27 años de matrimonio. No escribas toda la historia. Solo responde: 1. ¿Qué momentos difíciles hemos atravesado? 2. ¿Qué cosas buenas sí se construyeron? 3. ¿Qué aprendí de mí en este matrimonio? 4. ¿Qué aprendí de José? 5. ¿Qué parte de esta historia no quiero mirar solo desde el dolor? 6. ¿Qué agradezco de mis hijos y de lo que se formó en este camino?",
-          items: []
-        }
-      ],
-      3: [
-        {
-          type: "enfoque",
-          title: "Qué hubiera pasado si...",
-          instructions:
-            "Cuando aparezca la pregunta “¿qué hubiera sido de mi vida si...?”, responde: 1. ¿Qué vida estoy imaginando? 2. ¿Estoy imaginando solo lo bueno de esa otra vida? 3. ¿Qué dificultades también habría podido tener ese camino? 4. ¿Qué sí tengo hoy que no quiero desconocer? 5. ¿Qué puedo hacer ahora con la vida que sí tengo?\n\nCompleta esta frase: No puedo cambiar la vida que no viví, pero sí puedo decidir qué hago con la vida que tengo ahora.",
-          items: []
-        }
-      ],
-      4: [
-        {
-          type: "reflexion",
-          title: "Volver a los fundamentos",
-          instructions:
-            "Piensa en los aprendizajes que antes te ayudaron a cambiar tu mentalidad. Responde: 1. ¿Qué enseñanza me marcó en el pasado? 2. ¿Qué libro, curso, charla o experiencia me hizo pensar diferente? 3. ¿Qué aprendí sobre mentalidad? 4. ¿Qué aprendí sobre relaciones? 5. ¿Qué aprendí sobre fe? 6. ¿Qué de eso necesito volver a practicar hoy?",
-          items: []
-        }
-      ],
-      5: [
-        {
-          type: "libre",
-          title: "Lluvia de ideas sin decidir todavía",
-          instructions:
-            "Haz una lista de temas que te gustaría enseñar algún día. No tienes que ordenar ni elegir todavía. Solo escribe ideas.\n\nEjemplos: creer otra vez en mí, mujeres migrantes, empezar tarde, mentalidad, fe y decisiones, perdón sin perder límites, nutrición emocional, matrimonio, mujeres en la iglesia, cómo dejar de vivir en miedo, cómo soltar el control, cómo pasar de teoría a acción.\n\nLuego marca con una estrella los 3 temas que más te mueven.",
-          items: []
-        }
-      ],
-      6: [
-        {
-          type: "reflexion",
-          title: "Mi primer mapa de contenidos",
-          instructions:
-            "De los temas que marcaste, elige uno y completa: 1. Tema elegido. 2. ¿A quién le serviría este tema? 3. ¿Qué problema tiene esa persona? 4. ¿Qué me gustaría que entienda? 5. ¿Qué experiencia mía me da autoridad para hablar de esto? 6. ¿Qué herramienta simple podría enseñarle? 7. ¿Cuál sería un primer título posible?\n\nFrase final: Mi primer tema podría ser __________, para ayudar a __________ a entender __________.",
-          items: []
+          tipo: "nivel_energia",
+          titulo: "Mi energía de hoy",
+          descripcion:
+            "Registra tu nivel de energía del 1 al 10 y escribe en una frase cómo está tu estado de ánimo."
         }
       ]
-    };
+    },
 
-    return {
-      day: d,
-      exercises: [...diario, ...(ejercicios[i] || [])]
-    };
-  })
-},
-  letty_sentir_interrumpir_soltar_app3: {
-  name: "Letty · Sentir, interrumpir y soltar",
-  label: "Semana App 3 · Sentir el cuerpo y bajar el ruido mental",
-  welcome: `Mi Letty, esta semana vamos a seguir simple.
+    {
+      dia: "Día 2",
+      ejercicios: [
+        {
+          tipo: "reto",
+          titulo: "Hoy aprendo algo tecnológico",
+          descripcion:
+            "Elige UNA cosa tecnológica pequeña que normalmente pedirías a otra persona que haga por ti e intenta aprenderla tú.",
+          preguntas: [
+            "¿Qué decidiste aprender?",
+            "¿Qué hiciste para intentar resolverlo?",
+            "¿Qué pudiste hacer sola?"
+          ]
+        },
+        {
+          tipo: "nivel_energia",
+          titulo: "Mi energía de hoy",
+          descripcion:
+            "Registra tu energía del 1 al 10 y tu estado de ánimo."
+        }
+      ]
+    },
 
-No vamos a analizar más la ansiedad ni a intentar entender todo lo que aparece en la mente.
+    {
+      dia: "Día 3",
+      ejercicios: [
+        {
+          tipo: "reflexion",
+          titulo: "Mi ADN helicoidal en acción",
+          descripcion:
+            "Busca un momento reciente en el que hayas reaccionado, pensado o actuado de una manera diferente a como lo habrías hecho años atrás.",
+          preguntas: [
+            "¿Qué pasó?",
+            "¿Cómo habrías reaccionado antes?",
+            "¿Qué hiciste diferente ahora?",
+            "¿Qué aprendiste de ese cambio?"
+          ]
+        },
+        {
+          tipo: "nivel_energia",
+          titulo: "Mi energía de hoy",
+          descripcion:
+            "Registra tu energía y estado de ánimo."
+        }
+      ]
+    },
 
-Solo quiero que entrenes tres cosas:
+    {
+      dia: "Día 4",
+      ejercicios: [
+        {
+          tipo: "tarea_conductual",
+          titulo: "Tecnología para mi vida real",
+          descripcion:
+            "Hoy no vas a aprender tecnología por aprender. Elige una herramienta que te sirva para algo que realmente necesitas: neerlandés, estudio, organización, trámites, comunicación o algún proyecto personal.",
+          preguntas: [
+            "¿Qué herramienta utilizaste?",
+            "¿Para qué te sirvió?",
+            "¿Qué parte todavía necesitas aprender?"
+          ]
+        },
+        {
+          tipo: "nivel_energia",
+          titulo: "Mi energía de hoy",
+          descripcion:
+            "Registra tu energía del 1 al 10 y cómo te sentiste hoy."
+        }
+      ]
+    },
 
-1. Sentir tu cuerpo 5 minutos al día.
-2. Si aparece angustia fuerte, usar una herramienta sensorial: hielo, agua fría o apretar fuerte las manos.
-3. Si la mente se enreda demasiado, escribirlo en un cuaderno sin ordenarlo ni hacerlo perfecto.
+    {
+      dia: "Día 5",
+      ejercicios: [
+        {
+          tipo: "reto",
+          titulo: "Solo el siguiente paso",
+          descripcion:
+            "Escoge UNA prioridad: ejercicio, examen o neerlandés. No intentes terminarla. Haz solamente el siguiente paso pequeño.",
+          preguntas: [
+            "¿Qué prioridad elegiste?",
+            "¿Cuál era el paso más pequeño posible?",
+            "¿Lo hiciste?",
+            "¿Qué pasó después de empezar?"
+          ]
+        },
+        {
+          tipo: "nivel_energia",
+          titulo: "Mi energía de hoy",
+          descripcion:
+            "Registra tu energía y estado de ánimo."
+        }
+      ]
+    },
 
-No buscamos que desaparezca todo de golpe.
-Buscamos que tu cuerpo aprenda, poco a poco, que puede sentir sin pelear.`,
+    {
+      dia: "Día 6",
+      ejercicios: [
+        {
+          tipo: "reflexion",
+          titulo: "De dónde vengo y qué elijo hoy",
+          descripcion:
+            "Completa estas dos frases sin pensarlas demasiado.",
+          preguntas: [
+            "De lo que aprendí de mi familia y mi generación quiero conservar...",
+            "En esta etapa de mi vida necesito aprender o actualizar..."
+          ]
+        },
+        {
+          tipo: "nivel_energia",
+          titulo: "Mi energía de hoy",
+          descripcion:
+            "Registra tu energía del 1 al 10 y tu estado de ánimo."
+        }
+      ]
+    },
 
-  closing: `Mi Letty, esta semana no medimos perfección.
-
-Medimos si pudiste darte 5 minutos para sentir tu cuerpo, si recordaste usar algo sensorial cuando la angustia subió, y si lograste sacar de tu mente lo que estaba demasiado enredado.
-
-Cada intento cuenta.
-
-Seguimos paso a paso.`,
-
-  days: DAYS.map((d, i) => {
-    if (i >= 5) {
-      return {
-        day: d,
-        exercises: []
-      };
+    {
+      dia: "Día 7",
+      ejercicios: [
+        {
+          tipo: "reflexion",
+          titulo: "Cierre de semana",
+          descripcion:
+            "Revisa lo que hiciste esta semana. No necesitas haber completado todo para responder.",
+          preguntas: [
+            "¿Qué aprendiste esta semana que te hizo sentir más capaz?",
+            "¿En qué viste tu capacidad de adaptarte?",
+            "¿Qué quieres seguir practicando la próxima semana?"
+          ]
+        },
+        {
+          tipo: "nivel_energia",
+          titulo: "Mi energía de hoy",
+          descripcion:
+            "Registra tu energía y estado de ánimo."
+        }
+      ]
     }
+  ],
 
-    return {
-      day: d,
-      exercises: [
-        {
-          type: "checklist",
-          title: "Sentir mi cuerpo 5 minutos",
-          instructions: "Busca un momento del día y quédate 5 minutos sintiendo tu cuerpo desde adentro. No tienes que calmarte, entenderlo ni controlarlo. Solo siente el cuerpo. Si vienen pensamientos, no los sigas. Vuelve al cuerpo.",
-          items: [
-            "Realizado"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "Si apareció angustia fuerte",
-          instructions: "Si hoy apareció una angustia fuerte, usa una herramienta sensorial para ayudar a bajar la activación del cuerpo. Si no apareció angustia fuerte, no pasa nada.",
-          items: [
-            "Usé hielo en las manos o muñecas",
-            "Me lavé la cara con agua fría",
-            "Apreté fuerte las manos, pies o muslos",
-            "Hoy no lo necesité"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "Si mi mente se enredó",
-          instructions: "Si hoy tu mente se llenó de pensamientos, escríbelos en un cuaderno sin intentar ordenarlos ni hacerlos perfectos. Solo sácalos de la cabeza al papel.",
-          items: [
-            "Escribí lo que tenía en la mente",
-            "Hoy no lo necesité"
-          ]
-        },
-        {
-          type: "libre",
-          title: "Lo que quiero contar hoy",
-          instructions: "Escribe aquí lo que quieras contarme de tu día, de tu cuerpo, de tus emociones o de cualquier cosa importante para ti.",
-          items: []
-        }
-      ]
-    };
-  })
-},
-  letty_no_estoy_encerrada_app4: {
-  name: "Letty · No estoy encerrada",
-  label: "Semana App 4 · No estoy encerrada, estoy acompañada",
-
-  welcome: `Mi Letty, esta semana vamos a trabajar con la imagen que apareció en la sesión: esa parte de ti que se siente encerrada, con miedo y sin fuerza.
-
-No vamos a analizar por qué está ahí.
-No vamos a buscar explicaciones.
-No vamos a pelear con la ansiedad.
-
-Solo vas a hacer una práctica sencilla:
-
-acercarte a esa parte de ti, hablarle con amor y recordarle que no está sola.
-
-La frase de esta semana es:
-
-“No estoy encerrada. Estoy acompañada por Dios y por mí.”`,
-
-  closing: `Mi Letty, esta semana no medimos si la ansiedad desapareció.
-
-Medimos si pudiste acompañar a esa parte de ti que se siente encerrada, si pudiste hablarle con amor y si recordaste que no tienes que sostener esto sola.
-
-Cada vez que le hablaste a esa parte, entrenaste seguridad interna.`,
-
-  days: DAYS.map((d, i) => {
-    if (i >= 5) {
-      return {
-        day: d,
-        exercises: []
-      };
-    }
-
-    const plan = [
-      [
-        {
-          type: "checklist",
-          title: "Elegí mi objeto ancla",
-          instructions: `Busca un objeto pequeño de tu casa que puedas llevar contigo o tener cerca durante la semana.
-
-No tiene que ser perfecto. Solo debe recordarte hogar, seguridad, calma o compañía.`,
-          items: [
-            "Elegí mi objeto ancla",
-            "Lo puse en un lugar donde pueda verlo o llevarlo",
-            "Hoy no pude elegirlo, pero lo intentaré mañana"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "Le hablé a la parte encerrada",
-          instructions: `Cierra los ojos por un momento, imagina a esa parte de ti que se siente encerrada y dile:
-
-“No estás sola. Yo estoy aquí contigo. Dios está contigo. Puedes salir poco a poco.”`,
-          items: [
-            "Realizado",
-            "Lo intenté aunque me costó",
-            "Hoy no pude hacerlo"
-          ]
-        },
-        {
-          type: "libre",
-          title: "Lo que quiero contar hoy",
-          instructions: "Escribe aquí lo que quieras contarme. No tienes que ordenar ni analizar nada.",
-          items: []
-        }
-      ],
-      [
-        {
-          type: "checklist",
-          title: "Toqué mi objeto ancla",
-          instructions: `Toma tu objeto ancla en la mano por un momento y recuerda:
-
-“La seguridad no está solo en mi casa. También puede ir conmigo.”`,
-          items: [
-            "Toqué mi objeto ancla",
-            "Lo llevé conmigo",
-            "Me acordé de que no estoy sola",
-            "Hoy no pude hacerlo"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "Le hablé a la parte encerrada",
-          instructions: `Dile a esa parte de ti:
-
-“Puedes tener miedo, pero ya no estás encerrada sola. Yo voy contigo.”`,
-          items: [
-            "Realizado",
-            "Lo intenté aunque me costó",
-            "Hoy no pude hacerlo"
-          ]
-        },
-        {
-          type: "libre",
-          title: "Lo que quiero contar hoy",
-          instructions: "Escribe aquí lo que quieras contarme del día.",
-          items: []
-        }
-      ],
-      [
-        {
-          type: "checklist",
-          title: "La dejé en un lugar seguro",
-          instructions: `Imagina a esa parte de ti que se siente encerrada y déjala, por unos minutos, en los brazos de Dios.
-
-No tienes que hacer nada más.
-Solo dejarla ahí.`,
-          items: [
-            "La imaginé en los brazos de Dios",
-            "Sentí un poco de calma",
-            "Me costó, pero lo intenté",
-            "Hoy no pude hacerlo"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "Frase de seguridad",
-          instructions: `Repite despacio:
-
-“No tengo que sostener esto sola. Dios me sostiene. Yo también puedo acompañarme.”`,
-          items: [
-            "Repetí la frase",
-            "La dije en voz baja",
-            "La pensé por dentro",
-            "Hoy no pude hacerlo"
-          ]
-        },
-        {
-          type: "libre",
-          title: "Lo que quiero contar hoy",
-          instructions: "Escribe aquí lo que quieras contarme.",
-          items: []
-        }
-      ],
-      [
-        {
-          type: "checklist",
-          title: "Sentir el peso como fuerza",
-          instructions: `Quédate 3 a 5 minutos sintiendo el peso de tu cuerpo.
-
-No lo llames miedo.
-No lo llames peligro.
-
-Solo repite:
-
-“Este peso también puede ser ancla. Este cuerpo me sostiene.”`,
-          items: [
-            "Sentí el peso de mi cuerpo",
-            "Lo repetí como ancla",
-            "Me costó, pero me quedé un momento",
-            "Hoy no pude hacerlo"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "Volví al objeto ancla",
-          instructions: "Toca tu objeto ancla y recuerda la parte de ti que tomó fuerza en la sesión.",
-          items: [
-            "Toqué mi objeto ancla",
-            "Recordé la sensación de fuerza",
-            "Me acordé de que no estoy sola",
-            "Hoy no pude hacerlo"
-          ]
-        },
-        {
-          type: "libre",
-          title: "Lo que quiero contar hoy",
-          instructions: "Escribe aquí lo que quieras contarme.",
-          items: []
-        }
-      ],
-      [
-        {
-          type: "checklist",
-          title: "Acompañé a mi parte encerrada",
-          instructions: "Hoy solo registra lo que sí lograste esta semana.",
-          items: [
-            "Le hablé a esa parte de mí",
-            "Usé mi objeto ancla",
-            "La dejé en los brazos de Dios",
-            "Recordé que no estoy sola",
-            "Sentí mi cuerpo sin pelear tanto",
-            "Lo intenté, aunque me costó"
-          ]
-        },
-        {
-          type: "checklist",
-          title: "Frase de cierre",
-          instructions: `Repite esta frase:
-
-“No estoy encerrada. Estoy acompañada. Puedo salir poco a poco.”`,
-          items: [
-            "Repetí la frase",
-            "La escribí",
-            "La dije en oración",
-            "Hoy solo la leí"
-          ]
-        },
-        {
-          type: "libre",
-          title: "Lo que quiero contar hoy",
-          instructions: "Escribe aquí lo que quieras contarme de esta semana.",
-          items: []
-        }
-      ]
-    ];
-
-    return {
-      day: d,
-      exercises: plan[i]
-    };
-  })
-},
-  graciela_recuperacion_s1: {
-  name: "Graciela Recuperación S1",
-  label: "Registro pendiente · Semana 1",
-  welcome:
-    "Gracy, esta semana es solo para igualarte con tus registros pendientes.\n\nNo tienes que hacer ejercicios profundos ni resolver nada. Solo registra lo básico de cada día: fecha, ciclo menstrual, agua, cuerpo, energía, ánimo y novedades.\n\nLa idea es recuperar información para observar cómo estuvo tu cuerpo, tu energía y tu estado emocional durante estos días.",
-  closing:
-    "Gracy, esta semana sirvió para recuperar información importante de tu cuerpo, tu energía y tus emociones.\n\nEstos registros nos ayudan a observar patrones sin presionarte y sin tener que recordar todo de golpe.\n\nCuando terminemos de igualar las semanas pendientes, seguimos con el trabajo nuevo.",
-  days: DAYS.map((d) => ({
-    day: d,
-    exercises: [
-      {
-        type: "libre",
-        title: "Fecha de hoy",
-        instructions:
-          "Escribe la fecha que estás registrando y el día de tu ciclo menstrual si lo recuerdas.\n\nEjemplo: 16 de julio 2026 · Día del ciclo menstrual 20.",
-        items: []
-      },
-      {
-        type: "checklist",
-        title: "Agua y cuerpo",
-        instructions:
-          "Marca lo que hiciste o lo que observaste ese día. Si quieres, escribe una nota breve al final.",
-        items: [
-          "Tomé agua en la mañana",
-          "Tomé agua en la tarde",
-          "Observé si tuve dolor de cabeza o cansancio",
-          "Noté si mi cuerpo necesitaba descanso",
-          "No esperé a sentirme mal para tomar agua"
-        ]
-      },
-      {
-        type: "energia",
-        title: "Nivel de energía",
-        instructions:
-          "Del 1 al 10, registra cómo estuvo tu energía ese día.",
-        items: []
-      },
-      {
-        type: "emocion",
-        title: "Estado de ánimo",
-        instructions:
-          "Del 1 al 10, registra cómo estuvo tu ánimo ese día y qué emoción estuvo más presente.",
-        items: []
-      },
-      {
-        type: "libre",
-        title: "Novedades del día",
-        instructions:
-          "Escribe brevemente qué pasó ese día o qué recuerdas de tu cuerpo, emociones, descanso, viaje, familia o cualquier situación importante.",
-        items: []
-      }
-    ]
-  }))
-},
-  graciela_recuperacion_s2: {
-  name: "Graciela Recuperación S2",
-  label: "Registro pendiente · Semana 2",
-  welcome:
-    "Gracy, esta es la segunda semana para igualarte con tus registros pendientes.\n\nIgual que en la semana anterior, no vamos a hacer ejercicios profundos. Solo vamos a recuperar información básica de cada día: fecha, ciclo menstrual, agua, cuerpo, energía, ánimo y novedades.\n\nEsto nos ayuda a completar el seguimiento y observar cómo estuvo tu cuerpo, tu energía y tus emociones durante esos días.",
-  closing:
-    "Gracy, con esta segunda semana terminamos de recuperar los registros pendientes.\n\nEsta información nos ayuda a mirar patrones de energía, ánimo, cuerpo, descanso y ciclo menstrual con más claridad.\n\nDespués de esta recuperación, seguimos con el trabajo nuevo de honradez contigo misma y equilibrio de tus valores.",
-  days: DAYS.map((d) => ({
-    day: d,
-    exercises: [
-      {
-        type: "libre",
-        title: "Fecha de hoy",
-        instructions:
-          "Escribe la fecha que estás registrando y el día de tu ciclo menstrual si lo recuerdas.\n\nEjemplo: 23 de julio 2026 · Día del ciclo menstrual 27.",
-        items: []
-      },
-      {
-        type: "checklist",
-        title: "Agua y cuerpo",
-        instructions:
-          "Marca lo que hiciste o lo que observaste ese día. Si quieres, escribe una nota breve al final.",
-        items: [
-          "Tomé agua en la mañana",
-          "Tomé agua en la tarde",
-          "Observé si tuve dolor de cabeza o cansancio",
-          "Noté si mi cuerpo necesitaba descanso",
-          "No esperé a sentirme mal para tomar agua"
-        ]
-      },
-      {
-        type: "energia",
-        title: "Nivel de energía",
-        instructions:
-          "Del 1 al 10, registra cómo estuvo tu energía ese día.",
-        items: []
-      },
-      {
-        type: "emocion",
-        title: "Estado de ánimo",
-        instructions:
-          "Del 1 al 10, registra cómo estuvo tu ánimo ese día y qué emoción estuvo más presente.",
-        items: []
-      },
-      {
-        type: "libre",
-        title: "Novedades del día",
-        instructions:
-          "Escribe brevemente qué pasó ese día o qué recuerdas de tu cuerpo, emociones, descanso, viaje, familia o cualquier situación importante.",
-        items: []
-      }
-    ]
-  }))
-},
-  graciela_pendulo_honradez: {
-  name: "Graciela Péndulo de Honradez",
-  label: "Péndulo valórico · Honradez conmigo misma",
-  welcome:
-    "Gracy, esta semana vamos a trabajar el valor que más se movió en el ejercicio de péndulos: la honradez.\n\nNo vamos a mirar la honradez solo como decir la verdad o no tomar algo ajeno. Esta semana la vamos a mirar también hacia ti: tu tiempo, tu cuerpo, tu descanso, tu paz, tus límites y tu propósito.\n\nEl objetivo es observar dónde eres muy honrada con los demás, pero puedes estar dejándote a ti en segundo lugar.",
-  closing:
-    "Gracy, esta semana trabajaste la honradez contigo misma.\n\nLa honradez también incluye respetar tu cuerpo, tu descanso, tu energía, tus límites y tu propósito.\n\nEl objetivo no era resolver todo, sino empezar a volver al centro: dar sin abandonarte, ayudar sin perderte y construir tu propósito sin dejarte a ti para el final.",
-  days: DAYS.map((d, i) => {
-    const diario = [
-      {
-        type: "libre",
-        title: "Fecha de hoy",
-        instructions:
-          "Escribe la fecha de hoy y el día de tu ciclo menstrual si lo recuerdas.",
-        items: []
-      },
-      {
-        type: "checklist",
-        title: "Agua y cuerpo",
-        instructions:
-          "Marca lo que hiciste o lo que observaste hoy.",
-        items: [
-          "Tomé agua en la mañana",
-          "Tomé agua en la tarde",
-          "Observé si tuve dolor de cabeza o cansancio",
-          "Noté si mi cuerpo necesitaba descanso",
-          "No esperé a sentirme mal para cuidarme"
-        ]
-      },
-      {
-        type: "energia",
-        title: "Nivel de energía",
-        instructions:
-          "Del 1 al 10, registra cómo estuvo tu energía hoy.",
-        items: []
-      },
-      {
-        type: "emocion",
-        title: "Estado de ánimo",
-        instructions:
-          "Del 1 al 10, registra cómo estuvo tu ánimo hoy y qué emoción estuvo más presente.",
-        items: []
-      },
-      {
-        type: "libre",
-        title: "Novedades del día",
-        instructions:
-          "Escribe brevemente qué pasó hoy o qué fue importante observar en tu cuerpo, emociones, familia, viaje, descanso o pensamientos.",
-        items: []
-      }
-    ];
-
-    const ejercicios = {
-      0: [
-        {
-          type: "reflexion",
-          title: "Mi péndulo de honradez",
-          instructions:
-            "En la sesión vimos que tu péndulo de honradez estaba más cargado hacia los demás que hacia ti.\n\nResponde: 1. ¿En qué cosas suelo ser muy honrada con los demás? 2. ¿En qué cosas no estoy siendo tan honrada conmigo? 3. ¿Dónde me quito tiempo, descanso, paz o voz? 4. ¿Qué me muestra ese 30% para mí y 70% para los demás? 5. ¿Qué sería volver un poco más al centro esta semana?\n\nFrase final: Esta semana quiero ser más honrada conmigo en __________.",
-          items: []
-        }
-      ],
-      1: [
-        {
-          type: "checklist",
-          title: "Cuando doy de más",
-          instructions:
-            "Marca si hoy apareció algo de esto. Luego responde la pregunta final.",
-          items: [
-            "Dije que sí cuando quería decir que no",
-            "Ayudé aunque estaba cansada",
-            "Me preocupé por algo que no dependía de mí",
-            "Dejé mi descanso para después",
-            "Sentí culpa por poner un límite",
-            "Esperé que otros notaran lo que necesito"
-          ]
-        },
-        {
-          type: "reflexion",
-          title: "Qué buscaba al dar de más",
-          instructions:
-            "Responde: ¿Qué estaba buscando al dar de más: paz, aprobación, control, amor, evitar conflicto o sentirme útil?",
-          items: []
-        }
-      ],
-      2: [
-        {
-          type: "conductual",
-          title: "Honradez con mi cuerpo",
-          instructions:
-            "Hoy el ejercicio es cuidar tu cuerpo de forma concreta. Elige una acción: tomar más agua, dormir más temprano, descansar sin culpa, comer con más orden, salir a caminar, evitar sobreexigirte o pausar si aparece dolor de cabeza o cansancio.\n\nDespués escribe: Hoy fui honrada con mi cuerpo cuando __________.",
-          items: [
-            "Tomé más agua",
-            "Descansé sin culpa",
-            "Escuché una señal de mi cuerpo",
-            "No me exigí de más",
-            "Hice una pausa cuando la necesitaba"
-          ]
-        }
-      ],
-      3: [
-        {
-          type: "reflexion",
-          title: "Honradez con mis límites",
-          instructions:
-            "Responde: 1. ¿Qué límite me cuesta poner? 2. ¿Con quién me cuesta más? 3. ¿Qué miedo aparece cuando pienso en ponerlo? 4. ¿Qué pasa conmigo cuando no lo pongo? 5. ¿Cómo puedo decirlo de forma tranquila y firme?\n\nFrase guía: Poner un límite no me hace dura; me ayuda a no perderme.",
-          items: []
-        }
-      ],
-      4: [
-        {
-          type: "enfoque",
-          title: "Honradez con mi propósito",
-          instructions:
-            "Vuelve a la idea del libro o proyecto. Responde: 1. ¿Qué tema me gustaría contar o enseñar? 2. ¿Por qué este tema es importante para mí? 3. ¿A quién podría ayudar? 4. ¿Qué experiencia mía le da fuerza a este mensaje? 5. ¿Qué parte de mí se emociona con esta idea? 6. ¿Qué parte de mí se asusta?\n\nFrase final: Mi propósito empieza a tomar forma cuando me permito __________.",
-          items: []
-        }
-      ],
-      5: [
-        {
-          type: "conductual",
-          title: "Una acción pequeña para mi libro",
-          instructions:
-            "Hoy no tienes que escribir un libro. Solo dar un paso pequeño.\n\nElige una acción: buscar un curso de escritura, buscar un coach de escritura, ver cómo se publica un libro en Amazon, escribir 5 posibles títulos, escribir 5 temas que podría tener mi libro, grabar una nota de voz contando mi idea o escribir una página libre sobre mi historia.\n\nDespués responde: La acción que hice fue __________. Lo que descubrí fue __________.",
-          items: [
-            "Busqué una opción de curso o coach",
-            "Escribí posibles títulos",
-            "Escribí posibles temas",
-            "Grabé una nota de voz",
-            "Escribí una página libre",
-            "Investigué cómo publicar un libro"
-          ]
-        }
-      ],
-      6: [
-        {
-          type: "reflexion",
-          title: "Volver al centro",
-          instructions:
-            "Cierre semanal. Responde: 1. ¿Dónde fui más honrada conmigo esta semana? 2. ¿Dónde todavía me fui hacia los demás y me dejé a mí al final? 3. ¿Qué aprendí de mi péndulo? 4. ¿Qué acción quiero repetir la próxima semana? 5. ¿Qué tema del libro o propósito apareció con más fuerza?\n\nFrase final: Ser honrada conmigo significa __________.",
-          items: []
-        }
-      ]
-    };
-
-    return {
-      day: d,
-      exercises: [...diario, ...(ejercicios[i] || [])]
-    };
-  })
+  mensajeCierre:
+    "Esta semana no buscábamos hacer muchas cosas. Buscábamos comprobar que puedes aprender, adaptarte y seguir avanzando sin depender siempre de lo que ya conoces. Guarda especialmente cualquier momento en el que pensaste: esto antes me habría costado más."
 }
 };
 
