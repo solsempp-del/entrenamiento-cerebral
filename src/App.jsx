@@ -720,6 +720,65 @@ const [createdInfo,setCreatedInfo] = useState(null);
     console.error("Error activando semana:", error);
   }
 }
+  async function doDeleteLastWeek() {
+  if (!selId || mWeeks.length <= 1) return;
+
+  const lastIndex = mWeeks.length - 1;
+
+  // Solo permitimos borrar la última semana
+  if (mawi !== lastIndex) {
+    alert("Por seguridad, solo puedes eliminar la última semana.");
+    return;
+  }
+
+  try {
+    // Verificar que no tenga respuestas guardadas
+    const responses = await getResponsesFromDB(selId, lastIndex);
+
+    const hasResponses = Object.values(responses || {}).some(dayResponses =>
+      dayResponses && Object.keys(dayResponses).length > 0
+    );
+
+    if (hasResponses) {
+      alert("Esta semana tiene respuestas guardadas y no se puede eliminar.");
+      return;
+    }
+
+    const ok = window.confirm(
+      `¿Eliminar la Semana ${lastIndex + 1}? Esta acción no se puede deshacer.`
+    );
+
+    if (!ok) return;
+
+    const updatedWeeks = mWeeks.slice(0, -1);
+
+    await saveWeeksToDB(selId, updatedWeeks);
+
+    // Si la semana eliminada era la activa, activar la anterior
+    const newActiveIndex = Math.min(mawi, updatedWeeks.length - 1);
+
+    await saveActiveWeekToDB(selId, newActiveIndex);
+
+    setMWeeks(updatedWeeks);
+    setMawi(newActiveIndex);
+    setMDay(0);
+    setMResps({});
+
+    try {
+      const previousResponses = await getResponsesFromDB(
+        selId,
+        newActiveIndex
+      );
+      setMResps(previousResponses);
+    } catch (error) {
+      console.error("Error cargando respuestas:", error);
+    }
+
+  } catch (error) {
+    console.error("Error eliminando semana:", error);
+    alert("No se pudo eliminar la semana.");
+  }
+}
 
   // ── LOGIN ──
   if(view==="login"){
@@ -767,14 +826,38 @@ const [createdInfo,setCreatedInfo] = useState(null);
         <div style={{background:BEIGE+"55",borderRadius:10,padding:"0.75rem 1rem",marginBottom:"1.25rem"}}>
           <p style={{margin:0,fontSize:13,color:NAVY,fontStyle:"italic"}}>{phrase}</p>
         </div>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"1rem"}}>
-          <div>
-            <h2 style={{margin:0,fontSize:18,fontWeight:500,color:NAVY}}>Hola, {user.name.split(" ")[0]} 👋</h2>
-            <p style={{margin:"2px 0 0",fontSize:13,color:"#888"}}>{week.label}</p>
-          </div>
-          <button style={OB()} onClick={doLogout}>Salir</button>
-        </div>
-        {weeks.length>1&&(
+        <div style={{
+  display:"flex",
+  justifyContent:"space-between",
+  alignItems:"center",
+  marginBottom:6,
+  gap:8,
+  flexWrap:"wrap"
+}}>
+  <p style={{fontSize:12,color:"#aaa",margin:0}}>
+    Semanas ({mWeeks.length}/24)
+  </p>
+
+  <div style={{display:"flex",gap:6}}>
+    {mWeeks.length > 1 && mawi === mWeeks.length - 1 && (
+      <button
+        style={OB("#cc3333",{fontSize:12,padding:"4px 10px"})}
+        onClick={doDeleteLastWeek}
+      >
+        🗑 Eliminar última semana
+      </button>
+    )}
+
+    {mWeeks.length < 24 && (
+      <button
+        style={OB(NAVY,{fontSize:12,padding:"4px 10px"})}
+        onClick={doAddWeek}
+      >
+        + Nueva semana
+      </button>
+    )}
+  </div>
+</div>        {weeks.length>1&&(
           <div style={{marginBottom:12}}>
             <p style={{fontSize:12,color:"#aaa",margin:"0 0 6px"}}>Mis semanas:</p>
             <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
