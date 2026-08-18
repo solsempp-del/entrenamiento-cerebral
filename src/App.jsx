@@ -79,179 +79,172 @@ const CLOSE_OPTS = [
 ];
 
 const TEMPLATES = {
-  {
-  titulo: "Semana 10 · Flexibilidad en acción",
-  mensajeBienvenida:
-    "Gracy, esta semana vamos a llevar a la práctica algo que descubrimos en sesión: tu capacidad de adaptarte, aprender y actualizarte. No quiero que hagas muchas cosas. Quiero que observes cómo respondes cuando necesitas aprender algo nuevo y que avances con pasos pequeños.",
+  gracielaSemana10: {
+    name: "Graciela · Semana 10 · Flexibilidad en acción",
 
-  dias: [
-    {
-      dia: "Día 1",
-      ejercicios: [
-        {
-          tipo: "reflexion",
-          titulo: "Lo que conservo y lo que actualizo",
-          descripcion:
-            "Piensa en lo que vimos sobre generaciones. Responde de forma breve.",
-          preguntas: [
-            "¿Qué característica aprendida de tu familia o generación reconoces hoy como una fortaleza?",
-            "¿Qué forma de pensar o actuar sientes que hoy necesitas actualizar?"
-          ]
-        },
-        {
-          tipo: "nivel_energia",
-          titulo: "Mi energía de hoy",
-          descripcion:
-            "Registra tu nivel de energía del 1 al 10 y escribe en una frase cómo está tu estado de ánimo."
-        }
-      ]
-    },
+    label: "Semana 10 · Flexibilidad en acción",
 
-    {
-      dia: "Día 2",
-      ejercicios: [
-        {
-          tipo: "reto",
-          titulo: "Hoy aprendo algo tecnológico",
-          descripcion:
-            "Elige UNA cosa tecnológica pequeña que normalmente pedirías a otra persona que haga por ti e intenta aprenderla tú.",
-          preguntas: [
-            "¿Qué decidiste aprender?",
-            "¿Qué hiciste para intentar resolverlo?",
-            "¿Qué pudiste hacer sola?"
-          ]
-        },
-        {
-          tipo: "nivel_energia",
-          titulo: "Mi energía de hoy",
-          descripcion:
-            "Registra tu energía del 1 al 10 y tu estado de ánimo."
-        }
-      ]
-    },
+    welcome:
+      "Gracy, esta semana vamos a llevar a la práctica algo que descubrimos en sesión: tu capacidad de adaptarte, aprender y actualizarte. No quiero que hagas muchas cosas. Quiero que observes cómo respondes cuando necesitas aprender algo nuevo y que avances con pasos pequeños.",
 
-    {
-      dia: "Día 3",
-      ejercicios: [
-        {
-          tipo: "reflexion",
-          titulo: "Mi ADN helicoidal en acción",
-          descripcion:
-            "Busca un momento reciente en el que hayas reaccionado, pensado o actuado de una manera diferente a como lo habrías hecho años atrás.",
-          preguntas: [
-            "¿Qué pasó?",
-            "¿Cómo habrías reaccionado antes?",
-            "¿Qué hiciste diferente ahora?",
-            "¿Qué aprendiste de ese cambio?"
-          ]
-        },
-        {
-          tipo: "nivel_energia",
-          titulo: "Mi energía de hoy",
-          descripcion:
-            "Registra tu energía y estado de ánimo."
-        }
-      ]
-    },
+    closing:
+      "Esta semana no buscábamos hacer muchas cosas. Buscábamos comprobar que puedes aprender, adaptarte y seguir avanzando sin depender siempre de lo que ya conoces. Guarda especialmente cualquier momento en el que pensaste: esto antes me habría costado más.",
 
-    {
-      dia: "Día 4",
-      ejercicios: [
-        {
-          tipo: "tarea_conductual",
-          titulo: "Tecnología para mi vida real",
-          descripcion:
-            "Hoy no vas a aprender tecnología por aprender. Elige una herramienta que te sirva para algo que realmente necesitas: neerlandés, estudio, organización, trámites, comunicación o algún proyecto personal.",
-          preguntas: [
-            "¿Qué herramienta utilizaste?",
-            "¿Para qué te sirvió?",
-            "¿Qué parte todavía necesitas aprender?"
-          ]
-        },
-        {
-          tipo: "nivel_energia",
-          titulo: "Mi energía de hoy",
-          descripcion:
-            "Registra tu energía del 1 al 10 y cómo te sentiste hoy."
-        }
-      ]
-    },
+    days: [
+      {
+        day: "Día 1",
+        exercises: [
+          {
+            type: "reflexion",
+            title: "Lo que conservo y lo que actualizo",
+            instructions:
+              "Piensa en lo que vimos sobre generaciones. Responde brevemente: ¿Qué característica aprendida de tu familia o generación reconoces hoy como una fortaleza? ¿Qué forma de pensar o actuar sientes que hoy necesitas actualizar?",
+            items: []
+          },
+          {
+            type: "energia",
+            title: "Mi energía de hoy",
+            instructions:
+              "Registra tu nivel de energía del 1 al 10. En el espacio de abajo escribe en una frase cómo está tu estado de ánimo.",
+            items: []
+          }
+        ]
+      },
 
-    {
-      dia: "Día 5",
-      ejercicios: [
-        {
-          tipo: "reto",
-          titulo: "Solo el siguiente paso",
-          descripcion:
-            "Escoge UNA prioridad: ejercicio, examen o neerlandés. No intentes terminarla. Haz solamente el siguiente paso pequeño.",
-          preguntas: [
-            "¿Qué prioridad elegiste?",
-            "¿Cuál era el paso más pequeño posible?",
-            "¿Lo hiciste?",
-            "¿Qué pasó después de empezar?"
-          ]
-        },
-        {
-          tipo: "nivel_energia",
-          titulo: "Mi energía de hoy",
-          descripcion:
-            "Registra tu energía y estado de ánimo."
-        }
-      ]
-    },
+      {
+        day: "Día 2",
+        exercises: [
+          {
+            type: "reto",
+            title: "Hoy aprendo algo tecnológico",
+            instructions:
+              "Elige UNA cosa tecnológica pequeña que normalmente pedirías a otra persona que haga por ti e intenta aprenderla tú.",
+            items: [
+              "Elegí qué quiero aprender",
+              "Intenté resolverlo por mí misma",
+              "Identifiqué qué pude hacer sola"
+            ]
+          },
+          {
+            type: "energia",
+            title: "Mi energía de hoy",
+            instructions:
+              "Registra tu energía del 1 al 10 y escribe cómo está tu estado de ánimo.",
+            items: []
+          }
+        ]
+      },
 
-    {
-      dia: "Día 6",
-      ejercicios: [
-        {
-          tipo: "reflexion",
-          titulo: "De dónde vengo y qué elijo hoy",
-          descripcion:
-            "Completa estas dos frases sin pensarlas demasiado.",
-          preguntas: [
-            "De lo que aprendí de mi familia y mi generación quiero conservar...",
-            "En esta etapa de mi vida necesito aprender o actualizar..."
-          ]
-        },
-        {
-          tipo: "nivel_energia",
-          titulo: "Mi energía de hoy",
-          descripcion:
-            "Registra tu energía del 1 al 10 y tu estado de ánimo."
-        }
-      ]
-    },
+      {
+        day: "Día 3",
+        exercises: [
+          {
+            type: "reflexion",
+            title: "Mi ADN helicoidal en acción",
+            instructions:
+              "Busca un momento reciente en el que hayas reaccionado, pensado o actuado de una manera diferente a como lo habrías hecho años atrás. Escribe qué pasó, cómo habrías reaccionado antes, qué hiciste diferente ahora y qué aprendiste de ese cambio.",
+            items: []
+          },
+          {
+            type: "energia",
+            title: "Mi energía de hoy",
+            instructions:
+              "Registra tu energía y estado de ánimo.",
+            items: []
+          }
+        ]
+      },
 
-    {
-      dia: "Día 7",
-      ejercicios: [
-        {
-          tipo: "reflexion",
-          titulo: "Cierre de semana",
-          descripcion:
-            "Revisa lo que hiciste esta semana. No necesitas haber completado todo para responder.",
-          preguntas: [
-            "¿Qué aprendiste esta semana que te hizo sentir más capaz?",
-            "¿En qué viste tu capacidad de adaptarte?",
-            "¿Qué quieres seguir practicando la próxima semana?"
-          ]
-        },
-        {
-          tipo: "nivel_energia",
-          titulo: "Mi energía de hoy",
-          descripcion:
-            "Registra tu energía y estado de ánimo."
-        }
-      ]
-    }
-  ],
+      {
+        day: "Día 4",
+        exercises: [
+          {
+            type: "conductual",
+            title: "Tecnología para mi vida real",
+            instructions:
+              "Hoy no vas a aprender tecnología por aprender. Elige una herramienta que te sirva para algo que realmente necesitas: neerlandés, estudio, organización, trámites, comunicación o algún proyecto personal.",
+            items: [
+              "Elegí una herramienta concreta",
+              "La usé para algo que realmente necesito",
+              "Identifiqué qué parte todavía necesito aprender"
+            ]
+          },
+          {
+            type: "energia",
+            title: "Mi energía de hoy",
+            instructions:
+              "Registra tu energía del 1 al 10 y cómo te sentiste hoy.",
+            items: []
+          }
+        ]
+      },
 
-  mensajeCierre:
-    "Esta semana no buscábamos hacer muchas cosas. Buscábamos comprobar que puedes aprender, adaptarte y seguir avanzando sin depender siempre de lo que ya conoces. Guarda especialmente cualquier momento en el que pensaste: esto antes me habría costado más."
-}
+      {
+        day: "Día 5",
+        exercises: [
+          {
+            type: "reto",
+            title: "Solo el siguiente paso",
+            instructions:
+              "Escoge UNA prioridad: ejercicio, examen o neerlandés. No intentes terminarla. Haz solamente el siguiente paso pequeño.",
+            items: [
+              "Elegí una sola prioridad",
+              "Definí el paso más pequeño posible",
+              "Hice ese paso"
+            ]
+          },
+          {
+            type: "energia",
+            title: "Mi energía de hoy",
+            instructions:
+              "Registra tu energía y estado de ánimo.",
+            items: []
+          }
+        ]
+      },
+
+      {
+        day: "Día 6",
+        exercises: [
+          {
+            type: "reflexion",
+            title: "De dónde vengo y qué elijo hoy",
+            instructions:
+              "Completa estas dos frases sin pensarlas demasiado: 1) De lo que aprendí de mi familia y mi generación quiero conservar... 2) En esta etapa de mi vida necesito aprender o actualizar...",
+            items: []
+          },
+          {
+            type: "energia",
+            title: "Mi energía de hoy",
+            instructions:
+              "Registra tu energía del 1 al 10 y tu estado de ánimo.",
+            items: []
+          }
+        ]
+      },
+
+      {
+        day: "Día 7",
+        exercises: [
+          {
+            type: "reflexion",
+            title: "Cierre de semana",
+            instructions:
+              "Revisa tu semana y responde: ¿Qué aprendiste que te hizo sentir más capaz? ¿En qué viste tu capacidad de adaptarte? ¿Qué quieres seguir practicando la próxima semana?",
+            items: []
+          },
+          {
+            type: "energia",
+            title: "Mi energía de hoy",
+            instructions:
+              "Registra tu energía y estado de ánimo.",
+            items: []
+          }
+        ]
+      }
+    ]
+  }
 };
-
 // ── Storage helpers ──────────────────────────────────────
 function getMentees() { try { return JSON.parse(localStorage.getItem("sol_mentees")||"[]"); } catch { return []; } }
 function saveMentees(l) { try { localStorage.setItem("sol_mentees",JSON.stringify(l)); } catch {} }
