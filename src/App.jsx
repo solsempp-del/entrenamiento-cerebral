@@ -455,6 +455,7 @@ export default function App() {
   const [mResps,setMResps] = useState({});
   const [mWeeks,setMWeeks] = useState([]);
   const [mawi,setMawi] = useState(0);
+  const [mActiveWeek,setMActiveWeek] = useState(0);
   const [mDay,setMDay] = useState(0);
   const [eWeek,setEWeek] = useState(null);
   const [eWi,setEWi] = useState(null);
@@ -678,6 +679,7 @@ const [createdInfo,setCreatedInfo] = useState(null);
 
     setMWeeks(w);
     setMawi(activeWeek);
+    setMActiveWeek(activeWeek);
     setMResps(dbResponses);
   } catch (error) {
     console.error("Error cargando semanas desde Firebase:", error);
@@ -692,6 +694,7 @@ const [createdInfo,setCreatedInfo] = useState(null);
 
     setMWeeks(w);
     setMawi(localActiveWeek);
+    setMActiveWeek(localActiveWeek);
     setMResps(getR(id, localActiveWeek));
   }
 }
@@ -707,6 +710,7 @@ const [createdInfo,setCreatedInfo] = useState(null);
 
     setMWeeks(nw);
     setMawi(nw.length - 1);
+    setMActiveWeek(nw.length - 1);
   } catch (error) {
     console.error("Error creando nueva semana:", error);
   }
@@ -715,7 +719,7 @@ const [createdInfo,setCreatedInfo] = useState(null);
   async function doActivate(idx) {
   try {
     await saveActiveWeekToDB(selId, idx);
-    setMawi(idx);
+    setMActiveWeek(idx);
   } catch (error) {
     console.error("Error activando semana:", error);
   }
@@ -761,6 +765,7 @@ const [createdInfo,setCreatedInfo] = useState(null);
 
     setMWeeks(updatedWeeks);
     setMawi(newActiveIndex);
+    setMActiveWeek(newActiveIndex);
     setMDay(0);
     setMResps({});
 
@@ -826,38 +831,14 @@ const [createdInfo,setCreatedInfo] = useState(null);
         <div style={{background:BEIGE+"55",borderRadius:10,padding:"0.75rem 1rem",marginBottom:"1.25rem"}}>
           <p style={{margin:0,fontSize:13,color:NAVY,fontStyle:"italic"}}>{phrase}</p>
         </div>
-        <div style={{
-  display:"flex",
-  justifyContent:"space-between",
-  alignItems:"center",
-  marginBottom:6,
-  gap:8,
-  flexWrap:"wrap"
-}}>
-  <p style={{fontSize:12,color:"#aaa",margin:0}}>
-    Semanas ({mWeeks.length}/24)
-  </p>
-
-  <div style={{display:"flex",gap:6}}>
-    {mWeeks.length > 1 && mawi === mWeeks.length - 1 && (
-      <button
-        style={OB("#cc3333",{fontSize:12,padding:"4px 10px"})}
-        onClick={doDeleteLastWeek}
-      >
-        🗑 Eliminar última semana
-      </button>
-    )}
-
-    {mWeeks.length < 24 && (
-      <button
-        style={OB(NAVY,{fontSize:12,padding:"4px 10px"})}
-        onClick={doAddWeek}
-      >
-        + Nueva semana
-      </button>
-    )}
-  </div>
-</div>        {weeks.length>1&&(
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"1rem"}}>
+          <div>
+            <h2 style={{margin:0,fontSize:18,fontWeight:500,color:NAVY}}>Hola, {user.name.split(" ")[0]} 👋</h2>
+            <p style={{margin:"2px 0 0",fontSize:13,color:"#888"}}>{week.label}</p>
+          </div>
+          <button style={OB()} onClick={doLogout}>Salir</button>
+        </div>
+        {weeks.length>1&&(
           <div style={{marginBottom:12}}>
             <p style={{fontSize:12,color:"#aaa",margin:"0 0 6px"}}>Mis semanas:</p>
             <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
@@ -924,7 +905,7 @@ const [createdInfo,setCreatedInfo] = useState(null);
     const inactive=mentees.filter(m=>!m.active);
     const selM=selId?mentees.find(m=>m.id===selId):null;
     const curW=mWeeks.length>0?mWeeks[mawi]:null;
-    const curAW = mawi;
+    const curAW = mActiveWeek;
     return (
       <div style={W}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"1.5rem"}}>
@@ -1029,11 +1010,18 @@ const [createdInfo,setCreatedInfo] = useState(null);
               <h3 style={{margin:0,fontSize:15,fontWeight:500,color:NAVY}}>{selM.name}</h3>
             </div>
             <div style={{marginBottom:12}}>
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6,gap:8,flexWrap:"wrap"}}>
                 <p style={{fontSize:12,color:"#aaa",margin:0}}>Semanas ({mWeeks.length}/24)</p>
-                {mWeeks.length<24&&(
-                  <button style={OB(NAVY,{fontSize:12,padding:"4px 10px"})} onClick={doAddWeek}>+ Nueva semana</button>
-                )}
+                <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+                  {mWeeks.length > 1 && mawi === mWeeks.length - 1 && (
+                    <button style={OB("#cc3333",{fontSize:12,padding:"4px 10px"})} onClick={doDeleteLastWeek}>
+                      🗑 Eliminar última semana
+                    </button>
+                  )}
+                  {mWeeks.length<24&&(
+                    <button style={OB(NAVY,{fontSize:12,padding:"4px 10px"})} onClick={doAddWeek}>+ Nueva semana</button>
+                  )}
+                </div>
               </div>
               <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
                 {mWeeks.map((w,i)=>(
@@ -1093,7 +1081,7 @@ const [createdInfo,setCreatedInfo] = useState(null);
             )}
             {sTab==="plan"&&eWeek&&(
               <PlanEditor plan={eWeek} onChange={setEWeek}
-                onTemplate={t=>{setEWeek(p=>({...JSON.parse(JSON.stringify(t)),label:p.label,welcome:p.welcome,closing:p.closing}));}}
+                onTemplate={t=>{setEWeek(JSON.parse(JSON.stringify(t)));}}
                 onSave={async () => {
   const u = [...mWeeks];
   u[eWi] = eWeek;
