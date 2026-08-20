@@ -244,6 +244,246 @@ const TEMPLATES = {
       }
     ]
   }
+  letty_entregar_circulo_app5: {
+  name: "Letty · Entregar el círculo",
+  label: "Semana App 5 · Dejar de sostener el círculo",
+
+  welcome: `Mi Letty, esta semana vamos a seguir trabajando con el dibujo que hiciste en sesión.
+
+En ese dibujo apareció algo muy importante: la ansiedad estaba dentro de un círculo.
+
+Esta semana no vamos a intentar quitar la ansiedad.
+No vamos a pelear con ella.
+No vamos a vigilarla.
+
+Vamos a practicar algo nuevo:
+
+dejar de sostener el círculo.
+
+La frase de esta semana es:
+
+“Señor, te entrego el círculo. Ya no voy a ser guardia de mi ansiedad.”`,
+
+  closing: `Mi Letty, esta semana no medimos si la ansiedad desapareció.
+
+Medimos si pudiste dejar de vigilarla un poquito más, si pudiste entregarle el círculo al Señor y si recordaste que no tienes que controlar todo lo que sientes.
+
+La ansiedad puede caminar.
+Tú puedes vivir.
+Dios sostiene lo que tú ya no puedes sostener.`,
+
+  days: DAYS.map((d, i) => {
+    if (i >= 5) {
+      return {
+        day: d,
+        exercises: []
+      };
+    }
+
+    const plan = [
+      [
+        {
+          type: "checklist",
+          title: "Abrir una pequeña salida",
+          instructions: `Toma el mismo dibujo que hiciste en la sesión.
+
+No hagas un dibujo nuevo.
+No borres la ansiedad.
+No borres el círculo completo.
+
+Solo abre una pequeña parte del círculo, como si hicieras una salida.
+
+No tienes que entenderlo ni explicarlo. Solo hazlo.`,
+          items: [
+            "Tomé el mismo dibujo",
+            "Abrí una pequeña salida en el círculo",
+            "No borré la ansiedad",
+            "Lo hice sin intentar entenderlo perfecto"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Frase del día",
+          instructions: `Después de abrir la salida, repite despacio:
+
+“La ansiedad no tiene que estar encerrada para que yo esté segura.”`,
+          items: [
+            "Repetí la frase",
+            "La dije en voz baja",
+            "La pensé por dentro",
+            "Hoy solo pude leerla"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme. No tienes que explicar el dibujo. Solo cuéntame qué pasó contigo al hacerlo.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Dejarla caminar por el paisaje",
+          instructions: `Vuelve a mirar tu dibujo.
+
+Ahora imagina que esa personita que representa la ansiedad puede caminar por el paisaje.
+
+No la sigas.
+No la vigiles.
+No la encierres otra vez.
+
+Solo permite que esté ahí, moviéndose, sin que tú tengas que hacer nada.`,
+          items: [
+            "Imaginé a la ansiedad caminando por el paisaje",
+            "No intenté encerrarla otra vez",
+            "No intenté hacerla desaparecer",
+            "Me costó, pero lo intenté"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Yo hago otra cosa",
+          instructions: `En el mismo dibujo, agrega algo que tú puedas estar haciendo mientras la ansiedad camina.
+
+Puede ser descansar, orar, mirar el sol, estar con tu familia, sentarte, caminar o simplemente respirar.
+
+Lo importante es que tú no estés vigilando a la ansiedad.`,
+          items: [
+            "Me dibujé haciendo otra cosa",
+            "No me dibujé vigilando la ansiedad",
+            "Puse una acción sencilla para mí",
+            "Lo hice aunque me pareció raro"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme del día.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Entregar el círculo",
+          instructions: `Mira tu dibujo por unos segundos.
+
+Luego dile al Señor:
+
+“Señor, te entrego el círculo. Yo ya no puedo sostenerlo. Esta ansiedad es tuya. Mi cuerpo es tuyo. Mi vida está en tus manos.”
+
+No lo digas para que la ansiedad se vaya.
+Dilo como rendición.`,
+          items: [
+            "Le entregué el círculo al Señor",
+            "Le entregué la ansiedad",
+            "Le entregué mi cuerpo",
+            "Hoy solo pude intentarlo"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Cambiar mi oración",
+          instructions: `Hoy no vamos a pedir: “Señor, quítame esto ya.”
+
+Hoy vamos a pedir:
+
+“Señor, dame paz mientras esto pasa. Ayúdame a sentir que estás conmigo, aunque mi cuerpo esté activado.”`,
+          items: [
+            "Cambié mi oración",
+            "Pedí paz en medio de lo que siento",
+            "Pedí sentir a Dios conmigo",
+            "Me costó no pedir que se quite"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Observar sin arreglar",
+          instructions: `Cuando aparezca una sensación física, no intentes quitarla inmediatamente.
+
+Solo obsérvala por unos segundos y di:
+
+“Esto está pasando en mi cuerpo. No tengo que arreglarlo ahora. Puedo observarlo sin pelear.”
+
+Si es algo nuevo, fuerte o diferente, recuerda que sí puedes consultarlo con tu médico. Pero si es el patrón conocido de ansiedad, solo obsérvalo sin entrar al bucle.`,
+          items: [
+            "Observé una sensación sin pelear",
+            "No intenté quitarla de inmediato",
+            "Recordé que no tengo que arreglar todo",
+            "Hoy no apareció una sensación fuerte"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "No soy guardia de seguridad",
+          instructions: `Repite despacio:
+
+“No soy guardia de seguridad de mi ansiedad. No tengo que vigilarla todo el día. Puedo dejarla caminar y seguir viviendo.”`,
+          items: [
+            "Repetí la frase",
+            "La dije cuando apareció ansiedad",
+            "Me ayudó a soltar un poco",
+            "Hoy solo pude leerla"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Lo que solté esta semana",
+          instructions: "Hoy solo registra lo que sí pudiste soltar, aunque haya sido poquito.",
+          items: [
+            "Solté un poco el control",
+            "Dejé de vigilar una sensación",
+            "Entregué el círculo al Señor",
+            "Dejé que la ansiedad caminara en el dibujo",
+            "Me recordé que no tengo que sostener todo",
+            "Lo intenté, aunque me costó"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Frase de cierre",
+          instructions: `Repite esta frase:
+
+“La ansiedad puede caminar. Yo puedo vivir. Dios sostiene lo que yo ya no puedo sostener.”`,
+          items: [
+            "Repetí la frase",
+            "La escribí",
+            "La dije en oración",
+            "Hoy solo la leí"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme de esta semana.",
+          items: []
+        }
+      ]
+    ];
+
+    return {
+      day: d,
+      exercises: plan[i]
+    };
+  })
+},
 };
 // ── Storage helpers ──────────────────────────────────────
 function getMentees() { try { return JSON.parse(localStorage.getItem("sol_mentees")||"[]"); } catch { return []; } }
