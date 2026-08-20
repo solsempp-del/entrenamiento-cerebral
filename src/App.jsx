@@ -243,7 +243,7 @@ const TEMPLATES = {
         ]
       }
     ]
-  }
+  },
   letty_entregar_circulo_app5: {
   name: "Letty · Entregar el círculo",
   label: "Semana App 5 · Dejar de sostener el círculo",
