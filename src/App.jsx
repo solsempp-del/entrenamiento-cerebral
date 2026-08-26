@@ -244,6 +244,208 @@ const TEMPLATES = {
       }
     ]
   },
+  gracielaSemana10: {
+  name: "Graciela · Semana 10 · Filtro Técnico en acción",
+
+  label: "Semana 10 · Filtro Técnico en acción",
+
+  welcome:
+    "Gracy, esta semana vas a observar en situaciones reales algunas de las fortalezas, debilidades, oportunidades y amenazas que identificamos en nuestra sesión. La idea es que puedas reconocer cómo aparecen en tu día a día.",
+
+  closing:
+    "Al terminar estos siete días, revisa lo que registraste. Todo lo que observes nos servirá para continuar y terminar juntas el ejercicio del Filtro Técnico.",
+
+  days: [
+    {
+      day: "Día 1",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "Cuando me da miedo empezar",
+          instructions:
+            "Piensa en algo que has estado postergando. ¿Qué quieres hacer? ¿Qué te da miedo? ¿Qué imaginas que podría pasar? ¿Cuál sería el primer paso más pequeño que podrías hacer?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 2",
+      exercises: [
+        {
+          type: "reto",
+          title: "Empiezo aunque no esté perfecto",
+          instructions:
+            "Elige UNA cosa que has estado dejando para después. Dedícale solamente 10 minutos. Después cuéntame qué hiciste, qué pasó cuando empezaste y si fue tan difícil como habías anticipado.",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 3",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "Mi fortaleza y su otro lado",
+          instructions:
+            "Elige una de las fortalezas que identificaste: vender, comunicarte, hablar o flexibilidad mental. ¿Cuándo te ayuda? ¿En qué situación esa misma fortaleza podría jugarte en contra? Busca un ejemplo real.",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 4",
+      exercises: [
+        {
+          type: "conductual",
+          title: "Practico ser enseñable",
+          instructions:
+            "Identifica algo que otra persona sabe y tú podrías aprender. Pregunta, escucha o acepta una sugerencia intentando no justificarte ni responder inmediatamente desde lo que ya sabes. Después escribe qué aprendiste de la experiencia.",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 5",
+      exercises: [
+        {
+          type: "registro",
+          title: "Antes de reaccionar",
+          instructions:
+            "Si hoy aparece una emoción fuerte, registra: ¿qué pasó?, ¿qué sentiste?, ¿qué querías hacer inmediatamente?, ¿qué hiciste finalmente? y, mirándolo después, ¿qué respuesta habría sido mejor para ti?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 6",
+      exercises: [
+        {
+          type: "reto",
+          title: "Hago algo desconocido",
+          instructions:
+            "Haz una cosa pequeña diferente a lo habitual. Puede ser aprender algo, preguntar, probar una herramienta o cambiar una manera de hacer algo. Después registra qué hiciste y qué sentiste antes y después.",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 7",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "Mi FODA esta semana",
+          instructions:
+            "Después de observarte durante estos días, identifica una fortaleza que viste funcionando, una debilidad que apareció, una oportunidad que descubriste y una amenaza que necesitas vigilar. Pon un ejemplo concreto de cada una.",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    }
+  ]
+},
   letty_entregar_circulo_app5: {
   name: "Letty · Entregar el círculo",
   label: "Semana App 5 · Dejar de sostener el círculo",
