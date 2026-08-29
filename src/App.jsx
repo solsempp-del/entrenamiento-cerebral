@@ -79,6 +79,208 @@ const CLOSE_OPTS = [
 ];
 
 const TEMPLATES = {
+  gracielaSemana11: {
+  name: "Graciela · Semana 11 · Lo que me molesta y lo que puedo soltar",
+
+  label: "Semana 11 · Lo que me molesta y lo que puedo soltar",
+
+  welcome:
+    "Gracy, esta semana quiero que observes con más precisión las situaciones que todavía te molestan. La idea es identificar qué pasó, qué fue exactamente lo que te dolió, qué herida se activa, qué sí depende de ti y qué necesitas soltar.",
+
+  closing:
+    "Al terminar la semana, revisa si aparece un patrón debajo de las situaciones que te molestaron. Esto nos ayudará a distinguir cuándo necesitas poner un límite, cuándo necesitas expresar algo y cuándo puedes confiar y soltar.",
+
+  days: [
+    {
+      day: "Día 1",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "¿Qué me molesta realmente?",
+          instructions:
+            "Elige una situación reciente que te haya molestado. Responde: ¿Qué pasó? ¿Qué fue exactamente lo que me molestó? ¿Por qué creo que eso me afectó?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 2",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "¿Qué herida toca?",
+          instructions:
+            "Piensa en algo que te haya molestado hoy o recientemente. ¿Te sentiste expuesta, invadida, ignorada, utilizada, poco valorada, tratada injustamente o fue otra cosa? ¿Qué experiencia anterior se parece a esto?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 3",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "Lo mío y lo de los demás",
+          instructions:
+            "Elige una situación que te esté preocupando o molestando. Divide tu respuesta en dos partes: 1) Esto sí depende de mí. 2) Esto pertenece a otra persona. Después escribe una acción concreta que sí puedes hacer y una cosa que necesitas soltar.",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 4",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "Confiar en mis hijos",
+          instructions:
+            "Piensa en una situación de Richard o de alguno de tus hijos donde sientas ganas de proteger, intervenir o anticiparte. ¿Qué te preocupa? ¿Qué evidencia tienes de que esa persona puede decidir, hablar o poner sus propios límites? ¿Qué parte puedes confiarle?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 5",
+      exercises: [
+        {
+          type: "conductual",
+          title: "Molestarme sin intervenir de inmediato",
+          instructions:
+            "Si hoy ocurre algo que no te gusta, intenta esperar antes de intervenir. Después registra: ¿qué sentí?, ¿qué quería hacer inmediatamente?, ¿realmente necesitaba hacer algo?, ¿qué ocurrió cuando esperé un poco?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 6",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "La herida detrás del enojo",
+          instructions:
+            "Revisa las situaciones que registraste esta semana. ¿Qué razón se repite debajo de tu enojo o molestia? Puede ser privacidad, injusticia, falta de reciprocidad, sentirte utilizada, sentir que no respetan límites u otra. Escribe cuál aparece con más fuerza y qué te hace pensar eso.",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 7",
+      exercises: [
+        {
+          type: "reflexion",
+          title: "Cierre de semana: controlar, limitar o soltar",
+          instructions:
+            "Revisa tu semana y responde: ¿Qué intenté controlar? ¿Qué pude soltar? ¿Qué situación sí necesitaba un límite? ¿Qué pude confiar a otra persona? ¿Cuál fue la herida o molestia que apareció con más frecuencia?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions:
+            "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante que quieras registrar.",
+          items: []
+        }
+      ]
+    }
+  ]
+},
   gracielaSemana10: {
     name: "Graciela · Semana 10 · Flexibilidad en acción",
 
