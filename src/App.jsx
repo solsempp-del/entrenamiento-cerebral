@@ -79,6 +79,293 @@ const CLOSE_OPTS = [
 ];
 
 const TEMPLATES = {
+gracielaSemana12: {
+  name: "Graciela · Semana 12 · Ser mi aliada y avanzar",
+
+  label: "Semana 12 · Ser mi aliada y avanzar",
+
+  welcome:
+    "Gracy, esta semana vamos a trabajar en dos cosas: aprender a mirarte con más comprensión cuando recuerdas decisiones del pasado y avanzar en las cosas que hoy sí están en tus manos. También vamos a seguir observando tu energía y tu ciclo menstrual para identificar patrones.",
+
+  closing:
+    "Al terminar la semana, revisa qué cambió cuando te trataste como tu aliada en lugar de como tu jueza, qué cosas lograste avanzar y qué pequeño paso diste hacia lo que quieres construir.",
+
+  days: [
+    {
+      day: "Día 1",
+      exercises: [
+        {
+          type: "libre",
+          title: "Fecha",
+          instructions: "Escribe la fecha de hoy.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Día de mi ciclo menstrual",
+          instructions:
+            "Escribe en qué día de tu ciclo menstrual estás hoy. Si no lo sabes con exactitud, puedes poner una aproximación.",
+          items: []
+        },
+        {
+          type: "reflexion",
+          title: "Mi jueza y mi aliada",
+          instructions:
+            "Piensa en una decisión del pasado que todavía te reprochas. Primero escribe qué te dice tu jueza interna. Después responde: ¿Qué sabía yo en ese momento? ¿Qué recursos tenía? ¿Qué habría necesitado? ¿Qué le diría hoy a otra mujer que hubiera vivido exactamente lo mismo?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions: "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 2",
+      exercises: [
+        {
+          type: "libre",
+          title: "Fecha",
+          instructions: "Escribe la fecha de hoy.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Día de mi ciclo menstrual",
+          instructions: "Escribe en qué día de tu ciclo estás hoy.",
+          items: []
+        },
+        {
+          type: "reflexion",
+          title: "Mirar a la Graciela de ese momento",
+          instructions:
+            "Piensa en una versión más joven de ti dentro de una situación que hoy juzgas. Completa estas frases: Ella no sabía... / Ella tenía miedo de... / Ella intentaba... / En ese momento necesitaba... / Hoy entiendo que...",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions: "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 3",
+      exercises: [
+        {
+          type: "libre",
+          title: "Fecha",
+          instructions: "Escribe la fecha de hoy.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Día de mi ciclo menstrual",
+          instructions: "Escribe en qué día de tu ciclo estás hoy.",
+          items: []
+        },
+        {
+          type: "reflexion",
+          title: "La confianza se observa en hechos",
+          instructions:
+            "Piensa en una situación actual con José relacionada con la confianza. Responde: ¿Qué ocurrió realmente? ¿Qué parte de mi reacción pertenece a cosas del pasado? ¿Hay algo actual que necesito observar? ¿Qué necesitaría ver o experimentar para sentir mayor seguridad?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions: "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 4",
+      exercises: [
+        {
+          type: "libre",
+          title: "Fecha",
+          instructions: "Escribe la fecha de hoy.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Día de mi ciclo menstrual",
+          instructions: "Escribe en qué día de tu ciclo estás hoy.",
+          items: []
+        },
+        {
+          type: "reto",
+          title: "Mis 3 prioridades",
+          instructions:
+            "Escribe todos tus pendientes de hoy. Después elige únicamente los 3 más importantes. Ordénalos del 1 al 3. Comienza por el que más estás evitando o el que más consecuencias tendría seguir postergando. Al final registra: ¿lo hice?, ¿cuánto tiempo me tomó realmente?, ¿fue tan difícil como imaginaba?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions: "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 5",
+      exercises: [
+        {
+          type: "libre",
+          title: "Fecha",
+          instructions: "Escribe la fecha de hoy.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Día de mi ciclo menstrual",
+          instructions: "Escribe en qué día de tu ciclo estás hoy.",
+          items: []
+        },
+        {
+          type: "conductual",
+          title: "Cómete ese sapo",
+          instructions:
+            "Elige una tarea importante que llevas varios días evitando. Trabaja en ella durante 15 minutos. Después responde: ¿qué imaginaba antes de empezar?, ¿qué pasó realmente?, ¿quise continuar después de los 15 minutos?, ¿qué aprendí sobre mi dificultad para empezar?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions: "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 6",
+      exercises: [
+        {
+          type: "libre",
+          title: "Fecha",
+          instructions: "Escribe la fecha de hoy.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Día de mi ciclo menstrual",
+          instructions: "Escribe en qué día de tu ciclo estás hoy.",
+          items: []
+        },
+        {
+          type: "reflexion",
+          title: "Un paso hacia mi propósito",
+          instructions:
+            "Responde: ¿A quién me gustaría ayudar? ¿Con qué tipo de situación o experiencia siento que podría acompañar a otras personas? ¿Qué podría empezar a hacer sin esperar tener todo resuelto? Elige un solo paso pequeño que puedas dar esta semana.",
+          items: []
+        },
+        {
+          type: "reto",
+          title: "Mi primer paso",
+          instructions:
+            "Haz hoy una acción pequeña relacionada con ese propósito. Puede ser hablar con tu pastor, averiguar una formación, escribir una idea para una charla, anotar temas que te gustaría compartir o investigar dónde podrías empezar.",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions: "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante.",
+          items: []
+        }
+      ]
+    },
+
+    {
+      day: "Día 7",
+      exercises: [
+        {
+          type: "libre",
+          title: "Fecha",
+          instructions: "Escribe la fecha de hoy.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Día de mi ciclo menstrual",
+          instructions: "Escribe en qué día de tu ciclo estás hoy.",
+          items: []
+        },
+        {
+          type: "reflexion",
+          title: "Mi evidencia de esta semana",
+          instructions:
+            "Revisa tu semana y responde: ¿En qué momento fui mi aliada en lugar de mi jueza? ¿Qué pude comprender o dejar de reprocharme? ¿Qué tarea logré avanzar? ¿Cuál fue mi sapo? ¿Qué paso concreto di hacia mi propósito? ¿Qué quiero repetir la próxima semana?",
+          items: []
+        },
+        {
+          type: "energia",
+          title: "Mi energía de hoy",
+          instructions: "Registra tu nivel de energía del 1 al 10.",
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Novedades de mi día",
+          instructions:
+            "Cuéntame brevemente cómo estuvo tu día, cómo te sentiste y si ocurrió algo importante.",
+          items: []
+        }
+      ]
+    }
+  ]
+},
   gracielaSemana11: {
   name: "Graciela · Semana 11 · Lo que me molesta y lo que puedo soltar",
 
