@@ -79,6 +79,291 @@ const CLOSE_OPTS = [
 ];
 
 const TEMPLATES = {
+  letty_cuidar_sin_vigilar_app6: {
+  name: "Letty · Cuidar sin vigilar",
+  label: "Semana App 6 · Puedo cuidar sin vigilar",
+
+  welcome: `Mi Letty, esta semana vamos a seguir trabajando con el dibujo del río.
+
+En la sesión vimos algo importante: el río podía seguir su camino sin que el guardián tuviera que vigilarlo todo el tiempo.
+
+El guardián no era malo. Quería cuidar.
+Pero también podía descansar.
+
+Esta semana no vamos a intentar controlar la ansiedad.
+No vamos a intentar resolver el futuro.
+No vamos a vigilar cada sensación.
+
+Vamos a practicar una frase:
+
+“Puedo cuidar sin vigilar. Puedo descansar y la vida puede seguir su curso.”`,
+
+  closing: `Mi Letty, esta semana no medimos si todo estuvo perfecto.
+
+Medimos si pudiste recordar el río, si pudiste dejar descansar un poquito al guardián y si pudiste vivir el pedacito de día que sí tenías delante.
+
+El río puede seguir.
+El guardián puede descansar.
+Dios sigue sosteniendo todo.`,
+
+  days: DAYS.map((d, i) => {
+    const plan = [
+      [
+        {
+          type: "checklist",
+          title: "Mirar mi dibujo del río",
+          instructions: `Mira tu dibujo del río durante un minuto.
+
+No lo analices.
+Solo mira el río, el letrero, el guardián y el lugar donde puede descansar.`,
+          items: [
+            "Miré mi dibujo un minuto",
+            "Vi el río siguiendo su camino",
+            "Recordé que el guardián puede descansar",
+            "Hoy solo pude intentarlo"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Frase del día",
+          instructions: `Repite despacio:
+
+“Puedo cuidar sin vigilar.”`,
+          items: [
+            "Repetí la frase",
+            "La dije en voz baja",
+            "La pensé por dentro",
+            "Hoy solo la leí"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe lo que quieras contarme de hoy. No tienes que explicarlo perfecto.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Dejar descansar al guardián",
+          instructions: `Imagina al guardián yendo a su casa o a su hamaca.
+
+No se va para siempre.
+No abandona el río.
+Solo descansa un momento.
+
+El letrero sigue ahí.
+El río sigue su camino.`,
+          items: [
+            "Imaginé al guardián descansando",
+            "Recordé que el letrero sigue ahí",
+            "Recordé que el río no necesita ser vigilado todo el tiempo",
+            "Me costó, pero lo intenté"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "Hoy mi guardián quiso vigilar",
+          instructions: `Completa esta frase:
+
+“Hoy mi guardián quiso vigilar ________.”
+
+No escribas mucho. Solo una frase.`,
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí cómo estuvo tu día.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Solo este pedacito de río",
+          instructions: `Cuando tu mente se vaya al futuro, recuerda:
+
+“Ese tramo del río todavía no llegó.
+Hoy vivo este pedacito.”
+
+No tienes que resolver todo el río.
+Solo este tramo de hoy.`,
+          items: [
+            "Recordé la frase",
+            "Volví al momento presente",
+            "Hice una cosa paso a paso",
+            "Hoy me costó recordarlo"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "El pedacito de río que viví hoy",
+          instructions: `Completa esta frase:
+
+“Hoy viví este pedacito de río cuando ________.”
+
+Puede ser algo pequeño: cocinar, descansar, hablar con mi hijo, sentir a mi bebé, orar, bañarme, ordenar algo o respirar.`,
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "El letrero sigue ahí",
+          instructions: `Imagina el letrero del dibujo.
+
+El letrero sigue ahí aunque el guardián descanse.
+
+Repite:
+
+“El cuidado no depende solo de mí.”`,
+          items: [
+            "Recordé el letrero",
+            "Repetí la frase",
+            "Dejé que otra persona o Dios sostenga algo",
+            "Hoy solo pude intentarlo"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "Hoy solté un poquito",
+          instructions: `Completa esta frase:
+
+“Hoy dejé de vigilar un poquito cuando ________.”
+
+No busques algo grande. Puede ser algo pequeño.`,
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí cómo estuvo tu día.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Puedo cuidar sin hacerlo todo",
+          instructions: `Hoy recuerda:
+
+Cuidar no significa hacerlo todo.
+Cuidar no significa controlar todo.
+Cuidar no significa vigilar todo.
+
+Puedes hacer tu parte y dejar que el resto siga su curso.`,
+          items: [
+            "Hice solo mi parte",
+            "Solté algo que no dependía de mí",
+            "Recordé que no tengo que hacerlo todo",
+            "Hoy me costó, pero lo intenté"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "Mi parte de hoy",
+          instructions: `Completa esta frase:
+
+“Hoy mi parte sí era ________.”
+
+Luego completa:
+
+“Hoy no me correspondía controlar ________.”`,
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Cuando algo me altere",
+          instructions: `Si hoy algo te altera, vuelve al dibujo del río.
+
+No necesitas correr a resolver todo.
+No necesitas vigilar todo.
+No necesitas adelantarte a todo.
+
+Solo repite:
+
+“El río sigue. Yo respiro. Dios sostiene este momento.”`,
+          items: [
+            "Recordé el río cuando algo me alteró",
+            "Respiré antes de actuar",
+            "Hice una cosa a la vez",
+            "Hoy no apareció algo fuerte"
+          ]
+        },
+        {
+          type: "reflexion",
+          title: "Una cosa a la vez",
+          instructions: `Completa esta frase:
+
+“Hoy hice una cosa a la vez cuando ________.”`,
+          items: []
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí cómo estuvo tu día.",
+          items: []
+        }
+      ],
+      [
+        {
+          type: "checklist",
+          title: "Lo que aprendió mi guardián",
+          instructions: "Marca lo que más se acerque a tu semana.",
+          items: [
+            "Recordé que puedo cuidar sin vigilar",
+            "Dejé descansar un poquito al guardián",
+            "Recordé el río cuando me fui al futuro",
+            "Viví algo del presente sin intentar resolver todo",
+            "Me costó, pero seguí practicando"
+          ]
+        },
+        {
+          type: "checklist",
+          title: "Frase de cierre",
+          instructions: `Repite despacio:
+
+“El río puede seguir.
+Yo puedo descansar.
+Dios sostiene lo que yo no tengo que vigilar.”`,
+          items: [
+            "Repetí la frase",
+            "La escribí",
+            "La dije en oración",
+            "Hoy solo la leí"
+          ]
+        },
+        {
+          type: "libre",
+          title: "Lo que quiero contar hoy",
+          instructions: "Escribe aquí lo que quieras contarme de esta semana.",
+          items: []
+        }
+      ]
+    ];
+
+    return {
+      day: d,
+      exercises: plan[i]
+    };
+  })
+},
 gracielaSemana12: {
   name: "Graciela · Semana 12 · Ser mi aliada y avanzar",
 
