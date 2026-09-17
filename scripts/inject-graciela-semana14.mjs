@@ -33,13 +33,13 @@ const block = `
         {
           type: "enfoque",
           title: "Entrenamiento 1 · Atención y concentración · Mañana",
-          instructions: `Haz este entrenamiento en la mañana.\n\nVIDEO: ${focusLink}\n\nCONDICIONES:\n• Usa una pantalla amplia, preferiblemente computador. Evita el celular.\n• Colócate aproximadamente a 40 cm de la pantalla.\n• Busca un lugar tranquilo, seguro, privado y sin interrupciones.\n• Duración total: menos de 10 minutos.\n• Sigue el orden de la serie; no saltes videos ni los hagas de forma aleatoria.\n\nPASO A PASO:\n1. Fija la mirada en el punto negro central dentro del recuadro gris. Mantén los ojos fijos sin desviarlos hacia los lados.\n2. Concéntrate únicamente en el punto negro hasta notar que las manchas de colores laterales comienzan a desvanecerse.\n3. Cuando veas el recuadro gris liso, intenta sostener ese estado entre 5 y 10 segundos.\n4. Parpadea y descansa la vista entre 10 y 15 segundos.\n5. Vuelve a fijar la mirada y repite el ciclo.`,
+          instructions: "Haz este entrenamiento en la mañana.\\n\\nVIDEO: ${focusLink}\\n\\nCONDICIONES:\\n• Usa una pantalla amplia, preferiblemente computador. Evita el celular.\\n• Colócate aproximadamente a 40 cm de la pantalla.\\n• Busca un lugar tranquilo, seguro, privado y sin interrupciones.\\n• Duración total: menos de 10 minutos.\\n• Sigue el orden de la serie; no saltes videos ni los hagas de forma aleatoria.\\n\\nPASO A PASO:\\n1. Fija la mirada en el punto negro central dentro del recuadro gris. Mantén los ojos fijos sin desviarlos hacia los lados.\\n2. Concéntrate únicamente en el punto negro hasta notar que las manchas de colores laterales comienzan a desvanecerse.\\n3. Cuando veas el recuadro gris liso, intenta sostener ese estado entre 5 y 10 segundos.\\n4. Parpadea y descansa la vista entre 10 y 15 segundos.\\n5. Vuelve a fijar la mirada y repite el ciclo.",
           items: []
         },
         {
           type: "enfoque",
           title: "Entrenamiento 1 · Atención y concentración · Tarde",
-          instructions: `Repite el mismo entrenamiento una vez durante la tarde. Evita hacerlo en la noche.\n\nVIDEO: ${focusLink}\n\nRecuerda: pantalla amplia, aproximadamente 40 cm de distancia, ambiente sin interrupciones, mirada fija en el punto negro central, descanso de 10 a 15 segundos entre ciclos. Duración total: menos de 10 minutos.`,
+          instructions: "Repite el mismo entrenamiento una vez durante la tarde. Evita hacerlo en la noche.\\n\\nVIDEO: ${focusLink}\\n\\nRecuerda: pantalla amplia, aproximadamente 40 cm de distancia, ambiente sin interrupciones, mirada fija en el punto negro central, descanso de 10 a 15 segundos entre ciclos. Duración total: menos de 10 minutos.",
           items: []
         },
         {
