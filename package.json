@@ -7,8 +7,8 @@
     "react-dom": "^18.2.0"
   },
   "scripts": {
-    "dev": "node scripts/inject-graciela-semana13.mjs && node scripts/inject-graciela-semana14.mjs && vite",
-    "build": "node scripts/inject-graciela-semana13.mjs && node scripts/inject-graciela-semana14.mjs && vite build",
+    "dev": "node scripts/inject-graciela-semana13.mjs && node scripts/inject-graciela-semana14.mjs && node scripts/patch-exercise-card-ui.mjs && vite",
+    "build": "node scripts/inject-graciela-semana13.mjs && node scripts/inject-graciela-semana14.mjs && node scripts/patch-exercise-card-ui.mjs && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
