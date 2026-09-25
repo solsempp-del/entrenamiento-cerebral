@@ -18,11 +18,6 @@ if (!source.includes('timer:["#FFF4E5","#B85C00"]')) {
 }
 
 source = source.replace(
-  '  const hasChk = ["checklist","mindfulness","reto","gimnasia","enfoque","conductual","respiracion","habito","lectura","video"].includes(ex.type);',
-  '  const hasChk = ["checklist","mindfulness","reto","gimnasia","enfoque","conductual","respiracion","habito","lectura","video"].includes(ex.type);'
-);
-
-source = source.replace(
   '(ex.type==="lectura"||ex.type==="video")&&ex.link&&(',
   '(ex.type==="lectura"||ex.type==="video"||ex.type==="timer")&&ex.link&&('
 );
@@ -34,6 +29,13 @@ source = source.replace(
   '  const hasLink = t=>t==="lectura"||t==="video";',
   '  const hasLink = t=>t==="lectura"||t==="video"||t==="timer";'
 );
+
+if (!source.includes("resp.timerMetrics&&(")) {
+  const oldLine = '      {resp.text&&<p style={{fontSize:14,margin:"4px 0 0",whiteSpace:"pre-wrap"}}>{resp.text}</p>}';
+  const newBlock = `      {resp.timerMetrics&&(\n        <div style={{background:"#FFF8EE",border:"1px solid #F2D2A7",borderRadius:8,padding:"10px 12px",margin:"6px 0 8px"}}>\n          <p style={{fontSize:13,fontWeight:600,color:NAVY,margin:"0 0 6px"}}>⏱️ Resultado del entrenamiento</p>\n          <p style={{fontSize:13,margin:"2px 0"}}>Correctas: {resp.timerMetrics.correct}/{resp.timerMetrics.total} ({resp.timerMetrics.accuracyPercent}%)</p>\n          <p style={{fontSize:13,margin:"2px 0"}}>Tiempo promedio: {resp.timerMetrics.averageResponseSeconds} s</p>\n          <p style={{fontSize:13,margin:"2px 0"}}>Fuera de tiempo: {resp.timerMetrics.timeoutCount}</p>\n          <p style={{fontSize:13,margin:"2px 0"}}>Aturdimiento/presión: {resp.timerMetrics.stressAfter}/10</p>\n        </div>\n      )}\n      {resp.text&&<p style={{fontSize:14,margin:"4px 0 0",whiteSpace:"pre-wrap"}}>{resp.text}</p>}`;
+  if (!source.includes(oldLine)) throw new Error("No se encontró RV para agregar métricas del timer");
+  source = source.replace(oldLine, newBlock);
+}
 
 if (!source.includes("gracielaSemana15:")) {
   const marker = "const TEMPLATES = {";
