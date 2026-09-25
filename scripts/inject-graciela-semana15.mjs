@@ -41,6 +41,25 @@ if (!source.includes("gracielaSemana15:")) {
   const marker = "const TEMPLATES = {";
   if (!source.includes(marker)) throw new Error("No se encontró const TEMPLATES en src/App.jsx");
 
+  const video1 = "https://drive.google.com/file/d/1VTmSAZtDOOYJvuYbQzEsz_hMswvCXAqN/view?usp=drivesdk";
+  const video2 = "https://drive.google.com/file/d/1k39TrT1QsbMJlA9-rAhlgaV8sLQRYw36/view?usp=drivesdk";
+
+  const focusExercises = `
+          {
+            type: "video",
+            title: "Entrenamiento del punto · Video 2 · Mira las instrucciones primero",
+            instructions: "Abre este video primero. Aquí están las instrucciones de los ejercicios del punto. Después deja abiertos Video 1 y Video 2 para poder cambiar rápido entre ellos. IMPORTANTE: los dos ejercicios juntos deben durar máximo 5 minutos en total, no 5 minutos cada uno. Para cambiar de un video al otro: si están en ventanas distintas, mantén presionada ALT, toca TAB una vez y suelta las dos teclas. Repite ALT + TAB para volver. Si quedaron como dos pestañas del mismo navegador, usa CTRL + TAB.",
+            link: "${video2}",
+            items: []
+          },
+          {
+            type: "video",
+            title: "Entrenamiento del punto · Video 1",
+            instructions: "Abre también este video y realiza los dos ejercicios siguiendo las instrucciones del Video 2. Mantén los dos abiertos. Entre ambos ejercicios suma máximo 5 minutos.",
+            link: "${video1}",
+            items: []
+          },`;
+
   const block = `
   gracielaSemana15: {
     name: "Graciela · Semana 15 · Timer y lectura bajo presión",
@@ -50,11 +69,11 @@ if (!source.includes("gracielaSemana15:")) {
     days: [
       {
         day: "Día 1",
-        exercises: [
+        exercises: [${focusExercises}
           {
             type: "timer",
-            title: "Día 1 · Enfoque + timer de 30 segundos",
-            instructions: "Haz todo el entrenamiento desde el botón de abajo. Incluye: 3 respiraciones lentas sin retener el aire, los dos ejercicios de enfoque (máximo 5 minutos entre ambos) y luego la práctica con timer. Al final registra cuánto te presionó el timer; el resultado se guarda automáticamente.",
+            title: "Timer · 30 segundos por pregunta",
+            instructions: "Cuando termines los ejercicios del punto, abre este entrenamiento. Haz 3 respiraciones lentas: inhala 4 segundos y exhala 6 segundos, sin retener el aire. Luego responde las preguntas. Tu única regla es: LEE COMPLETO ANTES DE RESPONDER. Al final registra cuánto te presionó el timer; el resultado se guarda automáticamente.",
             link: "/graciela-semana15-dia1.html",
             items: []
           }
@@ -63,11 +82,11 @@ if (!source.includes("gracielaSemana15:")) {
       { day: "Día 2", exercises: [] },
       {
         day: "Día 3",
-        exercises: [
+        exercises: [${focusExercises}
           {
             type: "timer",
-            title: "Día 2 · Enfoque + timer con distractores",
-            instructions: "Segundo día de entrenamiento. Haz el bloque completo desde el botón: respiración breve, los dos ejercicios de enfoque (máximo 5 minutos en total) y práctica con preguntas más exigentes y 25 segundos por pregunta.",
+            title: "Timer · 25 segundos con distractores",
+            instructions: "Cuando termines los ejercicios del punto, abre este entrenamiento. Haz 3 respiraciones lentas, sin retener el aire. Lee completa cada pregunta antes de responder. Hoy encontrarás negaciones, información extra y más de un paso.",
             link: "/graciela-semana15-dia2.html",
             items: []
           }
@@ -76,11 +95,11 @@ if (!source.includes("gracielaSemana15:")) {
       { day: "Día 4", exercises: [] },
       {
         day: "Día 5",
-        exercises: [
+        exercises: [${focusExercises}
           {
             type: "timer",
-            title: "Día 3 · Enfoque + mini simulación",
-            instructions: "Tercer y último día. Haz el bloque completo: respiración breve, los dos ejercicios de enfoque (máximo 5 minutos en total) y mini simulación con un timer global de 3 minutos.",
+            title: "Timer · Mini simulación de 3 minutos",
+            instructions: "Cuando termines los ejercicios del punto, abre la mini simulación. Haz 3 respiraciones lentas, sin retener el aire. Aquí el timer es global y continúa mientras avanzas por las preguntas. Mantén una sola regla: LEE COMPLETO ANTES DE RESPONDER.",
             link: "/graciela-semana15-dia3.html",
             items: []
           }
@@ -96,4 +115,4 @@ if (!source.includes("gracielaSemana15:")) {
 }
 
 fs.writeFileSync(path, source, "utf8");
-console.log("Graciela Semana 15 integrada en src/App.jsx para este build.");
+console.log("Graciela Semana 15 integrada en src/App.jsx con videos del punto visibles en cada día de entrenamiento.");
