@@ -1,0 +1,172 @@
+{
+  "label": "Semana 16 · Enfoque, examen y registro físico",
+  "welcome": "Gracy, esta semana vamos a mantener el registro físico para tu chequeo, continuar el entrenamiento de enfoque y hacer tres prácticas cortas en orden. Cada práctica cambia una sola condición para que podamos comparar qué pasa con tu comprensión cuando aparece el tiempo y cuando además tienes que escribir. Haz una práctica por día y no repitas una aunque sientas que no te salió perfecta.",
+  "closing": "Terminaste la semana. Con las tres prácticas podremos comparar precisión, tiempo de respuesta, presión/aturdimiento y qué fue lo que más te dificultó. También tendremos un registro ordenado de tu ciclo y malestares físicos para tu chequeo ginecológico.",
+  "days": [
+    {
+      "day": "Día 1",
+      "exercises": [
+        {
+          "type": "lectura",
+          "title": "Práctica A · Lee y responde",
+          "instructions": "Haz esta práctica primero. Lee completa cada pregunta y responde a tu ritmo. No necesitas cronometrarte ni explicar tus respuestas.",
+          "link": "/graciela-sesion16-rondaA.html",
+          "linkLabel": "Abrir práctica A",
+          "externalOnly": true,
+          "items": []
+        },
+        {
+          "type": "reflexion",
+          "title": "Día del ciclo",
+          "instructions": "Escribe únicamente el número del día del ciclo. Día 1 = primer día de sangrado. No reinicies el conteo cuando termina el sangrado. Si hoy comenzó una nueva menstruación, escribe 1.",
+          "placeholder": "Ej.: 43",
+          "compactResponse": true,
+          "items": []
+        },
+        {
+          "type": "checklist",
+          "title": "Registro físico de hoy",
+          "instructions": "Marca solo los síntomas que estuvieron presentes hoy. Este registro es para llevar datos claros a tu chequeo ginecológico; no necesitas interpretarlos.",
+          "hideFreeText": true,
+          "items": ["Tuve sangrado hoy", "Bochorno o sensación de calor", "Dolor de cabeza", "Náusea", "Mareo", "Cansancio marcado", "Picazón", "Otro malestar físico"]
+        },
+        {
+          "type": "energia",
+          "title": "Intensidad general del malestar físico",
+          "instructions": "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+          "scaleMin": 0,
+          "hideFreeText": true,
+          "items": []
+        },
+        {
+          "type": "enfoque",
+          "title": "Entrenamiento 3 · Enfoque · 5 minutos",
+          "instructions": "Haz este ejercicio durante 5 minutos. Esta semana lo harás solo 3 días. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1Pkm5RSqG6Cac-FT6nUxe92E4Q4eEkmCF/view?usp=drivesdk\n\nBusca un lugar tranquilo y sin interrupciones. Sigue exactamente las instrucciones del video y termina a los 5 minutos.",
+          "hideFreeText": true,
+          "items": ["Hice los 5 minutos de entrenamiento"]
+        },
+        {
+          "type": "lectura",
+          "title": "Plan PAUSA si vuelvo a llegar al límite",
+          "instructions": "Este plan es solo para tener claro qué hacer si vuelve a aparecer una escalada fuerte. No tienes que registrar nada aquí.\n\n1. SEÑAL: noto el ‘qué importismo’, pienso ‘que arda Troya’ o siento que ya estoy en 6/10 o más.\n2. PARO: no sigo discutiendo, explicando ni intentando resolver el problema en ese momento.\n3. DIGO: ‘Estoy demasiado alterada para seguir. Necesito una pausa y lo retomamos después.’\n4. ME ALEJO: voy a otro espacio y pongo distancia física. No toco a la otra persona, no la sigo y no continúo la discusión por mensajes.\n5. REGRESO: retomo la conversación solo cuando haya bajado a 4/10 o menos y pueda hablar sin atacar.\n\nSi siento que podría volver a golpear, lanzar algo o perder el control, aumento la distancia y busco apoyo de inmediato.",
+          "noResponse": true,
+          "items": []
+        }
+      ]
+    },
+    {
+      "day": "Día 2",
+      "exercises": [
+        {
+          "type": "lectura",
+          "title": "Práctica B · Lee y responde con reloj",
+          "instructions": "Haz esta práctica una sola vez. El reloj será visible. Tu única regla es: LEE COMPLETO ANTES DE RESPONDER. Si el tiempo llega a cero, termina la pregunta sin correr.",
+          "link": "/graciela-sesion16-rondaB.html",
+          "linkLabel": "Abrir práctica B",
+          "externalOnly": true,
+          "items": []
+        },
+        {
+          "type": "reflexion",
+          "title": "Día del ciclo",
+          "instructions": "Escribe únicamente el número del día del ciclo. Día 1 = primer día de sangrado. No reinicies el conteo cuando termina el sangrado. Si hoy comenzó una nueva menstruación, escribe 1.",
+          "placeholder": "Ej.: 44",
+          "compactResponse": true,
+          "items": []
+        },
+        {
+          "type": "checklist",
+          "title": "Registro físico de hoy",
+          "instructions": "Marca solo los síntomas que estuvieron presentes hoy.",
+          "hideFreeText": true,
+          "items": ["Tuve sangrado hoy", "Bochorno o sensación de calor", "Dolor de cabeza", "Náusea", "Mareo", "Cansancio marcado", "Picazón", "Otro malestar físico"]
+        },
+        {
+          "type": "energia",
+          "title": "Intensidad general del malestar físico",
+          "instructions": "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+          "scaleMin": 0,
+          "hideFreeText": true,
+          "items": []
+        }
+      ]
+    },
+    {
+      "day": "Día 3",
+      "exercises": [
+        {
+          "type": "lectura",
+          "title": "Práctica C · Lee, escribe y responde con reloj",
+          "instructions": "Haz esta práctica una sola vez. Lee cada consigna completa y escribe una respuesta breve. No necesitas explicar cómo llegaste a ella. Si el tiempo llega a cero, termina la pregunta sin correr.",
+          "link": "/graciela-sesion16-rondaC.html",
+          "linkLabel": "Abrir práctica C",
+          "externalOnly": true,
+          "items": []
+        },
+        {
+          "type": "reflexion",
+          "title": "Día del ciclo",
+          "instructions": "Escribe únicamente el número del día del ciclo. Día 1 = primer día de sangrado. No reinicies el conteo cuando termina el sangrado. Si hoy comenzó una nueva menstruación, escribe 1.",
+          "placeholder": "Ej.: 45",
+          "compactResponse": true,
+          "items": []
+        },
+        {
+          "type": "checklist",
+          "title": "Registro físico de hoy",
+          "instructions": "Marca solo los síntomas que estuvieron presentes hoy.",
+          "hideFreeText": true,
+          "items": ["Tuve sangrado hoy", "Bochorno o sensación de calor", "Dolor de cabeza", "Náusea", "Mareo", "Cansancio marcado", "Picazón", "Otro malestar físico"]
+        },
+        {
+          "type": "energia",
+          "title": "Intensidad general del malestar físico",
+          "instructions": "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+          "scaleMin": 0,
+          "hideFreeText": true,
+          "items": []
+        },
+        {
+          "type": "enfoque",
+          "title": "Entrenamiento 3 · Enfoque · 5 minutos",
+          "instructions": "Haz el Entrenamiento 3 durante 5 minutos. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1Pkm5RSqG6Cac-FT6nUxe92E4Q4eEkmCF/view?usp=drivesdk\n\nTermina a los 5 minutos.",
+          "hideFreeText": true,
+          "items": ["Hice los 5 minutos de entrenamiento"]
+        }
+      ]
+    },
+    {
+      "day": "Día 4",
+      "exercises": [
+        {"type":"reflexion","title":"Día del ciclo","instructions":"Escribe únicamente el número del día del ciclo.","placeholder":"Número del día","compactResponse":true,"items":[]},
+        {"type":"checklist","title":"Registro físico de hoy","instructions":"Marca solo los síntomas que estuvieron presentes hoy.","hideFreeText":true,"items":["Tuve sangrado hoy","Bochorno o sensación de calor","Dolor de cabeza","Náusea","Mareo","Cansancio marcado","Picazón","Otro malestar físico"]},
+        {"type":"energia","title":"Intensidad general del malestar físico","instructions":"Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.","scaleMin":0,"hideFreeText":true,"items":[]}
+      ]
+    },
+    {
+      "day": "Día 5",
+      "exercises": [
+        {"type":"reflexion","title":"Día del ciclo","instructions":"Escribe únicamente el número del día del ciclo.","placeholder":"Número del día","compactResponse":true,"items":[]},
+        {"type":"checklist","title":"Registro físico de hoy","instructions":"Marca solo los síntomas que estuvieron presentes hoy.","hideFreeText":true,"items":["Tuve sangrado hoy","Bochorno o sensación de calor","Dolor de cabeza","Náusea","Mareo","Cansancio marcado","Picazón","Otro malestar físico"]},
+        {"type":"energia","title":"Intensidad general del malestar físico","instructions":"Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.","scaleMin":0,"hideFreeText":true,"items":[]},
+        {"type":"enfoque","title":"Entrenamiento 3 · Enfoque · 5 minutos","instructions":"Haz el Entrenamiento 3 durante 5 minutos. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1Pkm5RSqG6Cac-FT6nUxe92E4Q4eEkmCF/view?usp=drivesdk\n\nTermina a los 5 minutos.","hideFreeText":true,"items":["Hice los 5 minutos de entrenamiento"]}
+      ]
+    },
+    {
+      "day": "Día 6",
+      "exercises": [
+        {"type":"reflexion","title":"Día del ciclo","instructions":"Escribe únicamente el número del día del ciclo.","placeholder":"Número del día","compactResponse":true,"items":[]},
+        {"type":"checklist","title":"Registro físico de hoy","instructions":"Marca solo los síntomas que estuvieron presentes hoy.","hideFreeText":true,"items":["Tuve sangrado hoy","Bochorno o sensación de calor","Dolor de cabeza","Náusea","Mareo","Cansancio marcado","Picazón","Otro malestar físico"]},
+        {"type":"energia","title":"Intensidad general del malestar físico","instructions":"Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.","scaleMin":0,"hideFreeText":true,"items":[]}
+      ]
+    },
+    {
+      "day": "Día 7",
+      "exercises": [
+        {"type":"reflexion","title":"Día del ciclo","instructions":"Escribe únicamente el número del día del ciclo.","placeholder":"Número del día","compactResponse":true,"items":[]},
+        {"type":"checklist","title":"Registro físico de hoy","instructions":"Marca solo los síntomas que estuvieron presentes hoy.","hideFreeText":true,"items":["Tuve sangrado hoy","Bochorno o sensación de calor","Dolor de cabeza","Náusea","Mareo","Cansancio marcado","Picazón","Otro malestar físico"]},
+        {"type":"energia","title":"Intensidad general del malestar físico","instructions":"Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.","scaleMin":0,"hideFreeText":true,"items":[]}
+      ]
+    }
+  ]
+}
