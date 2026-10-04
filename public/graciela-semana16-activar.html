@@ -1,31 +1,60 @@
 <!doctype html>
 <html lang="es">
-<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Activar Semana 16 · Graciela</title></head>
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Actualizar Semana 16 · Graciela</title></head>
 <body><div id="root"></div>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 import { collection, doc, getDoc, getDocs, getFirestore, serverTimestamp, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
 const NAVY="#0f243e", CORAL="#dd6d60", ADMIN="solsempp@gmail.com", TARGET="gracyromero3@gmail.com";
 const firebaseConfig={apiKey:"AIzaSyDyLvINfBA1oqedb_yHNxq4LR7WBmLVZNc",authDomain:"entrenamiento-cerebral.firebaseapp.com",projectId:"entrenamiento-cerebral",storageBucket:"entrenamiento-cerebral.firebasestorage.app",messagingSenderId:"121258466683",appId:"1:121258466683:web:880ec318374158c1a771de",measurementId:"G-MLP3DKV4HG"};
 const app=initializeApp(firebaseConfig), auth=getAuth(app), db=getFirestore(app);
-const focusVideo="https://drive.google.com/file/d/1Pkm5RSqG6Cac-FT6nUxe92E4Q4eEkmCF/view?usp=drivesdk";
-const cycleDay={type:"reflexion",title:"Día del ciclo",instructions:"Escribe solo el número del día del ciclo. Día 1 = primer día de sangrado. No reinicies el conteo cuando termina el sangrado. Si hoy comenzó una nueva menstruación, escribe 1.",items:[]};
-const physicalCheck={type:"checklist",title:"Registro físico de hoy",instructions:"Este registro es para llevar datos claros a tu chequeo ginecológico. Marca solo lo que estuvo presente hoy. No necesitas interpretarlo ni escribir explicaciones largas.",items:["Tuve sangrado hoy","Bochorno o sensación de calor","Dolor de cabeza","Náusea","Mareo","Cansancio marcado","Picazón","Otro malestar físico","Hoy no tuve malestar físico"]};
-const symptomIntensity={type:"energia",title:"Intensidad general del malestar físico",instructions:"Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",items:[]};
-const focus={type:"enfoque",title:"Entrenamiento 3 · Enfoque · 5 minutos",instructions:`Haz este ejercicio durante 5 minutos, solo 3 días esta semana. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: ${focusVideo}\n\nBusca un lugar tranquilo y sin interrupciones. Sigue exactamente las instrucciones del video. No alargues la práctica aunque sientas que puedes hacer más: el objetivo es repetición breve y consistente.`,items:[]};
-const week={label:"Semana 16 · Enfoque, examen y registro físico",welcome:"Gracy, esta semana mantenemos tres cosas útiles y nada más: registrar datos físicos para tu chequeo, practicar el nuevo ejercicio de enfoque tres veces y preparar el examen con material real de neerlandés. No buscamos hacer más; buscamos que lo que hagas sea útil.",closing:"Terminaste la semana. Lo importante será revisar qué pasó con el timer usando ejercicios reales de neerlandés y ordenar tus datos físicos para el chequeo. Si apareció una situación de mucha activación, usaremos el protocolo de PAUSA como freno, sin convertirlo en el centro de toda la semana.",days:[
-{day:"Día 1",exercises:[cycleDay,physicalCheck,symptomIntensity,focus,{type:"conductual",title:"Neerlandés · Comprender antes de responder",instructions:"Haz 10–15 minutos con material REAL de tu curso, plataforma o preparación del examen. Hoy no uses presión de tiempo. Regla única: LEE COMPLETO ANTES DE RESPONDER. Al terminar, anota únicamente si hubo algún error por leer demasiado rápido.",items:[]},{type:"lectura",title:"Mi freno de emergencia",instructions:"Lee una sola vez y déjalo como protocolo: si aparece el ‘qué importismo’ o notas que estás cerca de 6–7/10, dices PAUSA, dejas de discutir, te alejas físicamente y retomas la conversación solo cuando estés regulada. No tienes que registrar esto todos los días.",items:[]}]},
-{day:"Día 2",exercises:[cycleDay,physicalCheck,symptomIntensity]},
-{day:"Día 3",exercises:[cycleDay,physicalCheck,symptomIntensity,focus,{type:"conductual",title:"Neerlandés · Leer con timer visible",instructions:"Haz 10–15 minutos con material REAL parecido al examen. Usa el timer visible con un margen cómodo; no buscamos velocidad. Mantén una sola regla: LEE COMPLETO ANTES DE RESPONDER. Al terminar registra: aciertos, cuánto te aturdió el timer de 0–10 y si hubo algún error por apurarte.",items:[]}]},
-{day:"Día 4",exercises:[cycleDay,physicalCheck,symptomIntensity]},
-{day:"Día 5",exercises:[cycleDay,physicalCheck,symptomIntensity,focus,{type:"conductual",title:"Neerlandés · Mini simulación",instructions:"Haz una práctica corta lo más parecida posible al examen real usando material de tu curso o plataforma. Mantén el timer visible y responde varios ítems seguidos. Regla: LEE COMPLETO ANTES DE RESPONDER. Al terminar registra solo: aciertos, aturdimiento 0–10 y si cometiste algún error por leer rápido o por una palabra desconocida.",items:[]}]},
-{day:"Día 6",exercises:[cycleDay,physicalCheck,symptomIntensity]},
-{day:"Día 7",exercises:[cycleDay,physicalCheck,symptomIntensity]}
-]};
 const root=document.getElementById("root");
-root.innerHTML=`<style>*{box-sizing:border-box}body{margin:0;background:#f7f4ef;color:#202733;font-family:Arial,sans-serif}.wrap{max-width:720px;margin:40px auto;padding:16px}.card{background:white;border-radius:18px;padding:24px;box-shadow:0 4px 18px rgba(0,0,0,.08)}h1{color:${NAVY}}button{border:0;border-radius:12px;padding:13px 18px;background:${CORAL};color:white;font-size:16px;cursor:pointer}button:disabled{opacity:.5}.status{margin-top:16px;padding:12px;border-radius:10px;background:#f2f3f5}</style><div class="wrap"><div class="card"><h1>Graciela · Semana 16</h1><p>Enfoque 3 días, preparación de neerlandés y registro físico diario.</p><button id="activate" disabled>Activar Semana 16</button><div id="status" class="status">Comprobando tu sesión de mentora…</div></div></div>`;
+root.innerHTML=`<style>*{box-sizing:border-box}body{margin:0;background:#f7f4ef;color:#202733;font-family:Arial,sans-serif}.wrap{max-width:720px;margin:40px auto;padding:16px}.card{background:white;border-radius:18px;padding:24px;box-shadow:0 4px 18px rgba(0,0,0,.08)}h1{color:${NAVY}}button{border:0;border-radius:12px;padding:13px 18px;background:${CORAL};color:white;font-size:16px;cursor:pointer}button:disabled{opacity:.5}.status{margin-top:16px;padding:12px;border-radius:10px;background:#f2f3f5}</style><div class="wrap"><div class="card"><h1>Graciela · Semana 16</h1><p>Actualizará la semana con las tres prácticas comparativas, el Entrenamiento 3 y el registro físico.</p><button id="activate" disabled>Actualizar Semana 16</button><div id="status" class="status">Preparando…</div></div></div>`;
+
 let targetId=null;
-onAuthStateChanged(auth,async user=>{try{if(!user||user.email?.toLowerCase()!==ADMIN){document.getElementById("status").textContent="Entra primero a la app con tu cuenta de mentora y vuelve a abrir esta página.";return;}const snap=await getDocs(collection(db,"mentees"));const mentee=snap.docs.map(d=>({id:d.id,...d.data()})).find(m=>(m.email||"").toLowerCase()===TARGET);if(!mentee)throw new Error("No encontré a Graciela.");targetId=mentee.id;document.getElementById("activate").disabled=false;document.getElementById("status").textContent="Lista para activar. Reemplaza solo la Semana 16; las anteriores quedan intactas.";}catch(e){console.error(e);document.getElementById("status").textContent="No pude preparar la activación.";}});
-document.getElementById("activate").addEventListener("click",async()=>{const btn=document.getElementById("activate"),status=document.getElementById("status");try{btn.disabled=true;status.textContent="Activando…";const weeksRef=doc(db,"mentees",targetId,"data","weeks");const weeksSnap=await getDoc(weeksRef);const weeks=weeksSnap.exists()?[...(weeksSnap.data().weeks||[])]:[];if(weeks.length<15)throw new Error("El perfil todavía no tiene 15 semanas previas.");if(weeks.length===15)weeks.push(week);else weeks[15]=week;await setDoc(weeksRef,{weeks,updatedAt:serverTimestamp()});await setDoc(doc(db,"mentees",targetId,"data","activeWeek"),{activeWeek:15,updatedAt:serverTimestamp()});status.style.background="#eaf7f0";status.style.color="#196c4c";status.innerHTML="✓ Semana 16 activada para Graciela.";}catch(e){console.error(e);status.style.background="#fbecec";status.style.color="#a23838";status.textContent="No se pudo activar: "+e.message;btn.disabled=false;}});
+let week=null;
+
+async function loadWeek(){
+  const res=await fetch("/graciela-semana16-config.json",{cache:"no-store"});
+  if(!res.ok) throw new Error("No pude cargar la configuración de la semana.");
+  week=await res.json();
+}
+
+function maybeReady(){
+  if(targetId&&week){
+    document.getElementById("activate").disabled=false;
+    document.getElementById("status").textContent="Lista. Reemplaza únicamente el contenido de la Semana 16 y conserva las semanas anteriores.";
+  }
+}
+
+loadWeek().then(maybeReady).catch(e=>{console.error(e);document.getElementById("status").textContent=e.message;});
+
+onAuthStateChanged(auth,async user=>{
+  try{
+    if(!user||user.email?.toLowerCase()!==ADMIN){document.getElementById("status").textContent="Entra primero a la app con tu cuenta de mentora y vuelve a abrir esta página.";return;}
+    const snap=await getDocs(collection(db,"mentees"));
+    const mentee=snap.docs.map(d=>({id:d.id,...d.data()})).find(m=>(m.email||"").toLowerCase()===TARGET);
+    if(!mentee)throw new Error("No encontré a Graciela.");
+    targetId=mentee.id;
+    maybeReady();
+  }catch(e){console.error(e);document.getElementById("status").textContent="No pude preparar la actualización.";}
+});
+
+document.getElementById("activate").addEventListener("click",async()=>{
+  const btn=document.getElementById("activate"),status=document.getElementById("status");
+  try{
+    btn.disabled=true;status.textContent="Actualizando…";
+    const weeksRef=doc(db,"mentees",targetId,"data","weeks");
+    const weeksSnap=await getDoc(weeksRef);
+    const weeks=weeksSnap.exists()?[...(weeksSnap.data().weeks||[])]:[];
+    if(weeks.length<15)throw new Error("El perfil todavía no tiene 15 semanas previas.");
+    if(weeks.length===15)weeks.push(week);else weeks[15]=week;
+    await setDoc(weeksRef,{weeks,updatedAt:serverTimestamp()});
+    await setDoc(doc(db,"mentees",targetId,"data","activeWeek"),{activeWeek:15,updatedAt:serverTimestamp()});
+    status.style.background="#eaf7f0";status.style.color="#196c4c";
+    status.innerHTML="✓ Semana 16 actualizada. Graciela ya verá las prácticas A, B y C, el Entrenamiento 3 y el registro físico corregido.";
+  }catch(e){console.error(e);status.style.background="#fbecec";status.style.color="#a23838";status.textContent="No se pudo actualizar: "+e.message;btn.disabled=false;}
+});
 </script></body></html>
