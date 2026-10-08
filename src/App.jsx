@@ -19,6 +19,7 @@ const CORAL = "#dd6d60";
 const BEIGE = "#d6c7b1";
 const DARK = "#333333";
 const ADMIN_EMAIL = "solsempp@gmail.com";
+const GRACIELA_EMAIL = "gracyromero3@gmail.com";
 
 const DAYS = ["Día 1","Día 2","Día 3","Día 4","Día 5","Día 6","Día 7"];
 
@@ -2054,6 +2055,13 @@ const [createdInfo,setCreatedInfo] = useState(null);
           </div>
           <button style={OB()} onClick={doLogout}>Salir</button>
         </div>
+        {(user.email||"").toLowerCase()===GRACIELA_EMAIL&&(
+          <div style={{...C,background:"#fff8f6",border:"1px solid "+CORAL,marginBottom:"1rem"}}>
+            <p style={{margin:"0 0 6px",fontWeight:600,color:NAVY,fontSize:14}}>Sesión de hoy · Entrenamiento guiado</p>
+            <p style={{margin:"0 0 10px",fontSize:13,color:"#666"}}>Abre aquí las rondas A, B, C y D de la sesión con Sol.</p>
+            <a href="/graciela-sesion17.html" style={{...PB(),display:"inline-block",textDecoration:"none"}}>Abrir entrenamiento de sesión</a>
+          </div>
+        )}
         {weeks.length>1&&(
           <div style={{marginBottom:12}}>
             <p style={{fontSize:12,color:"#aaa",margin:"0 0 6px"}}>Mis semanas:</p>
@@ -2271,6 +2279,13 @@ const [createdInfo,setCreatedInfo] = useState(null);
               <button style={TB(sTab==="resp")} onClick={()=>setSTab("resp")}>Respuestas</button>
               <button style={TB(sTab==="plan")} onClick={()=>{if(curW){setEWeek(JSON.parse(JSON.stringify(curW)));setEWi(mawi);}setSTab("plan");}}>Editar plan</button>
             </div>
+            {(selM.email||"").toLowerCase()===GRACIELA_EMAIL&&(
+              <div style={{...C,background:"#fff8f6",border:"1px solid "+CORAL,marginBottom:"1rem"}}>
+                <p style={{margin:"0 0 6px",fontWeight:600,color:NAVY,fontSize:14}}>Sesión 17 · Entrenamiento guiado</p>
+                <p style={{margin:"0 0 10px",fontSize:13,color:"#666"}}>Rondas A, B, C y D para trabajar precisión bajo carga durante la sesión.</p>
+                <a href="/graciela-sesion17.html" style={{...PB(),display:"inline-block",textDecoration:"none"}}>Abrir entrenamiento</a>
+              </div>
+            )}
             {sTab==="resp"&&curW&&(
               <div>
                 <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:"1rem"}}>
