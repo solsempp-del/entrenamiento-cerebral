@@ -23,21 +23,52 @@ const GRACIELA_EMAIL = "gracyromero3@gmail.com";
 
 const DAYS = ["Día 1","Día 2","Día 3","Día 4","Día 5","Día 6","Día 7"];
 
-// Semana 17 de Graciela: se muestra desde la app para preservar su formato
-// de tres días aunque exista una versión anterior vacía en Firebase.
+const GRACIELA_REGISTRO_FISICO = (placeholder) => [
+  {
+    type: "reflexion",
+    title: "Día del ciclo",
+    instructions: "Escribe únicamente el número del día del ciclo. Día 1 = primer día de sangrado. No reinicies el conteo cuando termina el sangrado. Si hoy comenzó una nueva menstruación, escribe 1.",
+    placeholder,
+    compactResponse: true,
+    items: []
+  },
+  {
+    type: "checklist",
+    title: "Registro físico de hoy",
+    instructions: "Marca solo los síntomas que estuvieron presentes hoy. Este registro es para llevar datos claros a tu chequeo ginecológico; no necesitas interpretarlos.",
+    hideFreeText: true,
+    items: ["Tuve sangrado hoy", "Bochorno o sensación de calor", "Dolor de cabeza", "Náusea", "Mareo", "Cansancio marcado", "Picazón", "Otro malestar físico"]
+  },
+  {
+    type: "energia",
+    title: "Intensidad general del malestar físico",
+    instructions: "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+    scaleMin: 0,
+    hideFreeText: true,
+    items: []
+  }
+];
+
+const GRACIELA_ENTRENAMIENTO_4 = {
+  type: "enfoque",
+  title: "Entrenamiento 4 · Enfoque",
+  instructions: "Haz el Entrenamiento 4. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1ClExdVEK71g31JjVZrTUI2XsyVTGMRI6/view?usp=drivesdk\n\nBusca un lugar tranquilo y sin interrupciones. Sigue exactamente las instrucciones del video.",
+  hideFreeText: true,
+  items: ["Hice el entrenamiento de hoy"]
+};
+
+// Semana 17 de Graciela: conserva el seguimiento físico de la Semana 16 y
+// reemplaza el entrenamiento previo por el material original de Entrenamiento 4.
 const GRACIELA_SEMANA_17 = {
   label: "Semana 17 · Entrenamiento 4 · Enfoque",
-  welcome: "Gracy, esta semana continuamos con tu entrenamiento de enfoque. Haz el Entrenamiento 4 en los tres días de esta semana, preferiblemente en la mañana o en la tarde, no en la noche. Busca un lugar tranquilo y sin interrupciones; sigue exactamente las instrucciones del video.",
-  closing: "Terminaste la Semana 17. Guarda presente cómo te sentiste al realizar el entrenamiento para revisarlo en nuestra próxima sesión.",
-  days: ["Día 1", "Día 2", "Día 3"].map(day => ({
+  welcome: "Gracy, esta semana mantenemos el registro físico para tu chequeo y continuamos el entrenamiento de enfoque. Registra tu ciclo, los síntomas y la intensidad cada día. Haz el Entrenamiento 4 tres veces esta semana, preferiblemente en la mañana o en la tarde, no en la noche.",
+  closing: "Terminaste la Semana 17. Tendremos el registro físico ordenado y podremos revisar cómo te sentiste con el Entrenamiento 4.",
+  days: DAYS.map((day, index) => ({
     day,
-    exercises: [{
-      type: "enfoque",
-      title: "Entrenamiento 4 · Enfoque",
-      instructions: "Haz el Entrenamiento 4. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1ClExdVEK71g31JjVZrTUI2XsyVTGMRI6/view?usp=drivesdk\n\nBusca un lugar tranquilo y sin interrupciones. Sigue exactamente las instrucciones del video.",
-      hideFreeText: true,
-      items: ["Hice el entrenamiento de hoy"]
-    }]
+    exercises: [
+      ...GRACIELA_REGISTRO_FISICO(`Ej.: ${46 + index}`),
+      ...(index === 0 || index === 2 || index === 4 ? [GRACIELA_ENTRENAMIENTO_4] : [])
+    ]
   }))
 };
 
