@@ -23,18 +23,18 @@ const GRACIELA_EMAIL = "gracyromero3@gmail.com";
 
 const DAYS = ["Día 1","Día 2","Día 3","Día 4","Día 5","Día 6","Día 7"];
 
-const GRACIELA_REGISTRO_FISICO = (placeholder) => [
+const GRACIELA_REGISTRO_FISICO = (dateLabel) => [
   {
     type: "reflexion",
-    title: "Día del ciclo",
+    title: `Día del ciclo · ${dateLabel}`,
     instructions: "Escribe únicamente el número del día del ciclo. Día 1 = primer día de sangrado. No reinicies el conteo cuando termina el sangrado. Si hoy comenzó una nueva menstruación, escribe 1.",
-    placeholder,
+    placeholder: "Ej.: 46",
     compactResponse: true,
     items: []
   },
   {
     type: "checklist",
-    title: "Registro físico de hoy",
+    title: `Registro físico · ${dateLabel}`,
     instructions: "Marca solo los síntomas que estuvieron presentes hoy. Este registro es para llevar datos claros a tu chequeo ginecológico; no necesitas interpretarlos.",
     hideFreeText: true,
     items: ["Tuve sangrado hoy", "Bochorno o sensación de calor", "Dolor de cabeza", "Náusea", "Mareo", "Cansancio marcado", "Picazón", "Otro malestar físico"]
@@ -57,16 +57,56 @@ const GRACIELA_ENTRENAMIENTO_4 = {
   items: ["Hice el entrenamiento de hoy"]
 };
 
+const GRACIELA_ENTRENAMIENTO_EXAMEN = [
+  {
+    type: "lectura",
+    title: "Entrenamiento para el examen · Ronda A",
+    instructions: "Escribe sin reloj. Esta práctica permite observar cómo respondes cuando no hay presión de tiempo.",
+    link: "/graciela-sesion17.html?round=A",
+    linkLabel: "Abrir Ronda A",
+    externalOnly: true,
+    items: []
+  },
+  {
+    type: "lectura",
+    title: "Entrenamiento para el examen · Ronda B",
+    instructions: "Entrena el orden: LEE → ¿QUÉ ME PIDE? → RESPONDE → REVISA. No buscamos rapidez.",
+    link: "/graciela-sesion17.html?round=B",
+    linkLabel: "Abrir Ronda B",
+    externalOnly: true,
+    items: []
+  },
+  {
+    type: "lectura",
+    title: "Entrenamiento para el examen · Ronda C",
+    instructions: "Practica escribir con reloj visible. La prioridad sigue siendo precisión, no velocidad.",
+    link: "/graciela-sesion17.html?round=C",
+    linkLabel: "Abrir Ronda C",
+    externalOnly: true,
+    items: []
+  },
+  {
+    type: "lectura",
+    title: "Entrenamiento para el examen · Ronda D",
+    instructions: "Usa la misma secuencia con una instrucción real de esta semana.",
+    link: "/graciela-sesion17.html?round=D",
+    linkLabel: "Abrir Ronda D",
+    externalOnly: true,
+    items: []
+  }
+];
+
 // Semana 17 de Graciela: conserva el seguimiento físico de la Semana 16 y
 // reemplaza el entrenamiento previo por el material original de Entrenamiento 4.
 const GRACIELA_SEMANA_17 = {
   label: "Semana 17 · Entrenamiento 4 · Enfoque",
-  welcome: "Gracy, esta semana mantenemos el registro físico para tu chequeo y continuamos el entrenamiento de enfoque. Registra tu ciclo, los síntomas y la intensidad cada día. Haz el Entrenamiento 4 tres veces esta semana, preferiblemente en la mañana o en la tarde, no en la noche.",
-  closing: "Terminaste la Semana 17. Tendremos el registro físico ordenado y podremos revisar cómo te sentiste con el Entrenamiento 4.",
+  welcome: "Gracy, retomamos el registro físico desde el 9 de octubre para tu chequeo y continuamos el entrenamiento de enfoque. Cada día registra tu ciclo, los síntomas y la intensidad. También harás las rondas de entrenamiento para el examen en orden y el Entrenamiento 4 tres veces esta semana.",
+  closing: "Terminaste la Semana 17. Tendremos el registro físico ordenado y podremos revisar tu entrenamiento de enfoque y para el examen.",
   days: DAYS.map((day, index) => ({
     day,
     exercises: [
-      ...GRACIELA_REGISTRO_FISICO(`Ej.: ${46 + index}`),
+      ...GRACIELA_REGISTRO_FISICO(["9 de octubre", "10 de octubre", "11 de octubre", "12 de octubre", "13 de octubre", "14 de octubre", "15 de octubre"][index]),
+      ...(GRACIELA_ENTRENAMIENTO_EXAMEN[index] ? [GRACIELA_ENTRENAMIENTO_EXAMEN[index]] : []),
       ...(index === 0 || index === 2 || index === 4 ? [GRACIELA_ENTRENAMIENTO_4] : [])
     ]
   }))
@@ -2089,7 +2129,9 @@ const [createdInfo,setCreatedInfo] = useState(null);
       ?GRACIELA_SEMANA_17
       :savedWeek;
     const dp=week.days[day];
-    const wd=isWDone(weeks,awi,user.id);
+    const wd=week.days.every((d,di)=>
+      d.exercises.length>0&&d.exercises.every((ex,ei)=>ex.externalOnly||(resps[di]&&resps[di][ei]))
+    );
     return (
       <div style={W}>
         {week.welcome&&day===0&&(

@@ -4,7 +4,7 @@ import { collection, doc, getDoc, getDocs, getFirestore, serverTimestamp, setDoc
 
 const NAVY="#0f243e", CORAL="#dd6d60", BEIGE="#d6c7b1";
 const ADMIN_EMAIL="solsempp@gmail.com", TARGET_EMAIL="gracyromero3@gmail.com";
-const WEEK_INDEX="15";
+const WEEK_INDEX="16";
 
 const firebaseConfig={
   apiKey:"AIzaSyDyLvINfBA1oqedb_yHNxq4LR7WBmLVZNc",
