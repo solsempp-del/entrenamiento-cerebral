@@ -23,6 +23,24 @@ const GRACIELA_EMAIL = "gracyromero3@gmail.com";
 
 const DAYS = ["Día 1","Día 2","Día 3","Día 4","Día 5","Día 6","Día 7"];
 
+// Semana 17 de Graciela: se muestra desde la app para preservar su formato
+// de tres días aunque exista una versión anterior vacía en Firebase.
+const GRACIELA_SEMANA_17 = {
+  label: "Semana 17 · Entrenamiento 4 · Enfoque",
+  welcome: "Gracy, esta semana continuamos con tu entrenamiento de enfoque. Haz el Entrenamiento 4 en los tres días de esta semana, preferiblemente en la mañana o en la tarde, no en la noche. Busca un lugar tranquilo y sin interrupciones; sigue exactamente las instrucciones del video.",
+  closing: "Terminaste la Semana 17. Guarda presente cómo te sentiste al realizar el entrenamiento para revisarlo en nuestra próxima sesión.",
+  days: ["Día 1", "Día 2", "Día 3"].map(day => ({
+    day,
+    exercises: [{
+      type: "enfoque",
+      title: "Entrenamiento 4 · Enfoque",
+      instructions: "Haz el Entrenamiento 4. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1ClExdVEK71g31JjVZrTUI2XsyVTGMRI6/view?usp=drivesdk\n\nBusca un lugar tranquilo y sin interrupciones. Sigue exactamente las instrucciones del video.",
+      hideFreeText: true,
+      items: ["Hice el entrenamiento de hoy"]
+    }]
+  }))
+};
+
 const EX_TYPES = {
   respiracion:{ label:"Respiración", icon:"🌬️" },
   reflexion:  { label:"Reflexión escrita", icon:"✍️" },
@@ -2035,7 +2053,10 @@ const [createdInfo,setCreatedInfo] = useState(null);
 
   // ── MENTEE ──
   if(view==="mentee"&&weeks.length>0){
-    const week=weeks[awi]||weeks[0];
+    const savedWeek=weeks[awi]||weeks[0];
+    const week=(user.email||"").toLowerCase()===GRACIELA_EMAIL&&awi===16
+      ?GRACIELA_SEMANA_17
+      :savedWeek;
     const dp=week.days[day];
     const wd=isWDone(weeks,awi,user.id);
     return (
@@ -2055,13 +2076,6 @@ const [createdInfo,setCreatedInfo] = useState(null);
           </div>
           <button style={OB()} onClick={doLogout}>Salir</button>
         </div>
-        {(user.email||"").toLowerCase()===GRACIELA_EMAIL&&(
-          <div style={{...C,background:"#fff8f6",border:"1px solid "+CORAL,marginBottom:"1rem"}}>
-            <p style={{margin:"0 0 6px",fontWeight:600,color:NAVY,fontSize:14}}>Sesión de hoy · Entrenamiento guiado</p>
-            <p style={{margin:"0 0 10px",fontSize:13,color:"#666"}}>Abre aquí las rondas A, B, C y D de la sesión con Sol.</p>
-            <a href="/graciela-sesion17.html" style={{...PB(),display:"inline-block",textDecoration:"none"}}>Abrir entrenamiento de sesión</a>
-          </div>
-        )}
         {weeks.length>1&&(
           <div style={{marginBottom:12}}>
             <p style={{fontSize:12,color:"#aaa",margin:"0 0 6px"}}>Mis semanas:</p>
