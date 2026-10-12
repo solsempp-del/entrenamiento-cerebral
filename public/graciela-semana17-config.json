@@ -1,6 +1,6 @@
 {
   "label": "Semana 17 · Entrenamiento 4 · Enfoque",
-  "welcome": "Gracy, esta semana continuamos con tu entrenamiento de enfoque. Haz el Entrenamiento 4 en tres días alternos, preferiblemente en la mañana o en la tarde, no en la noche. Busca un lugar tranquilo y sin interrupciones; sigue exactamente las instrucciones del video.",
+  "welcome": "Gracy, esta semana continuamos con tu entrenamiento de enfoque. Haz el Entrenamiento 4 en los tres días de esta semana, preferiblemente en la mañana o en la tarde, no en la noche. Busca un lugar tranquilo y sin interrupciones; sigue exactamente las instrucciones del video.",
   "closing": "Terminaste la Semana 17. Guarda presente cómo te sentiste al realizar el entrenamiento para revisarlo en nuestra próxima sesión.",
   "days": [
     {
@@ -15,7 +15,18 @@
         }
       ]
     },
-    { "day": "Día 2", "exercises": [] },
+    {
+      "day": "Día 2",
+      "exercises": [
+        {
+          "type": "enfoque",
+          "title": "Entrenamiento 4 · Enfoque",
+          "instructions": "Haz el Entrenamiento 4. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1ClExdVEK71g31JjVZrTUI2XsyVTGMRI6/view?usp=drivesdk\n\nBusca un lugar tranquilo y sin interrupciones. Sigue exactamente las instrucciones del video.",
+          "hideFreeText": true,
+          "items": ["Hice el entrenamiento de hoy"]
+        }
+      ]
+    },
     {
       "day": "Día 3",
       "exercises": [
@@ -27,21 +38,6 @@
           "items": ["Hice el entrenamiento de hoy"]
         }
       ]
-    },
-    { "day": "Día 4", "exercises": [] },
-    {
-      "day": "Día 5",
-      "exercises": [
-        {
-          "type": "enfoque",
-          "title": "Entrenamiento 4 · Enfoque",
-          "instructions": "Haz el Entrenamiento 4. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1ClExdVEK71g31JjVZrTUI2XsyVTGMRI6/view?usp=drivesdk\n\nBusca un lugar tranquilo y sin interrupciones. Sigue exactamente las instrucciones del video.",
-          "hideFreeText": true,
-          "items": ["Hice el entrenamiento de hoy"]
-        }
-      ]
-    },
-    { "day": "Día 6", "exercises": [] },
-    { "day": "Día 7", "exercises": [] }
+    }
   ]
 }
