@@ -112,6 +112,79 @@ const GRACIELA_SEMANA_17 = {
   }))
 };
 
+// Semana 18 de Graciela: inicio breve de atención plena. Son cinco días para
+// aprender la práctica sin convertirla en otra tarea de rendimiento.
+const GRACIELA_SEMANA_18 = {
+  label: "Semana 18 · Atención plena 1",
+  welcome: "Gracy, esta semana no necesitas hacerlo perfecto ni dejar la mente en blanco. Solo practicarás darte cuenta de dónde está tu atención y volver al presente con amabilidad. Haz una práctica por día, en un lugar tranquilo y sin usar un cronómetro visible.",
+  closing: "Terminaste tu primera semana de atención plena. Notar la urgencia antes de actuar ya es una forma de recuperar elección.",
+  days: [
+    {
+      day: "Día 1",
+      exercises: [{
+        type: "mindfulness",
+        title: "Respiración consciente",
+        instructions: "Siéntate cómoda, con los ojos abiertos o cerrados. Durante 3 minutos siente el aire entrar y salir. Cuando aparezca un pensamiento, nómbralo mentalmente: ‘pensando’, y vuelve a la respiración. No tienes que hacerlo perfecto.",
+        items: ["Hice los 3 minutos de práctica"],
+        placeholder: "¿Cuántas veces notaste que tu mente se fue y pudiste volver?"
+      }]
+    },
+    {
+      day: "Día 2",
+      exercises: [{
+        type: "mindfulness",
+        title: "Sonidos y respiración",
+        instructions: "Durante 4 minutos escucha los sonidos que estén presentes, sin buscar ni juzgar ninguno. Alterna suavemente entre escuchar un sonido y sentir una respiración. Si te distraes, vuelve al sonido o a la respiración.",
+        items: ["Hice los 4 minutos de práctica"],
+        placeholder: "¿Qué fue más fácil: escuchar o volver a la respiración?"
+      }]
+    },
+    {
+      day: "Día 3",
+      exercises: [{
+        type: "mindfulness",
+        title: "Escaneo corporal breve",
+        instructions: "Durante 5 minutos lleva la atención, sin prisa, a tus pies, piernas, abdomen, hombros y rostro. Solo nota sensaciones: tensión, calor, cansancio, comodidad o nada en particular. No intentes cambiar nada.",
+        items: ["Hice los 5 minutos de práctica"],
+        placeholder: "¿Qué parte de tu cuerpo pidió más atención?"
+      }]
+    },
+    {
+      day: "Día 4",
+      exercises: [{
+        type: "mindfulness",
+        title: "Caminata consciente",
+        instructions: "Camina durante 5 minutos a un ritmo cómodo. Nota el contacto de cada pie con el suelo, el peso que cambia de una pierna a la otra y el movimiento de tu cuerpo. Cuando la mente se vaya, vuelve al siguiente paso.",
+        items: ["Hice los 5 minutos de práctica"],
+        placeholder: "¿Qué notaste al caminar que normalmente pasas por alto?"
+      }]
+    },
+    {
+      day: "Día 5",
+      exercises: [{
+        type: "mindfulness",
+        title: "Observar la urgencia",
+        instructions: "Durante 5 minutos siéntate y observa la respiración o los pies apoyados en el suelo. Si aparece apuro, presión o ganas de terminar rápido, di mentalmente: ‘urgencia’. No la combatas ni la sigas; vuelve a sentir el cuerpo. Esta práctica te ayudará a notar la urgencia antes de actuar.",
+        items: ["Hice los 5 minutos de práctica"],
+        placeholder: "Cuando apareció urgencia, ¿pudiste observarla sin obedecerla de inmediato?"
+      }]
+    }
+  ]
+};
+
+async function ensureGracielaMindfulnessWeek(mentee, currentWeeks) {
+  const isGraciela = (mentee?.email || "").toLowerCase() === GRACIELA_EMAIL;
+  if (!isGraciela || currentWeeks.length !== 17) {
+    return { weeks: currentWeeks, activeWeek: null };
+  }
+
+  const updatedWeeks = [...currentWeeks, GRACIELA_SEMANA_18];
+  const mindfulnessWeekIndex = updatedWeeks.length - 1;
+  await saveWeeksToDB(mentee.id, updatedWeeks);
+  await saveActiveWeekToDB(mentee.id, mindfulnessWeekIndex);
+  return { weeks: updatedWeeks, activeWeek: mindfulnessWeekIndex };
+}
+
 const EX_TYPES = {
   respiracion:{ label:"Respiración", icon:"🌬️" },
   reflexion:  { label:"Reflexión escrita", icon:"✍️" },
@@ -169,6 +242,335 @@ const CLOSE_OPTS = [
 ];
 
 const TEMPLATES = {
+  gracielaSemana16: {
+    name: "Graciela · Semana 16 · Enfoque, examen y registro físico",
+    label: "Semana 16 · Enfoque, examen y registro físico",
+    welcome: "Gracy, esta semana vamos a mantener el registro físico para tu chequeo, continuar el entrenamiento de enfoque y hacer tres prácticas cortas en orden. Cada práctica cambia una sola condición para que podamos comparar qué pasa con tu comprensión cuando aparece el tiempo y cuando además tienes que escribir. Haz una práctica por día y no repitas una aunque sientas que no te salió perfecta.",
+    closing: "Terminaste la semana. Con las tres prácticas podremos comparar precisión, tiempo de respuesta, presión/aturdimiento y qué fue lo que más te dificultó. También tendremos un registro ordenado de tu ciclo y malestares físicos para tu chequeo ginecológico.",
+    days: [
+  {
+    "day": "Día 1",
+    "exercises": [
+      {
+        "type": "lectura",
+        "title": "Práctica A · Lee y responde",
+        "instructions": "Haz esta práctica primero. Lee completa cada pregunta y responde a tu ritmo. No necesitas cronometrarte ni explicar tus respuestas.",
+        "link": "/graciela-sesion16-rondaA.html",
+        "linkLabel": "Abrir práctica A",
+        "externalOnly": true,
+        "items": []
+      },
+      {
+        "type": "reflexion",
+        "title": "Día del ciclo",
+        "instructions": "Escribe únicamente el número del día del ciclo. Día 1 = primer día de sangrado. No reinicies el conteo cuando termina el sangrado. Si hoy comenzó una nueva menstruación, escribe 1.",
+        "placeholder": "Ej.: 43",
+        "compactResponse": true,
+        "items": []
+      },
+      {
+        "type": "checklist",
+        "title": "Registro físico de hoy",
+        "instructions": "Marca solo los síntomas que estuvieron presentes hoy. Este registro es para llevar datos claros a tu chequeo ginecológico; no necesitas interpretarlos.",
+        "hideFreeText": true,
+        "items": [
+          "Tuve sangrado hoy",
+          "Bochorno o sensación de calor",
+          "Dolor de cabeza",
+          "Náusea",
+          "Mareo",
+          "Cansancio marcado",
+          "Picazón",
+          "Otro malestar físico"
+        ]
+      },
+      {
+        "type": "energia",
+        "title": "Intensidad general del malestar físico",
+        "instructions": "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+        "scaleMin": 0,
+        "hideFreeText": true,
+        "items": []
+      },
+      {
+        "type": "enfoque",
+        "title": "Entrenamiento 3 · Enfoque · 5 minutos",
+        "instructions": "Haz este ejercicio durante 5 minutos. Esta semana lo harás solo 3 días. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1Pkm5RSqG6Cac-FT6nUxe92E4Q4eEkmCF/view?usp=drivesdk\n\nBusca un lugar tranquilo y sin interrupciones. Sigue exactamente las instrucciones del video y termina a los 5 minutos.",
+        "hideFreeText": true,
+        "items": [
+          "Hice los 5 minutos de entrenamiento"
+        ]
+      },
+      {
+        "type": "lectura",
+        "title": "Plan PAUSA si vuelvo a llegar al límite",
+        "instructions": "Este plan es solo para tener claro qué hacer si vuelve a aparecer una escalada fuerte. No tienes que registrar nada aquí.\n\n1. SEÑAL: noto el ‘qué importismo’, pienso ‘que arda Troya’ o siento que ya estoy en 6/10 o más.\n2. PARO: no sigo discutiendo, explicando ni intentando resolver el problema en ese momento.\n3. DIGO: ‘Estoy demasiado alterada para seguir. Necesito una pausa y lo retomamos después.’\n4. ME ALEJO: voy a otro espacio y pongo distancia física. No toco a la otra persona, no la sigo y no continúo la discusión por mensajes.\n5. REGRESO: retomo la conversación solo cuando haya bajado a 4/10 o menos y pueda hablar sin atacar.\n\nSi siento que podría volver a golpear, lanzar algo o perder el control, aumento la distancia y busco apoyo de inmediato.",
+        "noResponse": true,
+        "items": []
+      }
+    ]
+  },
+  {
+    "day": "Día 2",
+    "exercises": [
+      {
+        "type": "lectura",
+        "title": "Práctica B · Lee y responde con reloj",
+        "instructions": "Haz esta práctica una sola vez. El reloj será visible. Tu única regla es: LEE COMPLETO ANTES DE RESPONDER. Si el tiempo llega a cero, termina la pregunta sin correr.",
+        "link": "/graciela-sesion16-rondaB.html",
+        "linkLabel": "Abrir práctica B",
+        "externalOnly": true,
+        "items": []
+      },
+      {
+        "type": "reflexion",
+        "title": "Día del ciclo",
+        "instructions": "Escribe únicamente el número del día del ciclo. Día 1 = primer día de sangrado. No reinicies el conteo cuando termina el sangrado. Si hoy comenzó una nueva menstruación, escribe 1.",
+        "placeholder": "Ej.: 44",
+        "compactResponse": true,
+        "items": []
+      },
+      {
+        "type": "checklist",
+        "title": "Registro físico de hoy",
+        "instructions": "Marca solo los síntomas que estuvieron presentes hoy.",
+        "hideFreeText": true,
+        "items": [
+          "Tuve sangrado hoy",
+          "Bochorno o sensación de calor",
+          "Dolor de cabeza",
+          "Náusea",
+          "Mareo",
+          "Cansancio marcado",
+          "Picazón",
+          "Otro malestar físico"
+        ]
+      },
+      {
+        "type": "energia",
+        "title": "Intensidad general del malestar físico",
+        "instructions": "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+        "scaleMin": 0,
+        "hideFreeText": true,
+        "items": []
+      }
+    ]
+  },
+  {
+    "day": "Día 3",
+    "exercises": [
+      {
+        "type": "lectura",
+        "title": "Práctica C · Lee, escribe y responde con reloj",
+        "instructions": "Haz esta práctica una sola vez. Lee cada consigna completa y escribe una respuesta breve. No necesitas explicar cómo llegaste a ella. Si el tiempo llega a cero, termina la pregunta sin correr.",
+        "link": "/graciela-sesion16-rondaC.html",
+        "linkLabel": "Abrir práctica C",
+        "externalOnly": true,
+        "items": []
+      },
+      {
+        "type": "reflexion",
+        "title": "Día del ciclo",
+        "instructions": "Escribe únicamente el número del día del ciclo. Día 1 = primer día de sangrado. No reinicies el conteo cuando termina el sangrado. Si hoy comenzó una nueva menstruación, escribe 1.",
+        "placeholder": "Ej.: 45",
+        "compactResponse": true,
+        "items": []
+      },
+      {
+        "type": "checklist",
+        "title": "Registro físico de hoy",
+        "instructions": "Marca solo los síntomas que estuvieron presentes hoy.",
+        "hideFreeText": true,
+        "items": [
+          "Tuve sangrado hoy",
+          "Bochorno o sensación de calor",
+          "Dolor de cabeza",
+          "Náusea",
+          "Mareo",
+          "Cansancio marcado",
+          "Picazón",
+          "Otro malestar físico"
+        ]
+      },
+      {
+        "type": "energia",
+        "title": "Intensidad general del malestar físico",
+        "instructions": "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+        "scaleMin": 0,
+        "hideFreeText": true,
+        "items": []
+      },
+      {
+        "type": "enfoque",
+        "title": "Entrenamiento 3 · Enfoque · 5 minutos",
+        "instructions": "Haz el Entrenamiento 3 durante 5 minutos. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1Pkm5RSqG6Cac-FT6nUxe92E4Q4eEkmCF/view?usp=drivesdk\n\nTermina a los 5 minutos.",
+        "hideFreeText": true,
+        "items": [
+          "Hice los 5 minutos de entrenamiento"
+        ]
+      }
+    ]
+  },
+  {
+    "day": "Día 4",
+    "exercises": [
+      {
+        "type": "reflexion",
+        "title": "Día del ciclo",
+        "instructions": "Escribe únicamente el número del día del ciclo.",
+        "placeholder": "Número del día",
+        "compactResponse": true,
+        "items": []
+      },
+      {
+        "type": "checklist",
+        "title": "Registro físico de hoy",
+        "instructions": "Marca solo los síntomas que estuvieron presentes hoy.",
+        "hideFreeText": true,
+        "items": [
+          "Tuve sangrado hoy",
+          "Bochorno o sensación de calor",
+          "Dolor de cabeza",
+          "Náusea",
+          "Mareo",
+          "Cansancio marcado",
+          "Picazón",
+          "Otro malestar físico"
+        ]
+      },
+      {
+        "type": "energia",
+        "title": "Intensidad general del malestar físico",
+        "instructions": "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+        "scaleMin": 0,
+        "hideFreeText": true,
+        "items": []
+      }
+    ]
+  },
+  {
+    "day": "Día 5",
+    "exercises": [
+      {
+        "type": "reflexion",
+        "title": "Día del ciclo",
+        "instructions": "Escribe únicamente el número del día del ciclo.",
+        "placeholder": "Número del día",
+        "compactResponse": true,
+        "items": []
+      },
+      {
+        "type": "checklist",
+        "title": "Registro físico de hoy",
+        "instructions": "Marca solo los síntomas que estuvieron presentes hoy.",
+        "hideFreeText": true,
+        "items": [
+          "Tuve sangrado hoy",
+          "Bochorno o sensación de calor",
+          "Dolor de cabeza",
+          "Náusea",
+          "Mareo",
+          "Cansancio marcado",
+          "Picazón",
+          "Otro malestar físico"
+        ]
+      },
+      {
+        "type": "energia",
+        "title": "Intensidad general del malestar físico",
+        "instructions": "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+        "scaleMin": 0,
+        "hideFreeText": true,
+        "items": []
+      },
+      {
+        "type": "enfoque",
+        "title": "Entrenamiento 3 · Enfoque · 5 minutos",
+        "instructions": "Haz el Entrenamiento 3 durante 5 minutos. Preferiblemente en la mañana o en la tarde, no en la noche.\n\nVIDEO: https://drive.google.com/file/d/1Pkm5RSqG6Cac-FT6nUxe92E4Q4eEkmCF/view?usp=drivesdk\n\nTermina a los 5 minutos.",
+        "hideFreeText": true,
+        "items": [
+          "Hice los 5 minutos de entrenamiento"
+        ]
+      }
+    ]
+  },
+  {
+    "day": "Día 6",
+    "exercises": [
+      {
+        "type": "reflexion",
+        "title": "Día del ciclo",
+        "instructions": "Escribe únicamente el número del día del ciclo.",
+        "placeholder": "Número del día",
+        "compactResponse": true,
+        "items": []
+      },
+      {
+        "type": "checklist",
+        "title": "Registro físico de hoy",
+        "instructions": "Marca solo los síntomas que estuvieron presentes hoy.",
+        "hideFreeText": true,
+        "items": [
+          "Tuve sangrado hoy",
+          "Bochorno o sensación de calor",
+          "Dolor de cabeza",
+          "Náusea",
+          "Mareo",
+          "Cansancio marcado",
+          "Picazón",
+          "Otro malestar físico"
+        ]
+      },
+      {
+        "type": "energia",
+        "title": "Intensidad general del malestar físico",
+        "instructions": "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+        "scaleMin": 0,
+        "hideFreeText": true,
+        "items": []
+      }
+    ]
+  },
+  {
+    "day": "Día 7",
+    "exercises": [
+      {
+        "type": "reflexion",
+        "title": "Día del ciclo",
+        "instructions": "Escribe únicamente el número del día del ciclo.",
+        "placeholder": "Número del día",
+        "compactResponse": true,
+        "items": []
+      },
+      {
+        "type": "checklist",
+        "title": "Registro físico de hoy",
+        "instructions": "Marca solo los síntomas que estuvieron presentes hoy.",
+        "hideFreeText": true,
+        "items": [
+          "Tuve sangrado hoy",
+          "Bochorno o sensación de calor",
+          "Dolor de cabeza",
+          "Náusea",
+          "Mareo",
+          "Cansancio marcado",
+          "Picazón",
+          "Otro malestar físico"
+        ]
+      },
+      {
+        "type": "energia",
+        "title": "Intensidad general del malestar físico",
+        "instructions": "Marca de 0 a 10 cuánto malestar físico tuviste hoy. 0 = ninguno; 10 = máximo.",
+        "scaleMin": 0,
+        "hideFreeText": true,
+        "items": []
+      }
+    ]
+  }
+]
+  },
+
   letty_cuidar_sin_vigilar_app6: {
   name: "Letty · Cuidar sin vigilar",
   label: "Semana App 6 · Puedo cuidar sin vigilar",
@@ -1835,7 +2237,9 @@ const [createdInfo,setCreatedInfo] = useState(null);
       await saveWeeksToDB(m.id, w);
     }
 
-    const dbActiveWeek = await getActiveWeekFromDB(m.id);
+    const mindfulnessSetup = await ensureGracielaMindfulnessWeek(m, w);
+    w = mindfulnessSetup.weeks;
+    const dbActiveWeek = mindfulnessSetup.activeWeek ?? await getActiveWeekFromDB(m.id);
     const dbResponses = await getResponsesFromDB(m.id, dbActiveWeek);
 
     setWeeks(w);
@@ -1980,7 +2384,10 @@ const [createdInfo,setCreatedInfo] = useState(null);
       await saveWeeksToDB(id, w);
     }
 
-    const activeWeek = await getActiveWeekFromDB(id);
+    const selectedMentee = mentees.find(m => m.id === id);
+    const mindfulnessSetup = await ensureGracielaMindfulnessWeek(selectedMentee, w);
+    w = mindfulnessSetup.weeks;
+    const activeWeek = mindfulnessSetup.activeWeek ?? await getActiveWeekFromDB(id);
     const dbResponses = await getResponsesFromDB(id, activeWeek);
 
     setMWeeks(w);

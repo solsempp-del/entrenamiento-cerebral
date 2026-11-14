@@ -3,7 +3,7 @@ import fs from "node:fs";
 const path = "src/App.jsx";
 let source = fs.readFileSync(path, "utf8");
 
-if (source.includes("ex.externalOnly === true") && source.includes("ex.placeholder||")) {
+if (source.includes("const GRACIELA_SEMANA_18")) {
   console.log("Exercise card UI ya está parcheada.");
   process.exit(0);
 }
