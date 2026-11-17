@@ -20,6 +20,7 @@ const BEIGE = "#d6c7b1";
 const DARK = "#333333";
 const ADMIN_EMAIL = "solsempp@gmail.com";
 const GRACIELA_EMAIL = "gracyromero3@gmail.com";
+const KARLA_EMAIL = "karlaalquinga.cam@gmail.com";
 
 const DAYS = ["Día 1","Día 2","Día 3","Día 4","Día 5","Día 6","Día 7"];
 
@@ -171,6 +172,58 @@ const GRACIELA_SEMANA_18 = {
     }
   ]
 };
+
+// Semana inicial de Karla: tres días breves para bajar presión, procesar su
+// estado actual y practicar flexibilidad cognitiva sin convertirlo en una carga.
+const KARLA_SEMANA_1 = {
+  label: "Semana 1 · Bajar la presión y abrir alternativas",
+  welcome: "Karla, esta semana no es para rendir más ni hacerlo perfecto. Son tres pausas breves para escucharte, bajar la culpa y recordar que, si un plan se complica, todavía existen otros caminos. Haz solo un ejercicio por día; puedes parar cuando lo necesites.",
+  closing: "Esta semana no se mide por productividad. Se mide por tu capacidad de escucharte, pedir alternativas y responder a tu realidad con menos culpa.",
+  days: [
+    {
+      day: "Día 1",
+      exercises: [{
+        type: "reflexion",
+        title: "¿Qué necesita mi sistema hoy?",
+        instructions: "No tienes que resolver nada ahora. Completa solo estas tres frases, con pocas palabras si lo prefieres:\n\n1. Mi cuerpo hoy se siente…\n2. Mi mente hoy está intentando protegerme de…\n3. Lo más amable y realista que puedo hacer por mí hoy es…\n\nOpcional: antes de escribir, apoya una mano en el pecho y otra en el abdomen durante dos minutos. No intentes calmarte: solo nota cómo estás.",
+        placeholder: "Mi cuerpo hoy se siente…",
+        items: []
+      }]
+    },
+    {
+      day: "Día 2",
+      exercises: [{
+        type: "reflexion",
+        title: "No solo existe el plan A",
+        instructions: "Elige una preocupación actual, por ejemplo: “Me atrasé con los exámenes”. Escribe tres caminos posibles:\n\n• Plan A: lo que idealmente quisiera que pase.\n• Plan B: una alternativa que aún me permita avanzar, aunque no sea perfecta.\n• Plan C: qué haría para cuidarme y continuar si A y B no salen como esperaba.\n\nCierra con esta frase: “Tener otro plan no significa rendirme; significa no dejarme sola si algo cambia”.",
+        placeholder: "Plan A…\nPlan B…\nPlan C…",
+        items: []
+      }]
+    },
+    {
+      day: "Día 3",
+      exercises: [{
+        type: "conductual",
+        title: "Cambiar de estado, no exigirme rendimiento",
+        instructions: "Elige una sola opción según tu energía:\n\n• Pon una canción que te guste y mueve el cuerpo durante una canción completa.\n• Camina descalza unos minutos en un lugar seguro o siente un árbol o una planta con las manos.\n• Mira por la ventana y encuentra cinco cosas que no habías notado antes.\n\nDespués responde: “¿Qué cambió, aunque sea un 1 %, en mi cuerpo o en mi mente?”.",
+        placeholder: "Elegí… y noté que…",
+        items: []
+      }]
+    }
+  ]
+};
+
+async function ensureKarlaInitialWeek(mentee, currentWeeks) {
+  const isKarla = (mentee?.email || "").toLowerCase() === KARLA_EMAIL;
+  if (!isKarla || currentWeeks.length !== 0) {
+    return { weeks: currentWeeks, activeWeek: null };
+  }
+
+  const updatedWeeks = [KARLA_SEMANA_1];
+  await saveWeeksToDB(mentee.id, updatedWeeks);
+  await saveActiveWeekToDB(mentee.id, 0);
+  return { weeks: updatedWeeks, activeWeek: 0 };
+}
 
 async function ensureGracielaMindfulnessWeek(mentee, currentWeeks) {
   const isGraciela = (mentee?.email || "").toLowerCase() === GRACIELA_EMAIL;
@@ -2232,6 +2285,9 @@ const [createdInfo,setCreatedInfo] = useState(null);
 
     let w = await getWeeksFromDB(m.id);
 
+    const karlaSetup = await ensureKarlaInitialWeek(m, w);
+    w = karlaSetup.weeks;
+
     if (w.length === 0) {
       w = [newWeek(1)];
       await saveWeeksToDB(m.id, w);
@@ -2239,7 +2295,7 @@ const [createdInfo,setCreatedInfo] = useState(null);
 
     const mindfulnessSetup = await ensureGracielaMindfulnessWeek(m, w);
     w = mindfulnessSetup.weeks;
-    const dbActiveWeek = mindfulnessSetup.activeWeek ?? await getActiveWeekFromDB(m.id);
+    const dbActiveWeek = karlaSetup.activeWeek ?? mindfulnessSetup.activeWeek ?? await getActiveWeekFromDB(m.id);
     const dbResponses = await getResponsesFromDB(m.id, dbActiveWeek);
 
     setWeeks(w);
