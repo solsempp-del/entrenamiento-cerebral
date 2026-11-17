@@ -20,7 +20,6 @@ const BEIGE = "#d6c7b1";
 const DARK = "#333333";
 const ADMIN_EMAIL = "solsempp@gmail.com";
 const GRACIELA_EMAIL = "gracyromero3@gmail.com";
-const KARLA_EMAIL = "karlaalquinga.cam@gmail.com";
 
 const DAYS = ["Día 1","Día 2","Día 3","Día 4","Día 5","Día 6","Día 7"];
 
@@ -213,22 +212,6 @@ const KARLA_SEMANA_1 = {
   ]
 };
 
-async function ensureKarlaInitialWeek(mentee, currentWeeks) {
-  const isKarla = (mentee?.email || "").toLowerCase() === KARLA_EMAIL;
-  const hasOnlyBlankStarterWeek = currentWeeks.length === 1 &&
-    currentWeeks[0]?.label === "Semana 1" &&
-    (currentWeeks[0]?.days || []).every(day => (day.exercises || []).length === 0);
-
-  if (!isKarla || (currentWeeks.length !== 0 && !hasOnlyBlankStarterWeek)) {
-    return { weeks: currentWeeks, activeWeek: null };
-  }
-
-  const updatedWeeks = [KARLA_SEMANA_1];
-  await saveWeeksToDB(mentee.id, updatedWeeks);
-  await saveActiveWeekToDB(mentee.id, 0);
-  return { weeks: updatedWeeks, activeWeek: 0 };
-}
-
 async function ensureGracielaMindfulnessWeek(mentee, currentWeeks) {
   const isGraciela = (mentee?.email || "").toLowerCase() === GRACIELA_EMAIL;
   if (!isGraciela || currentWeeks.length !== 17) {
@@ -299,6 +282,10 @@ const CLOSE_OPTS = [
 ];
 
 const TEMPLATES = {
+  karlaSemana1: {
+    name: "Karla · Semana 1 · Bajar la presión y abrir alternativas",
+    ...KARLA_SEMANA_1
+  },
   gracielaSemana16: {
     name: "Graciela · Semana 16 · Enfoque, examen y registro físico",
     label: "Semana 16 · Enfoque, examen y registro físico",
@@ -2289,9 +2276,6 @@ const [createdInfo,setCreatedInfo] = useState(null);
 
     let w = await getWeeksFromDB(m.id);
 
-    const karlaSetup = await ensureKarlaInitialWeek(m, w);
-    w = karlaSetup.weeks;
-
     if (w.length === 0) {
       w = [newWeek(1)];
       await saveWeeksToDB(m.id, w);
@@ -2299,7 +2283,7 @@ const [createdInfo,setCreatedInfo] = useState(null);
 
     const mindfulnessSetup = await ensureGracielaMindfulnessWeek(m, w);
     w = mindfulnessSetup.weeks;
-    const dbActiveWeek = karlaSetup.activeWeek ?? mindfulnessSetup.activeWeek ?? await getActiveWeekFromDB(m.id);
+    const dbActiveWeek = mindfulnessSetup.activeWeek ?? await getActiveWeekFromDB(m.id);
     const dbResponses = await getResponsesFromDB(m.id, dbActiveWeek);
 
     setWeeks(w);
@@ -2439,18 +2423,15 @@ const [createdInfo,setCreatedInfo] = useState(null);
   try {
     let w = await getWeeksFromDB(id);
 
-    const selectedMentee = mentees.find(m => m.id === id);
-    const karlaSetup = await ensureKarlaInitialWeek(selectedMentee, w);
-    w = karlaSetup.weeks;
-
     if (w.length === 0) {
       w = [newWeek(1)];
       await saveWeeksToDB(id, w);
     }
 
+    const selectedMentee = mentees.find(m => m.id === id);
     const mindfulnessSetup = await ensureGracielaMindfulnessWeek(selectedMentee, w);
     w = mindfulnessSetup.weeks;
-    const activeWeek = karlaSetup.activeWeek ?? mindfulnessSetup.activeWeek ?? await getActiveWeekFromDB(id);
+    const activeWeek = mindfulnessSetup.activeWeek ?? await getActiveWeekFromDB(id);
     const dbResponses = await getResponsesFromDB(id, activeWeek);
 
     setMWeeks(w);
