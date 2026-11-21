@@ -212,6 +212,46 @@ const KARLA_SEMANA_1 = {
   ]
 };
 
+// Semana 2 de Karla: recoger datos de tiempo real y practicar una planificación
+// breve y flexible, sin convertirla en otra tarea detallista.
+const KARLA_SEMANA_2 = {
+  label: "Semana 2 · Conocer mi tiempo real",
+  welcome: "Karla, esta semana no vamos a intentar hacer planes perfectos ni hacer las cosas más rápido. Vamos a medir cuánto tiempo te toman de verdad algunas actividades y a practicar planes más cortos. Con esos datos podremos organizarte de una forma que sí te sirva.",
+  closing: "Terminaste esta primera semana de observación. No buscamos que todo haya salido como lo planeaste; buscamos datos reales para que tus próximos planes sean más simples, flexibles y posibles.",
+  days: [
+    {
+      day: "Día 1",
+      exercises: [{
+        type: "reflexion",
+        title: "Predicción vs. realidad",
+        instructions: "Elige una actividad cotidiana: bañarte, alistarte, comer, ordenar algo o preparar tus cosas para salir.\n\nAntes de empezar escribe: \n• Actividad:\n• Creo que me tomará: ___ minutos.\n\nPon un cronómetro y hazla normalmente. Al terminar escribe: \n• Me tomó realmente: ___ minutos.\n• ¿Qué hizo que tomara más tiempo?\n\nNo intentes hacerlo más rápido ni perfecto. Solo mide.",
+        placeholder: "Actividad…\nCreo que me tomará…\nMe tomó realmente…\nTomó más tiempo porque…",
+        items: []
+      }]
+    },
+    {
+      day: "Día 2",
+      exercises: [{
+        type: "reto",
+        title: "Plan en tres líneas",
+        instructions: "Escoge una tarea académica o personal. Tienes máximo 5 minutos para planificarla: pon un temporizador.\n\nSolo puedes escribir tres cosas:\n1. Tarea principal.\n2. Primer paso concreto.\n3. Tiempo que le voy a dar hoy.\n\nDespués, haz solo ese primer bloque. Planificar más detalles no es parte del ejercicio.",
+        placeholder: "Tarea principal…\nPrimer paso…\nTiempo que le daré hoy…\n\n¿Logré parar al terminar los 5 minutos? ¿Cuánto me tomó realmente?",
+        items: ["Puse temporizador de 5 minutos para planificar", "Hice al menos el primer bloque"]
+      }]
+    },
+    {
+      day: "Día 3",
+      exercises: [{
+        type: "reflexion",
+        title: "Tres prioridades y Plan B",
+        instructions: "Elige solo tres cosas importantes para mañana. Para cada una escribe cuánto crees que te tomará y una versión corta por si no alcanza el tiempo o la energía.\n\nEjemplo: Estudiar biología — 40 minutos — Plan B: leer 2 páginas y responder 2 preguntas.\n\nAl final del día revisa: ¿qué calculé bien?, ¿en qué me fui al detalle?, ¿usé mi Plan B o dejé todo?",
+        placeholder: "1. Prioridad — tiempo estimado — Plan B\n2. Prioridad — tiempo estimado — Plan B\n3. Prioridad — tiempo estimado — Plan B\n\nAl final del día…",
+        items: []
+      }]
+    }
+  ]
+};
+
 async function ensureGracielaMindfulnessWeek(mentee, currentWeeks) {
   const isGraciela = (mentee?.email || "").toLowerCase() === GRACIELA_EMAIL;
   if (!isGraciela || currentWeeks.length !== 17) {
@@ -285,6 +325,10 @@ const TEMPLATES = {
   karlaSemana1: {
     name: "Karla · Semana 1 · Bajar la presión y abrir alternativas",
     ...KARLA_SEMANA_1
+  },
+  karlaSemana2: {
+    name: "Karla · Semana 2 · Conocer mi tiempo real",
+    ...KARLA_SEMANA_2
   },
   gracielaSemana16: {
     name: "Graciela · Semana 16 · Enfoque, examen y registro físico",
