@@ -172,6 +172,129 @@ const GRACIELA_SEMANA_18 = {
   ]
 };
 
+// Semana 19 de Graciela: atención plena aplicada a distracciones cotidianas.
+// Cada día tiene un ejercicio práctico y un espacio adicional de expresión libre.
+const GRACIELA_SEMANA_19 = {
+  "label": "Semana 19 · Atención plena 2",
+  "welcome": "¡Mi Gracy! ❤️\n\nEsta semana vamos a seguir entrenando tu atención. Practicaremos cómo mantener el enfoque, cambiarlo y regresar a lo que estabas haciendo cuando te distraigas.\n\nQuiero pedirte algo importante: haz un ejercicio por día. No hagas varios el mismo día para ponerte al día. Tu cerebro necesita practicar con regularidad.\n\nSi algún ejercicio te genera ansiedad, cuéntame qué sentiste y qué fue lo que más te inquietó.\n\n¡Un abrazo grande!",
+  "closing": "¡Mi Gracy! ❤️ Terminaste otra semana de entrenamiento. Me alegra que estés practicando estas habilidades. Vamos a seguir avanzando poco a poco y observando cómo te funcionan en tu vida diaria. ¡Te mando un abrazo grande!",
+  "days": [
+    {
+      "day": "Día 1",
+      "exercises": [
+        {
+          "type": "mindfulness",
+          "title": "Elegir un sonido",
+          "instructions": "Haz únicamente el ejercicio de hoy. Mañana continuamos.\n\nDurante 5 minutos, identifica tres sonidos del ambiente. Elige uno y mantén la atención durante 30 segundos. Después cambia voluntariamente a otro. Repite varias veces. Si te distraes, vuelve al sonido elegido.",
+          "items": [
+            "Hice la práctica de hoy"
+          ],
+          "placeholder": "¿Cómo te sentiste durante el ejercicio?"
+        },
+        {
+          "type": "libre",
+          "title": "¿Algo más que quieras contarme?",
+          "instructions": "Este espacio es para cualquier otra cosa que quieras compartir de la práctica. Puedes dejarlo en blanco.",
+          "placeholder": "Escribe aquí si quieres contarme algo más.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "day": "Día 2",
+      "exercises": [
+        {
+          "type": "mindfulness",
+          "title": "Observar sin distraerse",
+          "instructions": "Haz únicamente el ejercicio de hoy. Mañana continuamos.\n\nElige un objeto cotidiano. Obsérvalo durante 3 minutos: forma, color, textura y detalles. Cuando aparezca otro pensamiento, vuelve al objeto. Termina con 2 minutos de respiración natural.",
+          "items": [
+            "Hice la práctica de hoy"
+          ],
+          "placeholder": "¿Cómo te sentiste durante el ejercicio?"
+        },
+        {
+          "type": "libre",
+          "title": "¿Algo más que quieras contarme?",
+          "instructions": "Este espacio es para cualquier otra cosa que quieras compartir de la práctica. Puedes dejarlo en blanco.",
+          "placeholder": "Escribe aquí si quieres contarme algo más.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "day": "Día 3",
+      "exercises": [
+        {
+          "type": "mindfulness",
+          "title": "Cambiar el foco a voluntad",
+          "instructions": "Haz únicamente el ejercicio de hoy. Mañana continuamos.\n\nDurante 6 minutos alterna tu atención: 1 minuto en la respiración, 1 minuto en los sonidos y 1 minuto en las sensaciones de tus pies. Repite la secuencia una vez.",
+          "items": [
+            "Hice la práctica de hoy"
+          ],
+          "placeholder": "¿Cómo te sentiste durante el ejercicio?"
+        },
+        {
+          "type": "libre",
+          "title": "¿Algo más que quieras contarme?",
+          "instructions": "Este espacio es para cualquier otra cosa que quieras compartir de la práctica. Puedes dejarlo en blanco.",
+          "placeholder": "Escribe aquí si quieres contarme algo más.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "day": "Día 4",
+      "exercises": [
+        {
+          "type": "mindfulness",
+          "title": "Reconocer el apuro",
+          "instructions": "Haz únicamente el ejercicio de hoy. Mañana continuamos.\n\nElige una tarea sencilla, como ordenar un cajón pequeño. Antes de empezar, respira durante 30 segundos. Hazla a ritmo normal durante 5 minutos. Si aparece sensación de apuro, detente unos segundos, nota qué sientes y continúa.",
+          "items": [
+            "Hice la práctica de hoy"
+          ],
+          "placeholder": "¿Cómo te sentiste durante el ejercicio?"
+        },
+        {
+          "type": "libre",
+          "title": "¿Algo más que quieras contarme?",
+          "instructions": "Este espacio es para cualquier otra cosa que quieras compartir de la práctica. Puedes dejarlo en blanco.",
+          "placeholder": "Escribe aquí si quieres contarme algo más.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "day": "Día 5",
+      "exercises": [
+        {
+          "type": "mindfulness",
+          "title": "Una tarea, una atención",
+          "instructions": "Haz únicamente el ejercicio de hoy. Mañana continuamos.\n\nDedica 7 minutos a una actividad cotidiana sin celular ni otras tareas simultáneas. Cada vez que notes que te distrajiste, vuelve a lo que estabas haciendo. Al terminar, observa cómo fue mantener la atención.",
+          "items": [
+            "Hice la práctica de hoy"
+          ],
+          "placeholder": "¿Cómo te sentiste durante el ejercicio?"
+        },
+        {
+          "type": "libre",
+          "title": "¿Algo más que quieras contarme?",
+          "instructions": "Este espacio es para cualquier otra cosa que quieras compartir de la práctica. Puedes dejarlo en blanco.",
+          "placeholder": "Escribe aquí si quieres contarme algo más.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "day": "Día 6",
+      "exercises": []
+    },
+    {
+      "day": "Día 7",
+      "exercises": []
+    }
+  ]
+};
+
 // Semana inicial de Karla: tres días breves para bajar presión, procesar su
 // estado actual y practicar flexibilidad cognitiva sin convertirlo en una carga.
 const KARLA_SEMANA_1 = {
@@ -322,6 +445,10 @@ const CLOSE_OPTS = [
 ];
 
 const TEMPLATES = {
+  gracielaSemana19: {
+    name: "Graciela · Semana 19 · Atención plena 2",
+    ...GRACIELA_SEMANA_19
+  },
   karlaSemana1: {
     name: "Karla · Semana 1 · Bajar la presión y abrir alternativas",
     ...KARLA_SEMANA_1
