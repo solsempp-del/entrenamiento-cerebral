@@ -2170,7 +2170,7 @@ Si es algo nuevo, fuerte o diferente, recuerda que sí puedes consultarlo con tu
   tdahUnPasoSemana1: {
     name: "TDAH · Un pendiente, un primer paso",
     label: "Semana 1 · Un pendiente, un primer paso",
-    welcome: "Esta semana practicaremos dos cosas breves: una pausa de respiración y elegir un pendiente para definir únicamente el primer paso. Puedes usar una nota en tu celular. No tienes que terminar la tarea ni ponerte al día con ejercicios.",
+    welcome: "Esta semana practicaremos dos cosas breves: una pausa de respiración y el uso de tu agenda para elegir un pendiente y volver a revisarla durante el día. Déjala abierta y visible. Mírala al iniciar tu jornada y después de almorzar. No tienes que terminar la tarea ni ponerte al día con ejercicios.",
     closing: "Cerraste la primera semana. Observa qué te ayudó a elegir un pendiente y qué hizo más difícil empezar. En la próxima sesión ajustaremos la práctica a lo que sí te funcionó.",
     days: [
   {
@@ -2188,8 +2188,15 @@ Si es algo nuevo, fuerte o diferente, recuerda que sí puedes consultarlo con tu
       {
         "type": "reflexion",
         "title": "Un pendiente, un primer paso",
-        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
-        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "instructions": "Usa tu agenda habitual. Al iniciar la jornada, revísala y elige un pendiente con fecha u hora límite; define solo el primer paso. Deja la agenda abierta y visible en tu lugar de trabajo. Después de almorzar, vuelve a mirarla para ubicar qué sigue o ajustar el plan. Si se te pasa una revisión, retómala en el siguiente momento; no tienes que recuperar nada.",
+        "placeholder": "Pendiente elegido: …\nPrimer paso: …\n¿Qué me ayudó a volver a mirar la agenda?",
+        "items": []
+      },
+      {
+        "type": "libre",
+        "title": "Algo más que quieras contarme hoy",
+        "instructions": "Este espacio es opcional. Puedes contarme cualquier otra cosa de tu día o dejarlo en blanco.",
+        "placeholder": "Escribe aquí si quieres contarme algo más.",
         "items": []
       }
     ]
@@ -2209,8 +2216,15 @@ Si es algo nuevo, fuerte o diferente, recuerda que sí puedes consultarlo con tu
       {
         "type": "reflexion",
         "title": "Un pendiente, un primer paso",
-        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
-        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "instructions": "Usa tu agenda habitual. Al iniciar la jornada, revísala y elige un pendiente con fecha u hora límite; define solo el primer paso. Deja la agenda abierta y visible en tu lugar de trabajo. Después de almorzar, vuelve a mirarla para ubicar qué sigue o ajustar el plan. Si se te pasa una revisión, retómala en el siguiente momento; no tienes que recuperar nada.",
+        "placeholder": "Pendiente elegido: …\nPrimer paso: …\n¿Qué me ayudó a volver a mirar la agenda?",
+        "items": []
+      },
+      {
+        "type": "libre",
+        "title": "Algo más que quieras contarme hoy",
+        "instructions": "Este espacio es opcional. Puedes contarme cualquier otra cosa de tu día o dejarlo en blanco.",
+        "placeholder": "Escribe aquí si quieres contarme algo más.",
         "items": []
       }
     ]
@@ -2230,8 +2244,15 @@ Si es algo nuevo, fuerte o diferente, recuerda que sí puedes consultarlo con tu
       {
         "type": "reflexion",
         "title": "Un pendiente, un primer paso",
-        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
-        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "instructions": "Usa tu agenda habitual. Al iniciar la jornada, revísala y elige un pendiente con fecha u hora límite; define solo el primer paso. Deja la agenda abierta y visible en tu lugar de trabajo. Después de almorzar, vuelve a mirarla para ubicar qué sigue o ajustar el plan. Si se te pasa una revisión, retómala en el siguiente momento; no tienes que recuperar nada.",
+        "placeholder": "Pendiente elegido: …\nPrimer paso: …\n¿Qué me ayudó a volver a mirar la agenda?",
+        "items": []
+      },
+      {
+        "type": "libre",
+        "title": "Algo más que quieras contarme hoy",
+        "instructions": "Este espacio es opcional. Puedes contarme cualquier otra cosa de tu día o dejarlo en blanco.",
+        "placeholder": "Escribe aquí si quieres contarme algo más.",
         "items": []
       }
     ]
@@ -2251,8 +2272,15 @@ Si es algo nuevo, fuerte o diferente, recuerda que sí puedes consultarlo con tu
       {
         "type": "reflexion",
         "title": "Un pendiente, un primer paso",
-        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
-        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "instructions": "Usa tu agenda habitual. Al iniciar la jornada, revísala y elige un pendiente con fecha u hora límite; define solo el primer paso. Deja la agenda abierta y visible en tu lugar de trabajo. Después de almorzar, vuelve a mirarla para ubicar qué sigue o ajustar el plan. Si se te pasa una revisión, retómala en el siguiente momento; no tienes que recuperar nada.",
+        "placeholder": "Pendiente elegido: …\nPrimer paso: …\n¿Qué me ayudó a volver a mirar la agenda?",
+        "items": []
+      },
+      {
+        "type": "libre",
+        "title": "Algo más que quieras contarme hoy",
+        "instructions": "Este espacio es opcional. Puedes contarme cualquier otra cosa de tu día o dejarlo en blanco.",
+        "placeholder": "Escribe aquí si quieres contarme algo más.",
         "items": []
       }
     ]
@@ -2272,8 +2300,15 @@ Si es algo nuevo, fuerte o diferente, recuerda que sí puedes consultarlo con tu
       {
         "type": "reflexion",
         "title": "Un pendiente, un primer paso",
-        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
-        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "instructions": "Usa tu agenda habitual. Al iniciar la jornada, revísala y elige un pendiente con fecha u hora límite; define solo el primer paso. Deja la agenda abierta y visible en tu lugar de trabajo. Después de almorzar, vuelve a mirarla para ubicar qué sigue o ajustar el plan. Si se te pasa una revisión, retómala en el siguiente momento; no tienes que recuperar nada.",
+        "placeholder": "Pendiente elegido: …\nPrimer paso: …\n¿Qué me ayudó a volver a mirar la agenda?",
+        "items": []
+      },
+      {
+        "type": "libre",
+        "title": "Algo más que quieras contarme hoy",
+        "instructions": "Este espacio es opcional. Puedes contarme cualquier otra cosa de tu día o dejarlo en blanco.",
+        "placeholder": "Escribe aquí si quieres contarme algo más.",
         "items": []
       }
     ]
@@ -2293,8 +2328,15 @@ Si es algo nuevo, fuerte o diferente, recuerda que sí puedes consultarlo con tu
       {
         "type": "reflexion",
         "title": "Un pendiente, un primer paso",
-        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
-        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "instructions": "Usa tu agenda habitual. Al iniciar la jornada, revísala y elige un pendiente con fecha u hora límite; define solo el primer paso. Deja la agenda abierta y visible en tu lugar de trabajo. Después de almorzar, vuelve a mirarla para ubicar qué sigue o ajustar el plan. Si se te pasa una revisión, retómala en el siguiente momento; no tienes que recuperar nada.",
+        "placeholder": "Pendiente elegido: …\nPrimer paso: …\n¿Qué me ayudó a volver a mirar la agenda?",
+        "items": []
+      },
+      {
+        "type": "libre",
+        "title": "Algo más que quieras contarme hoy",
+        "instructions": "Este espacio es opcional. Puedes contarme cualquier otra cosa de tu día o dejarlo en blanco.",
+        "placeholder": "Escribe aquí si quieres contarme algo más.",
         "items": []
       }
     ]
@@ -2314,8 +2356,15 @@ Si es algo nuevo, fuerte o diferente, recuerda que sí puedes consultarlo con tu
       {
         "type": "reflexion",
         "title": "Un pendiente, un primer paso",
-        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
-        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "instructions": "Usa tu agenda habitual. Al iniciar la jornada, revísala y elige un pendiente con fecha u hora límite; define solo el primer paso. Deja la agenda abierta y visible en tu lugar de trabajo. Después de almorzar, vuelve a mirarla para ubicar qué sigue o ajustar el plan. Si se te pasa una revisión, retómala en el siguiente momento; no tienes que recuperar nada.",
+        "placeholder": "Pendiente elegido: …\nPrimer paso: …\n¿Qué me ayudó a volver a mirar la agenda?",
+        "items": []
+      },
+      {
+        "type": "libre",
+        "title": "Algo más que quieras contarme hoy",
+        "instructions": "Este espacio es opcional. Puedes contarme cualquier otra cosa de tu día o dejarlo en blanco.",
+        "placeholder": "Escribe aquí si quieres contarme algo más.",
         "items": []
       }
     ]
