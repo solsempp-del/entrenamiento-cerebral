@@ -2167,6 +2167,162 @@ Si es algo nuevo, fuerte o diferente, recuerda que sí puedes consultarlo con tu
     };
   })
 },
+  tdahUnPasoSemana1: {
+    name: "TDAH · Un pendiente, un primer paso",
+    label: "Semana 1 · Un pendiente, un primer paso",
+    welcome: "Esta semana practicaremos dos cosas breves: una pausa de respiración y elegir un pendiente para definir únicamente el primer paso. Puedes usar una nota en tu celular. No tienes que terminar la tarea ni ponerte al día con ejercicios.",
+    closing: "Cerraste la primera semana. Observa qué te ayudó a elegir un pendiente y qué hizo más difícil empezar. En la próxima sesión ajustaremos la práctica a lo que sí te funcionó.",
+    days: [
+  {
+    "day": "Día 1",
+    "exercises": [
+      {
+        "type": "mindfulness",
+        "title": "Pausa de respiración · 2 minutos",
+        "instructions": "Durante 2 minutos, practica la respiración 4-7-8: inhala contando 4, sostén contando 7 y exhala contando 8. Repite a tu ritmo. Si te mareas o te resulta incómodo, vuelve a respirar normalmente. No tienes que dejar la mente en blanco.",
+        "items": [
+          "Hice la práctica de hoy"
+        ],
+        "placeholder": "¿Cómo estaba mi mente antes y después?"
+      },
+      {
+        "type": "reflexion",
+        "title": "Un pendiente, un primer paso",
+        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
+        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "items": []
+      }
+    ]
+  },
+  {
+    "day": "Día 2",
+    "exercises": [
+      {
+        "type": "mindfulness",
+        "title": "Pausa de respiración · 2 minutos",
+        "instructions": "Durante 2 minutos, practica la respiración 4-7-8: inhala contando 4, sostén contando 7 y exhala contando 8. Repite a tu ritmo. Si te mareas o te resulta incómodo, vuelve a respirar normalmente. No tienes que dejar la mente en blanco.",
+        "items": [
+          "Hice la práctica de hoy"
+        ],
+        "placeholder": "¿Cómo estaba mi mente antes y después?"
+      },
+      {
+        "type": "reflexion",
+        "title": "Un pendiente, un primer paso",
+        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
+        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "items": []
+      }
+    ]
+  },
+  {
+    "day": "Día 3",
+    "exercises": [
+      {
+        "type": "mindfulness",
+        "title": "Pausa de respiración · 2 minutos",
+        "instructions": "Durante 2 minutos, practica la respiración 4-7-8: inhala contando 4, sostén contando 7 y exhala contando 8. Repite a tu ritmo. Si te mareas o te resulta incómodo, vuelve a respirar normalmente. No tienes que dejar la mente en blanco.",
+        "items": [
+          "Hice la práctica de hoy"
+        ],
+        "placeholder": "¿Cómo estaba mi mente antes y después?"
+      },
+      {
+        "type": "reflexion",
+        "title": "Un pendiente, un primer paso",
+        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
+        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "items": []
+      }
+    ]
+  },
+  {
+    "day": "Día 4",
+    "exercises": [
+      {
+        "type": "mindfulness",
+        "title": "Pausa de respiración · 2 minutos",
+        "instructions": "Durante 2 minutos, practica la respiración 4-7-8: inhala contando 4, sostén contando 7 y exhala contando 8. Repite a tu ritmo. Si te mareas o te resulta incómodo, vuelve a respirar normalmente. No tienes que dejar la mente en blanco.",
+        "items": [
+          "Hice la práctica de hoy"
+        ],
+        "placeholder": "¿Cómo estaba mi mente antes y después?"
+      },
+      {
+        "type": "reflexion",
+        "title": "Un pendiente, un primer paso",
+        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
+        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "items": []
+      }
+    ]
+  },
+  {
+    "day": "Día 5",
+    "exercises": [
+      {
+        "type": "mindfulness",
+        "title": "Pausa de respiración · 2 minutos",
+        "instructions": "Durante 2 minutos, practica la respiración 4-7-8: inhala contando 4, sostén contando 7 y exhala contando 8. Repite a tu ritmo. Si te mareas o te resulta incómodo, vuelve a respirar normalmente. No tienes que dejar la mente en blanco.",
+        "items": [
+          "Hice la práctica de hoy"
+        ],
+        "placeholder": "¿Cómo estaba mi mente antes y después?"
+      },
+      {
+        "type": "reflexion",
+        "title": "Un pendiente, un primer paso",
+        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
+        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "items": []
+      }
+    ]
+  },
+  {
+    "day": "Día 6",
+    "exercises": [
+      {
+        "type": "mindfulness",
+        "title": "Pausa de respiración · 2 minutos",
+        "instructions": "Durante 2 minutos, practica la respiración 4-7-8: inhala contando 4, sostén contando 7 y exhala contando 8. Repite a tu ritmo. Si te mareas o te resulta incómodo, vuelve a respirar normalmente. No tienes que dejar la mente en blanco.",
+        "items": [
+          "Hice la práctica de hoy"
+        ],
+        "placeholder": "¿Cómo estaba mi mente antes y después?"
+      },
+      {
+        "type": "reflexion",
+        "title": "Un pendiente, un primer paso",
+        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
+        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "items": []
+      }
+    ]
+  },
+  {
+    "day": "Día 7",
+    "exercises": [
+      {
+        "type": "mindfulness",
+        "title": "Pausa de respiración · 2 minutos",
+        "instructions": "Durante 2 minutos, practica la respiración 4-7-8: inhala contando 4, sostén contando 7 y exhala contando 8. Repite a tu ritmo. Si te mareas o te resulta incómodo, vuelve a respirar normalmente. No tienes que dejar la mente en blanco.",
+        "items": [
+          "Hice la práctica de hoy"
+        ],
+        "placeholder": "¿Cómo estaba mi mente antes y después?"
+      },
+      {
+        "type": "reflexion",
+        "title": "Un pendiente, un primer paso",
+        "instructions": "En una nota del celular, anota los pendientes que tienes en mente. Elige uno, dando prioridad a lo que tenga fecha u hora límite. Escribe solo el primer paso concreto. No necesitas terminar la tarea ni completar la lista.",
+        "placeholder": "Pendientes: …\nElijo: …\nPrimer paso: …",
+        "items": []
+      }
+    ]
+  }
+]
+  },
+
 };
 // ── Storage helpers ──────────────────────────────────────
 function getMentees() { try { return JSON.parse(localStorage.getItem("sol_mentees")||"[]"); } catch { return []; } }
